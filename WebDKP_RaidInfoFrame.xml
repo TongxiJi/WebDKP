@@ -5,7 +5,7 @@
          =================================================-->
     <!-- Defines a button template for all the buttons in the player list. This is
     defined here so that these parameters don't need to be redefined for each button -->
-    <Button name="NameEntryTemplate" text="entry" virtual="true">
+    <Button name="WebDKP_RaidInfoTemplate" text="entry" virtual="true">
         <Size>
             <AbsDimension x="150" y="16"/>
         </Size>
