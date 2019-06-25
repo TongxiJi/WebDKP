@@ -9,6 +9,7 @@
 ## LoadOnDemand: 0
 ## SavedVariables: WebDKP_Log,WebDKP_DkpTable,WebDKP_Tables,WebDKP_Loot,WebDKP_Alts,WebDKP_WebOptions
 ## SavedVariablesPerCharacter: WebDKP_Options, WebDKP_Synch_Users, WebDKP_Ignored_Items,WebDKP_RaidInfo,WebDKP_CharRaidInfo
+WebDKP_Common.xml
 WebDKP_Frame.xml
 WebDKP_Bid_Frame.xml
 WebDKP_Award_Frame.xml
