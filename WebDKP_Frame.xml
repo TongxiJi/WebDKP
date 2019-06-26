@@ -1375,6 +1375,12 @@
                             </Layer>
                         </Layers>
                         <Scripts>
+                            <OnLoad>
+                                <!--_G[self:GetName() .. "Text"]:SetText(WebDKP.translations.CLASS_NAME["Warrior"]);-->
+                                <!--message(self:GetFontString())-->
+                                <!--self:GetFontString:SetText(WebDKP.translations.CLASS_NAME["Warrior"]);-->
+                                <!--message(WebDKP.translations.CLASS_NAME["Warrior"]);-->
+                            </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilter("Warrior");
                             </OnClick>
