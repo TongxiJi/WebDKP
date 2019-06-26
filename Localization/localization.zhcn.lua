@@ -10,14 +10,13 @@ end
 
 local L = WebDKP.translations
 
-L.CLASS_NAME = {
-    ["Warlock"] = "术士",
-    ["Warrior"] = "战士",
-    ["Hunter"] = "猎人",
-    ["Mage"] = "法师",
-    ["Priest"] = "牧师",
-    ["Druid"] = "德鲁伊",
-    ["Paladin"] = "圣骑士",
-    ["Shaman"] = "萨满祭司",
-    ["Rogue"] = "潜行者",
-}
+L.CLASS_WARLOCK = "术士"
+L.CLASS_Warrior = "战士"
+L.CLASS_Hunter = "猎人"
+L.CLASS_Mage = "法师"
+L.CLASS_Priest = "牧师"
+L.CLASS_Druid = "德鲁伊"
+L.CLASS_Paladin = "圣骑士"
+L.CLASS_Shaman = "萨满祭司"
+L.CLASS_Rogue = "潜行者"
+L.CLASS_Death_Knight = "死亡骑士"

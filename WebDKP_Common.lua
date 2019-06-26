@@ -8,3 +8,9 @@ local modName = "WebDKP"
 _G[modName] = mod
 local translations = {}
 mod.translations = translations
+
+
+function WebDKP_Options_SetText(self,vText)
+    g=_G[self:GetName().."Text"]
+    g:SetText(vText);
+end

@@ -1145,20 +1145,10 @@
                                 </Offset>
                             </Anchor>
                         </Anchors>
-                        <Layers>
-                            <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Death Knight">
-                                    <Anchors>
-                                        <Anchor point="LEFT">
-                                            <Offset>
-                                                <AbsDimension x="35" y="0"/>
-                                            </Offset>
-                                        </Anchor>
-                                    </Anchors>
-                                </FontString>
-                            </Layer>
-                        </Layers>
                         <Scripts>
+                            <OnLoad>
+                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_Death_Knight)
+                            </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilter("Death Knight");
                             </OnClick>
@@ -1172,20 +1162,10 @@
                                 </Offset>
                             </Anchor>
                         </Anchors>
-                        <Layers>
-                            <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Druid">
-                                    <Anchors>
-                                        <Anchor point="LEFT">
-                                            <Offset>
-                                                <AbsDimension x="35" y="0"/>
-                                            </Offset>
-                                        </Anchor>
-                                    </Anchors>
-                                </FontString>
-                            </Layer>
-                        </Layers>
                         <Scripts>
+                            <OnLoad>
+                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_Druid)
+                            </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilter("Druid");
                             </OnClick>
@@ -1199,20 +1179,10 @@
                                 </Offset>
                             </Anchor>
                         </Anchors>
-                        <Layers>
-                            <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Hunter">
-                                    <Anchors>
-                                        <Anchor point="LEFT">
-                                            <Offset>
-                                                <AbsDimension x="35" y="0"/>
-                                            </Offset>
-                                        </Anchor>
-                                    </Anchors>
-                                </FontString>
-                            </Layer>
-                        </Layers>
                         <Scripts>
+                            <OnLoad>
+                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_Hunter)
+                            </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilter("Hunter");
                             </OnClick>
@@ -1226,20 +1196,10 @@
                                 </Offset>
                             </Anchor>
                         </Anchors>
-                        <Layers>
-                            <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Mage">
-                                    <Anchors>
-                                        <Anchor point="LEFT">
-                                            <Offset>
-                                                <AbsDimension x="35" y="0"/>
-                                            </Offset>
-                                        </Anchor>
-                                    </Anchors>
-                                </FontString>
-                            </Layer>
-                        </Layers>
                         <Scripts>
+                            <OnLoad>
+                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_Mage)
+                            </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilter("Mage");
                             </OnClick>
@@ -1253,20 +1213,10 @@
                                 </Offset>
                             </Anchor>
                         </Anchors>
-                        <Layers>
-                            <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Rogue">
-                                    <Anchors>
-                                        <Anchor point="LEFT">
-                                            <Offset>
-                                                <AbsDimension x="35" y="0"/>
-                                            </Offset>
-                                        </Anchor>
-                                    </Anchors>
-                                </FontString>
-                            </Layer>
-                        </Layers>
                         <Scripts>
+                            <OnLoad>
+                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_Rogue)
+                            </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilter("Rogue");
                             </OnClick>
@@ -1280,20 +1230,10 @@
                                 </Offset>
                             </Anchor>
                         </Anchors>
-                        <Layers>
-                            <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Shaman">
-                                    <Anchors>
-                                        <Anchor point="LEFT">
-                                            <Offset>
-                                                <AbsDimension x="35" y="0"/>
-                                            </Offset>
-                                        </Anchor>
-                                    </Anchors>
-                                </FontString>
-                            </Layer>
-                        </Layers>
                         <Scripts>
+                            <OnLoad>
+                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_Shaman)
+                            </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilter("Shaman");
                             </OnClick>
@@ -1307,20 +1247,10 @@
                                 </Offset>
                             </Anchor>
                         </Anchors>
-                        <Layers>
-                            <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Paladin">
-                                    <Anchors>
-                                        <Anchor point="LEFT">
-                                            <Offset>
-                                                <AbsDimension x="35" y="0"/>
-                                            </Offset>
-                                        </Anchor>
-                                    </Anchors>
-                                </FontString>
-                            </Layer>
-                        </Layers>
                         <Scripts>
+                            <OnLoad>
+                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_Paladin)
+                            </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilter("Paladin");
                             </OnClick>
@@ -1334,20 +1264,10 @@
                                 </Offset>
                             </Anchor>
                         </Anchors>
-                        <Layers>
-                            <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Priest">
-                                    <Anchors>
-                                        <Anchor point="LEFT">
-                                            <Offset>
-                                                <AbsDimension x="35" y="0"/>
-                                            </Offset>
-                                        </Anchor>
-                                    </Anchors>
-                                </FontString>
-                            </Layer>
-                        </Layers>
                         <Scripts>
+                            <OnLoad>
+                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_Priest)
+                            </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilter("Priest");
                             </OnClick>
@@ -1361,25 +1281,9 @@
                                 </Offset>
                             </Anchor>
                         </Anchors>
-                        <Layers>
-                            <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Warrior">
-                                    <Anchors>
-                                        <Anchor point="LEFT">
-                                            <Offset>
-                                                <AbsDimension x="35" y="0"/>
-                                            </Offset>
-                                        </Anchor>
-                                    </Anchors>
-                                </FontString>
-                            </Layer>
-                        </Layers>
                         <Scripts>
                             <OnLoad>
-                                <!--_G[self:GetName() .. "Text"]:SetText(WebDKP.translations.CLASS_NAME["Warrior"]);-->
-                                <!--message(self:GetFontString())-->
-                                <!--self:GetFontString:SetText(WebDKP.translations.CLASS_NAME["Warrior"]);-->
-                                <!--message(WebDKP.translations.CLASS_NAME["Warrior"]);-->
+                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_Warrior)
                             </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilter("Warrior");
@@ -1394,20 +1298,10 @@
                                 </Offset>
                             </Anchor>
                         </Anchors>
-                        <Layers>
-                            <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Warlock">
-                                    <Anchors>
-                                        <Anchor point="LEFT">
-                                            <Offset>
-                                                <AbsDimension x="35" y="0"/>
-                                            </Offset>
-                                        </Anchor>
-                                    </Anchors>
-                                </FontString>
-                            </Layer>
-                        </Layers>
                         <Scripts>
+                            <OnLoad>
+                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_Warlock)
+                            </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilter("Warlock");
                             </OnClick>
@@ -1422,20 +1316,10 @@
                                 </Offset>
                             </Anchor>
                         </Anchors>
-                        <Layers>
-                            <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Casters">
-                                    <Anchors>
-                                        <Anchor point="LEFT">
-                                            <Offset>
-                                                <AbsDimension x="35" y="0"/>
-                                            </Offset>
-                                        </Anchor>
-                                    </Anchors>
-                                </FontString>
-                            </Layer>
-                        </Layers>
                         <Scripts>
+                            <OnLoad>
+                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_Casters)
+                            </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilterGroup("Casters");
                             </OnClick>
@@ -1449,20 +1333,10 @@
                                 </Offset>
                             </Anchor>
                         </Anchors>
-                        <Layers>
-                            <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Melee">
-                                    <Anchors>
-                                        <Anchor point="LEFT">
-                                            <Offset>
-                                                <AbsDimension x="35" y="0"/>
-                                            </Offset>
-                                        </Anchor>
-                                    </Anchors>
-                                </FontString>
-                            </Layer>
-                        </Layers>
                         <Scripts>
+                            <OnLoad>
+                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_Melee)
+                            </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilterGroup("Melee");
                             </OnClick>
@@ -1476,20 +1350,10 @@
                                 </Offset>
                             </Anchor>
                         </Anchors>
-                        <Layers>
-                            <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Healer">
-                                    <Anchors>
-                                        <Anchor point="LEFT">
-                                            <Offset>
-                                                <AbsDimension x="35" y="0"/>
-                                            </Offset>
-                                        </Anchor>
-                                    </Anchors>
-                                </FontString>
-                            </Layer>
-                        </Layers>
                         <Scripts>
+                            <OnLoad>
+                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_Healer)
+                            </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilterGroup("Healer");
                             </OnClick>
@@ -1505,20 +1369,10 @@
                                 </Offset>
                             </Anchor>
                         </Anchors>
-                        <Layers>
-                            <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Chain">
-                                    <Anchors>
-                                        <Anchor point="LEFT">
-                                            <Offset>
-                                                <AbsDimension x="35" y="0"/>
-                                            </Offset>
-                                        </Anchor>
-                                    </Anchors>
-                                </FontString>
-                            </Layer>
-                        </Layers>
                         <Scripts>
+                            <OnLoad>
+                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_Chain)
+                            </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilterGroup("Chain");
                             </OnClick>
@@ -1532,20 +1386,10 @@
                                 </Offset>
                             </Anchor>
                         </Anchors>
-                        <Layers>
-                            <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Cloth">
-                                    <Anchors>
-                                        <Anchor point="LEFT">
-                                            <Offset>
-                                                <AbsDimension x="35" y="0"/>
-                                            </Offset>
-                                        </Anchor>
-                                    </Anchors>
-                                </FontString>
-                            </Layer>
-                        </Layers>
                         <Scripts>
+                            <OnLoad>
+                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_Cloth)
+                            </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilterGroup("Cloth");
                             </OnClick>
@@ -1559,20 +1403,10 @@
                                 </Offset>
                             </Anchor>
                         </Anchors>
-                        <Layers>
-                            <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Leather">
-                                    <Anchors>
-                                        <Anchor point="LEFT">
-                                            <Offset>
-                                                <AbsDimension x="35" y="0"/>
-                                            </Offset>
-                                        </Anchor>
-                                    </Anchors>
-                                </FontString>
-                            </Layer>
-                        </Layers>
                         <Scripts>
+                            <OnLoad>
+                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_Leather)
+                            </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilterGroup("Leather");
                             </OnClick>
@@ -1587,20 +1421,10 @@
                                 </Offset>
                             </Anchor>
                         </Anchors>
-                        <Layers>
-                            <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Plate">
-                                    <Anchors>
-                                        <Anchor point="LEFT">
-                                            <Offset>
-                                                <AbsDimension x="35" y="0"/>
-                                            </Offset>
-                                        </Anchor>
-                                    </Anchors>
-                                </FontString>
-                            </Layer>
-                        </Layers>
                         <Scripts>
+                            <OnLoad>
+                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_Plate)
+                            </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilterGroup("Plate");
                             </OnClick>
