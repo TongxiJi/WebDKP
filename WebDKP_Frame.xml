@@ -1147,7 +1147,7 @@
                         </Anchors>
                         <Scripts>
                             <OnLoad>
-                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_Death_Knight)
+                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_DEATH_KNIGHT)
                             </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilter("Death Knight");
@@ -1164,7 +1164,7 @@
                         </Anchors>
                         <Scripts>
                             <OnLoad>
-                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_Druid)
+                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_DRUID)
                             </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilter("Druid");
@@ -1181,7 +1181,7 @@
                         </Anchors>
                         <Scripts>
                             <OnLoad>
-                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_Hunter)
+                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_HUNTER)
                             </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilter("Hunter");
@@ -1198,7 +1198,7 @@
                         </Anchors>
                         <Scripts>
                             <OnLoad>
-                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_Mage)
+                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_MAGE)
                             </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilter("Mage");
@@ -1215,7 +1215,7 @@
                         </Anchors>
                         <Scripts>
                             <OnLoad>
-                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_Rogue)
+                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_ROGUE)
                             </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilter("Rogue");
@@ -1232,7 +1232,7 @@
                         </Anchors>
                         <Scripts>
                             <OnLoad>
-                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_Shaman)
+                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_SHAMAN)
                             </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilter("Shaman");
@@ -1249,7 +1249,7 @@
                         </Anchors>
                         <Scripts>
                             <OnLoad>
-                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_Paladin)
+                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_PALADIN)
                             </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilter("Paladin");
@@ -1266,7 +1266,7 @@
                         </Anchors>
                         <Scripts>
                             <OnLoad>
-                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_Priest)
+                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_PRIEST)
                             </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilter("Priest");
@@ -1283,7 +1283,7 @@
                         </Anchors>
                         <Scripts>
                             <OnLoad>
-                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_Warrior)
+                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_WARRIOR)
                             </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilter("Warrior");
@@ -1300,7 +1300,7 @@
                         </Anchors>
                         <Scripts>
                             <OnLoad>
-                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_Warlock)
+                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_WARLOCK)
                             </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilter("Warlock");
@@ -1318,7 +1318,7 @@
                         </Anchors>
                         <Scripts>
                             <OnLoad>
-                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_Casters)
+                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_CASTERS)
                             </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilterGroup("Casters");
@@ -1335,7 +1335,7 @@
                         </Anchors>
                         <Scripts>
                             <OnLoad>
-                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_Melee)
+                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_MELEE)
                             </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilterGroup("Melee");
@@ -1352,7 +1352,7 @@
                         </Anchors>
                         <Scripts>
                             <OnLoad>
-                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_Healer)
+                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_HEALER)
                             </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilterGroup("Healer");
@@ -1371,7 +1371,7 @@
                         </Anchors>
                         <Scripts>
                             <OnLoad>
-                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_Chain)
+                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_CHAIN)
                             </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilterGroup("Chain");
@@ -1388,7 +1388,7 @@
                         </Anchors>
                         <Scripts>
                             <OnLoad>
-                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_Cloth)
+                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_CLOTH)
                             </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilterGroup("Cloth");
@@ -1405,7 +1405,7 @@
                         </Anchors>
                         <Scripts>
                             <OnLoad>
-                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_Leather)
+                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_LEATHER)
                             </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilterGroup("Leather");
@@ -1423,7 +1423,7 @@
                         </Anchors>
                         <Scripts>
                             <OnLoad>
-                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_Plate)
+                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_PLATE)
                             </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilterGroup("Plate");
