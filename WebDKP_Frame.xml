@@ -1147,7 +1147,7 @@
                         </Anchors>
                         <Scripts>
                             <OnLoad>
-                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_DEATH_KNIGHT)
+                                WebDKP_Options_SetText(self,WebDKP.translations.FILTER_CLASS_DEATH_KNIGHT)
                             </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilter("Death Knight");
@@ -1164,7 +1164,7 @@
                         </Anchors>
                         <Scripts>
                             <OnLoad>
-                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_DRUID)
+                                WebDKP_Options_SetText(self,WebDKP.translations.FILTER_CLASS_DRUID)
                             </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilter("Druid");
@@ -1181,7 +1181,7 @@
                         </Anchors>
                         <Scripts>
                             <OnLoad>
-                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_HUNTER)
+                                WebDKP_Options_SetText(self,WebDKP.translations.FILTER_CLASS_HUNTER)
                             </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilter("Hunter");
@@ -1198,7 +1198,7 @@
                         </Anchors>
                         <Scripts>
                             <OnLoad>
-                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_MAGE)
+                                WebDKP_Options_SetText(self,WebDKP.translations.FILTER_CLASS_MAGE)
                             </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilter("Mage");
@@ -1215,7 +1215,7 @@
                         </Anchors>
                         <Scripts>
                             <OnLoad>
-                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_ROGUE)
+                                WebDKP_Options_SetText(self,WebDKP.translations.FILTER_CLASS_ROGUE)
                             </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilter("Rogue");
@@ -1232,7 +1232,7 @@
                         </Anchors>
                         <Scripts>
                             <OnLoad>
-                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_SHAMAN)
+                                WebDKP_Options_SetText(self,WebDKP.translations.FILTER_CLASS_SHAMAN)
                             </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilter("Shaman");
@@ -1249,7 +1249,7 @@
                         </Anchors>
                         <Scripts>
                             <OnLoad>
-                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_PALADIN)
+                                WebDKP_Options_SetText(self,WebDKP.translations.FILTER_CLASS_PALADIN)
                             </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilter("Paladin");
@@ -1266,7 +1266,7 @@
                         </Anchors>
                         <Scripts>
                             <OnLoad>
-                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_PRIEST)
+                                WebDKP_Options_SetText(self,WebDKP.translations.FILTER_CLASS_PRIEST)
                             </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilter("Priest");
@@ -1283,7 +1283,7 @@
                         </Anchors>
                         <Scripts>
                             <OnLoad>
-                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_WARRIOR)
+                                WebDKP_Options_SetText(self,WebDKP.translations.FILTER_CLASS_WARRIOR)
                             </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilter("Warrior");
@@ -1300,7 +1300,7 @@
                         </Anchors>
                         <Scripts>
                             <OnLoad>
-                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_WARLOCK)
+                                WebDKP_Options_SetText(self,WebDKP.translations.FILTER_CLASS_WARLOCK)
                             </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilter("Warlock");
@@ -1318,7 +1318,7 @@
                         </Anchors>
                         <Scripts>
                             <OnLoad>
-                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_CASTERS)
+                                WebDKP_Options_SetText(self,WebDKP.translations.FILTER_CLASS_CASTERS)
                             </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilterGroup("Casters");
@@ -1335,7 +1335,7 @@
                         </Anchors>
                         <Scripts>
                             <OnLoad>
-                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_MELEE)
+                                WebDKP_Options_SetText(self,WebDKP.translations.FILTER_CLASS_MELEE)
                             </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilterGroup("Melee");
@@ -1352,7 +1352,7 @@
                         </Anchors>
                         <Scripts>
                             <OnLoad>
-                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_HEALER)
+                                WebDKP_Options_SetText(self,WebDKP.translations.FILTER_CLASS_HEALER)
                             </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilterGroup("Healer");
@@ -1371,7 +1371,7 @@
                         </Anchors>
                         <Scripts>
                             <OnLoad>
-                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_CHAIN)
+                                WebDKP_Options_SetText(self,WebDKP.translations.FILTER_CLASS_CHAIN)
                             </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilterGroup("Chain");
@@ -1388,7 +1388,7 @@
                         </Anchors>
                         <Scripts>
                             <OnLoad>
-                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_CLOTH)
+                                WebDKP_Options_SetText(self,WebDKP.translations.FILTER_CLASS_CLOTH)
                             </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilterGroup("Cloth");
@@ -1405,7 +1405,7 @@
                         </Anchors>
                         <Scripts>
                             <OnLoad>
-                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_LEATHER)
+                                WebDKP_Options_SetText(self,WebDKP.translations.FILTER_CLASS_LEATHER)
                             </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilterGroup("Leather");
@@ -1423,7 +1423,7 @@
                         </Anchors>
                         <Scripts>
                             <OnLoad>
-                                WebDKP_Options_SetText(self,WebDKP.translations.CLASS_PLATE)
+                                WebDKP_Options_SetText(self,WebDKP.translations.FILTER_CLASS_PLATE)
                             </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilterGroup("Plate");
@@ -1441,6 +1441,9 @@
                             </Anchor>
                         </Anchors>
                         <Scripts>
+                            <OnLoad>
+                                WebDKP_Options_SetText(self,WebDKP.translations.FILTER_CHECK_ALL)
+                            </OnLoad>
                             <OnClick>
                                 WebDKP_CheckAllFilters(self);
                             </OnClick>
@@ -1455,6 +1458,9 @@
                             </Anchor>
                         </Anchors>
                         <Scripts>
+                            <OnLoad>
+                                WebDKP_Options_SetText(self,WebDKP.translations.FILTER_UNCHECK_ALL)
+                            </OnLoad>
                             <OnClick>
                                 WebDKP_UncheckAllFilters(self);
                             </OnClick>
@@ -1469,20 +1475,10 @@
                                 </Offset>
                             </Anchor>
                         </Anchors>
-                        <Layers>
-                            <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Only show players in current group">
-                                    <Anchors>
-                                        <Anchor point="LEFT">
-                                            <Offset>
-                                                <AbsDimension x="35" y="0"/>
-                                            </Offset>
-                                        </Anchor>
-                                    </Anchors>
-                                </FontString>
-                            </Layer>
-                        </Layers>
                         <Scripts>
+                            <OnLoad>
+                                WebDKP_Options_SetText(self,WebDKP.translations.FILTER_ONLY_SHOW_PLAYERS_IN_CURRENT_GROUP)
+                            </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilter("Group");
                             </OnClick>
@@ -1498,20 +1494,10 @@
                                 </Offset>
                             </Anchor>
                         </Anchors>
-                        <Layers>
-                            <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Only show players in your guild">
-                                    <Anchors>
-                                        <Anchor point="LEFT">
-                                            <Offset>
-                                                <AbsDimension x="35" y="0"/>
-                                            </Offset>
-                                        </Anchor>
-                                    </Anchors>
-                                </FontString>
-                            </Layer>
-                        </Layers>
                         <Scripts>
+                            <OnLoad>
+                                WebDKP_Options_SetText(self,WebDKP.translations.FILTER_ONLY_SHOW_PLAYERS_IN_YOUR_GUILD)
+                            </OnLoad>
                             <OnClick>
                                 WebDKP_Options_ToggleOption("LimitGuild")
                                 WebDKP_ToggleFilter("Guild");
@@ -1528,20 +1514,10 @@
                                 </Offset>
                             </Anchor>
                         </Anchors>
-                        <Layers>
-                            <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Only Online Guild Members">
-                                    <Anchors>
-                                        <Anchor point="LEFT">
-                                            <Offset>
-                                                <AbsDimension x="35" y="0"/>
-                                            </Offset>
-                                        </Anchor>
-                                    </Anchors>
-                                </FontString>
-                            </Layer>
-                        </Layers>
                         <Scripts>
+                            <OnLoad>
+                                WebDKP_Options_SetText(self,WebDKP.translations.FILTER_ONLY_ONLINE_GUILD_MEMBERS)
+                            </OnLoad>
                             <OnClick>
                                 WebDKP_Options_ToggleOption("LimitGuildOnline")
                                 WebDKP_ToggleFilter("GuildOnline");
@@ -1558,20 +1534,10 @@
                                 </Offset>
                             </Anchor>
                         </Anchors>
-                        <Layers>
-                            <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Exclude All Alts">
-                                    <Anchors>
-                                        <Anchor point="LEFT">
-                                            <Offset>
-                                                <AbsDimension x="35" y="0"/>
-                                            </Offset>
-                                        </Anchor>
-                                    </Anchors>
-                                </FontString>
-                            </Layer>
-                        </Layers>
                         <Scripts>
+                            <OnLoad>
+                                WebDKP_Options_SetText(self,WebDKP.translations.FILTER_EXCLUDE_ALL_ALTS)
+                            </OnLoad>
                             <OnClick>
                                 WebDKP_Options_ToggleOption("LimitAlts")
                                 WebDKP_ToggleFilter("LimitAlts");
@@ -1588,20 +1554,10 @@
                                 </Offset>
                             </Anchor>
                         </Anchors>
-                        <Layers>
-                            <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Exclude Alts Not In Party">
-                                    <Anchors>
-                                        <Anchor point="LEFT">
-                                            <Offset>
-                                                <AbsDimension x="35" y="0"/>
-                                            </Offset>
-                                        </Anchor>
-                                    </Anchors>
-                                </FontString>
-                            </Layer>
-                        </Layers>
                         <Scripts>
+                            <OnLoad>
+                                WebDKP_Options_SetText(self,WebDKP.translations.FILTER_EXCLUDE_ALTS_NOT_IN_PARTY)
+                            </OnLoad>
                             <OnClick>
                                 WebDKP_Options_ToggleOption("LimitAlts2")
                                 WebDKP_ToggleFilter("LimitAlts2");
@@ -1618,20 +1574,10 @@
                                 </Offset>
                             </Anchor>
                         </Anchors>
-                        <Layers>
-                            <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Include Standby Players">
-                                    <Anchors>
-                                        <Anchor point="LEFT">
-                                            <Offset>
-                                                <AbsDimension x="35" y="0"/>
-                                            </Offset>
-                                        </Anchor>
-                                    </Anchors>
-                                </FontString>
-                            </Layer>
-                        </Layers>
                         <Scripts>
+                            <OnLoad>
+                                WebDKP_Options_SetText(self,WebDKP.translations.FILTER_INCLUDE_STANDBY_PLAYERS)
+                            </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilter("Standby1");
                             </OnClick>
@@ -1647,20 +1593,10 @@
                                 </Offset>
                             </Anchor>
                         </Anchors>
-                        <Layers>
-                            <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Limit to Standby Players">
-                                    <Anchors>
-                                        <Anchor point="LEFT">
-                                            <Offset>
-                                                <AbsDimension x="35" y="0"/>
-                                            </Offset>
-                                        </Anchor>
-                                    </Anchors>
-                                </FontString>
-                            </Layer>
-                        </Layers>
                         <Scripts>
+                            <OnLoad>
+                                WebDKP_Options_SetText(self,WebDKP.translations.FILTER_LIMIT_TO_STANDBY_PLAYERS)
+                            </OnLoad>
                             <OnClick>
                                 WebDKP_ToggleFilter("Standby2");
                             </OnClick>
@@ -2274,6 +2210,11 @@
                         </Offset>
                     </Anchor>
                 </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        WebDKP_Options_SetText(self,WebDKP.translations.TAB_FILTER)
+                    </OnLoad>
+                </Scripts>
             </Button>
             <!-- Tab Button: Award DKP -->
             <Button name="$parentTab2" inherits="WebDKP_TabTemplate" id="2" text="Award DKP">
