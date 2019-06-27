@@ -20,6 +20,9 @@
             <OnClick>
                 WebDKP_Tab_OnClick(self);
             </OnClick>
+            <OnLoad>
+                <!--WebDKP_Options_SetText(self,WebDKP.translations.TAB_FILTER);-->
+            </OnLoad>
         </Scripts>
     </Button>
 
@@ -249,7 +252,7 @@
         </Scripts>
         <Size>
             <!-- Changed by Zevious to 760 from 660 for width -->
-            <AbsDimension x="780" y="600"/>
+            <AbsDimension x="860" y="600"/>
         </Size>
         <Anchors>
             <Anchor point="LEFT"/>
@@ -2210,11 +2213,6 @@
                         </Offset>
                     </Anchor>
                 </Anchors>
-                <Scripts>
-                    <OnLoad>
-                        WebDKP_Options_SetText(self,WebDKP.translations.TAB_FILTER)
-                    </OnLoad>
-                </Scripts>
             </Button>
             <!-- Tab Button: Award DKP -->
             <Button name="$parentTab2" inherits="WebDKP_TabTemplate" id="2" text="Award DKP">
