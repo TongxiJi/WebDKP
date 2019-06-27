@@ -149,7 +149,7 @@ function WebDKP_BossAward_PerformAward(arg1, arg2, arg7)
 
                 if GoFlag == 1 then
 
-                    PlaySound("QUESTCOMPLETED");
+                    PlaySound(619);
 
                     WebDKP_UpdatePlayersInGroup();
                     local dkp = WebDKP_GeneralOptions_FrameBossDKP:GetText();
@@ -213,7 +213,7 @@ function WebDKP_BossAward_PerformAward(arg1, arg2, arg7)
 
                 if GoFlag == 1 then
 
-                    PlaySound("QUESTCOMPLETED");
+                    PlaySound(619);
 
                     WebDKP_UpdatePlayersInGroup();
                     local dkp = WebDKP_GeneralOptions_FrameBossDKP:GetText();
@@ -401,7 +401,7 @@ end
 -- ================================
 function WebDKP_TimedAward_PerformAward()
 
-    PlaySound("QUESTCOMPLETED");
+    PlaySound(619);
 
     WebDKP_UpdatePlayersInGroup();
     local allplayers = WebDKP_PlayersInGroup;

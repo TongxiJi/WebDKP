@@ -88,7 +88,7 @@
                         cost = 0;
                         end
                         WebDKP_AwardItem_Event2(cost,1);
-                        PlaySound("LOOTWINDOWCOINSOUND");
+                        PlaySound(120);
                         WebDKP_AwardFrame:Hide(self);
                     </OnClick>
                 </Scripts>
@@ -108,7 +108,7 @@
                     <OnClick>
                         Award_Window_Flag1 = 0;
                         AwardWindowFlag1 = 0;
-                        PlaySound("igMainMenuClose");
+                        PlaySound(851);
                         WebDKP_AwardFrame:Hide(self);
                     </OnClick>
                 </Scripts>
@@ -199,7 +199,7 @@
                         cost = 0;
                         end
                         WebDKP_AwardItem_Event2(cost,2);
-                        PlaySound("LOOTWINDOWCOINSOUND");
+                        PlaySound(120);
                         WebDKP_AwardFrame2:Hide(self);
                     </OnClick>
                 </Scripts>
@@ -219,7 +219,7 @@
                     <OnClick>
                         Award_Window_Flag2 = 0;
                         AwardWindowFlag2 = 0;
-                        PlaySound("igMainMenuClose");
+                        PlaySound(851);
                         WebDKP_AwardFrame2:Hide(self);
                     </OnClick>
                 </Scripts>
@@ -310,7 +310,7 @@
                         cost = 0;
                         end
                         WebDKP_AwardItem_Event2(cost,3);
-                        PlaySound("LOOTWINDOWCOINSOUND");
+                        PlaySound(120);
                         WebDKP_AwardFrame3:Hide(self);
                     </OnClick>
                 </Scripts>
@@ -330,7 +330,7 @@
                     <OnClick>
                         Award_Window_Flag3 = 0;
                         AwardWindowFlag3 = 0;
-                        PlaySound("igMainMenuClose");
+                        PlaySound(851);
                         WebDKP_AwardFrame3:Hide(self);
                     </OnClick>
                 </Scripts>
@@ -421,7 +421,7 @@
                         cost = 0;
                         end
                         WebDKP_AwardItem_Event2(cost,4);
-                        PlaySound("LOOTWINDOWCOINSOUND");
+                        PlaySound(120);
                         WebDKP_AwardFrame4:Hide(self);
                     </OnClick>
                 </Scripts>
@@ -441,7 +441,7 @@
                     <OnClick>
                         Award_Window_Flag4 = 0;
                         AwardWindowFlag4 = 0;
-                        PlaySound("igMainMenuClose");
+                        PlaySound(851);
                         WebDKP_AwardFrame4:Hide(self);
                     </OnClick>
                 </Scripts>
@@ -530,7 +530,7 @@
                         cost = 0;
                         end
                         WebDKP_AwardItem_Event2(cost,5);
-                        PlaySound("LOOTWINDOWCOINSOUND");
+                        PlaySound(120);
                         WebDKP_AwardFrame5:Hide(self);
                     </OnClick>
                 </Scripts>
@@ -548,7 +548,7 @@
                 </Size>
                 <Scripts>
                     <OnClick>
-                        PlaySound("igMainMenuClose");
+                        PlaySound(851);
                         WebDKP_AwardFrame5:Hide(self);
                     </OnClick>
                 </Scripts>

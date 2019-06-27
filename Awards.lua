@@ -27,7 +27,7 @@ function WebDKP_AwardItem_Event()
 
     if (item == nil or item == "") then
         WebDKP_Print("You must enter an item name.");
-        PlaySound("igQuestFailed");
+        PlaySound(847);
         return ;
     end
 
@@ -50,7 +50,7 @@ function WebDKP_AwardItem_Event()
 
     if (player == nil or player == "") then
         WebDKP_Print("No player was selected to award. Award NOT made.");
-        PlaySound("igQuestFailed");
+        PlaySound(847);
     else
         if percentflag == 1 then
             local actualname = player[0]["name"];
@@ -94,7 +94,7 @@ function WebDKP_AwardDKP_Event()
     points = tonumber(points);
     if (points == nil or points == "") then
         WebDKP_Print("You must enter points to award.");
-        PlaySound("igQuestFailed");
+        PlaySound(847);
         return ;
     end
 
@@ -103,7 +103,7 @@ function WebDKP_AwardDKP_Event()
 
     if (players == nil) then
         WebDKP_Print("No players were selected. Award NOT made.");
-        PlaySound("igQuestFailed");
+        PlaySound(847);
     else
         -- Chcek to see if EPGP is enabled, if so then we need to use the EP function
         if WebDKP_Options["EPGPEnabled"] == 1 then
@@ -380,7 +380,7 @@ function WebDKP_Decay()
         end
         if (players == nil) then
             WebDKP_Print("No players were selected. Award NOT made.");
-            PlaySound("igQuestFailed");
+            PlaySound(847);
         else
             for k, v in pairs(players) do
                 if (type(v) == "table") then

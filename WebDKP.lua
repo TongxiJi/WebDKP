@@ -2200,7 +2200,7 @@ function WebDKP_AddLogChar()
             if (WebDKP_DkpTable[awardedtoadd]["dkp_" .. tableid] + points > DKPCapVal and WebDKP_Options["EPGPEnabled"] == 0) then
                 -- Send the user a message saying this player can't be added because the award would put them over the cap.
                 WebDKP_Print("Sorry but this player cannot be added to this specific award because it will place them over the DKP CAP.");
-                PlaySound("igQuestFailed");
+                PlaySound(847);
             else
 
                 if WebDKP_Options["EPGPEnabled"] == 1 then

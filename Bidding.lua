@@ -907,7 +907,7 @@ function WebDKP_Bid_AwardSelected()
     -- if someone is selected, award them the item via the award class
     if (player == nil) then
         WebDKP_Print("Nobody selected - no one awarded");
-        PlaySound("igQuestFailed");
+        PlaySound(847);
     else
         --since we are awarding, stop the bid
         if (WebDKP_bidInProgress) then
@@ -1408,7 +1408,7 @@ end
 -- Confirm Frame
 -- ================================
 function WebDKP_Bid_ShowConfirmFrame(title, cost)
-    PlaySound("igMainMenuOpen");
+    PlaySound(850);
     WebDKP_BidConfirmFrame:Show();
 
     WebDKP_BidConfirmFrameTitle:SetText(title);
@@ -1474,7 +1474,7 @@ function WebDKP_Bid_AwardPerson(cost)
         WebDKP_UpdateEPGPTable();       --update the gui
     end
 
-    PlaySound("LOOTWINDOWCOINSOUND");
+    PlaySound(120);
 
     WebDKP_Bid_HideUI();
 

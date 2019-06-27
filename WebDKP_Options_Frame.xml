@@ -2461,7 +2461,7 @@
                         </Size>
                         <Scripts>
                             <OnClick>
-                                PlaySound("igMainMenuClose");
+                                PlaySound(851);
                                 WebDKP_ItemSlotFrame:Hide(self);
                             </OnClick>
                         </Scripts>

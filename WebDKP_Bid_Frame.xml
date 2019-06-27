@@ -1145,7 +1145,7 @@
                 </Size>
                 <Scripts>
                     <OnClick>
-                        PlaySound("igMainMenuClose");
+                        PlaySound(851);
                         WebDKP_BidConfirmFrame:Hide(self);
                     </OnClick>
                 </Scripts>

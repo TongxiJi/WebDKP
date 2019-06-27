@@ -185,7 +185,7 @@ function WebDKP_Options_Tab_OnClick(self)
         _G["WebDKP_AnnouncementsOptions_Frame"]:Hide();
         _G["WebDKP_BiddingOptions2_Frame"]:Hide();
     end
-    PlaySound("igCharacterInfoTab");
+    PlaySound(841);
 end
 
 

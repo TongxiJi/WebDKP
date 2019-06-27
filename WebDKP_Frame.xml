@@ -1756,7 +1756,7 @@
                         </Size>
                         <Scripts>
                             <OnClick>
-                                PlaySound("LOOTWINDOWCOINSOUND");
+                                PlaySound(120);
                                 WebDKP_AwardDKP_Event(self);
                             </OnClick>
                         </Scripts>
@@ -1816,7 +1816,7 @@
                         </Size>
                         <Scripts>
                             <OnClick>
-                                PlaySound("LOOTWINDOWCOINSOUND");
+                                PlaySound(120);
                                 WebDKP_Decay(self);
                             </OnClick>
                         </Scripts>
@@ -1967,7 +1967,7 @@
                         </Size>
                         <Scripts>
                             <OnClick>
-                                PlaySound("LOOTWINDOWCOINSOUND");
+                                PlaySound(120);
                                 WebDKP_AwardItem_Event(self);
                             </OnClick>
                         </Scripts>
