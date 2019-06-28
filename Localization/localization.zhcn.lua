@@ -52,5 +52,13 @@ L.DKP_TABLE_DESELECT_ALL = "取消所有"
 L.DKP_TABLE_SAVE_LOG = "保存文档"
 L.DKP_TABLE_Refresh = "刷新"
 
-
+--TAB FOR AWARD DKP
+L.AWARD_DKP_HEADER = "奖惩DKP:"
+L.AWARD_DKP_INFO1 = "先选择左侧的玩家\n然后输入奖惩"
+L.AWARD_DKP_INFO3 = "选择左侧的玩家"
+L.AWARD_DKP_REASON_LABEL = "原因:"
+L.AWARD_DKP_POINTS_LABEL = "点数: (使用负数为扣分)"
+L.AWARD_DKP_AWARD_POINTS = "奖惩DKP"
+L.AWARD_DKP_DECAY_LABEL = "衰减值:(.4), (-.4) 等等"
+L.AWARD_DKP_DECAY_BUTTON = "衰减" 
 
