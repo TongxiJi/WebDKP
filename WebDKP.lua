@@ -965,11 +965,7 @@ function WebDKP_UpdateFilterGroupsCheckedState()
             if (checkbox ~= nil) then
                 -- if all its filter are on, go ahead and check it, otherwise uncheck it
                 local allFiltersOn = WebDKP_AllFiltersOn(value);
-                if (allFiltersOn == true) then
-                    checkbox:SetChecked(1);
-                else
-                    checkbox:SetChecked(0);
-                end
+                checkbox:SetChecked(allFiltersOn);
             end
         end
     end
@@ -1071,7 +1067,7 @@ function WebDKP_ToggleFilterGroup(groupCheckboxName)
     -- look at its checkbox to determine if we are toggling on or off
     local checkbox = _G["WebDKP_FiltersFrameClass" .. groupCheckboxName];
     local checked = checkbox:GetChecked();
-    if (checked == 1) then
+    if (checked) then
         WebDKP_SetFilterGroupState(filters, 1);
     else
         WebDKP_SetFilterGroupState(filters, 0);
@@ -1156,7 +1152,7 @@ function WebDKP_SetFilterState(filter, newState)
     xmlName = string.gsub(filter, " ", "_");
 
     local checkBox = _G["WebDKP_FiltersFrameClass" .. xmlName];
-    checkBox:SetChecked(newState);
+    checkBox:SetChecked(newState == 1);
     WebDKP_Filters[filter] = newState;
 end
 
