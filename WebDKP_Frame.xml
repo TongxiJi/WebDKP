@@ -1039,6 +1039,9 @@
                     <AbsDimension x="120" y="25"/>
                 </Size>
                 <Scripts>
+                    <OnLoad>
+                        WebDKP_Options_SetText(self,WebDKP.translations.DKP_TABLE_SELECT_ALL)
+                    </OnLoad>
                     <OnClick>
                         WebDKP_SelectAll(self);
                     </OnClick>
@@ -1057,6 +1060,9 @@
                     <AbsDimension x="120" y="25"/>
                 </Size>
                 <Scripts>
+                    <OnLoad>
+                        WebDKP_Options_SetText(self,WebDKP.translations.DKP_TABLE_DESELECT_ALL)
+                    </OnLoad>
                     <OnClick>
                         WebDKP_UnselectAll(self);
                     </OnClick>
@@ -1076,6 +1082,9 @@
                     <AbsDimension x="120" y="25"/>
                 </Size>
                 <Scripts>
+                    <OnLoad>
+                        WebDKP_Options_SetText(self,WebDKP.translations.DKP_TABLE_SAVE_LOG)
+                    </OnLoad>
                     <OnClick>ReloadUI(self);</OnClick>
                 </Scripts>
             </Button>
@@ -1093,6 +1102,9 @@
                     <AbsDimension x="120" y="25"/>
                 </Size>
                 <Scripts>
+                    <OnLoad>
+                        WebDKP_Options_SetText(self,WebDKP.translations.DKP_TABLE_Refresh)
+                    </OnLoad>
                     <OnClick>
                         WebDKP_Refresh(self);
                     </OnClick>
@@ -1127,7 +1139,7 @@
                 </Backdrop>
                 <Layers>
                     <Layer level="OVERLAY">
-                        <FontString name="WebDKP_Header" inherits="GameFontNormalLarge" text="Filters:">
+                        <FontString name="$parentHeader" inherits="GameFontNormalLarge" text="Filters:">
                             <Anchors>
                                 <Anchor point="TOPLEFT">
                                     <Offset>
@@ -1608,6 +1620,11 @@
 
 
                 </Frames>
+                <Scripts>
+                    <OnLoad>
+                        _G["WebDKP_FiltersFrameHeader"]:SetText(WebDKP.translations.FILTER_HEADER)
+                    </OnLoad>
+                </Scripts>
             </Frame>
 
             <!-- AWARD DKP FRAME -->
@@ -1638,7 +1655,7 @@
                 </Backdrop>
                 <Layers>
                     <Layer level="OVERLAY">
-                        <FontString name="WebDKP_Header" inherits="GameFontNormalLarge" text="Award DKP:">
+                        <FontString name="$parentHeader" inherits="GameFontNormalLarge" text="Award DKP:">
                             <Anchors>
                                 <Anchor point="TOPLEFT">
                                     <Offset>
@@ -1647,7 +1664,7 @@
                                 </Anchor>
                             </Anchors>
                         </FontString>
-                        <FontString name="$parentInfo1" inherits="GameFontNormal"
+                        <FontString name="$parentInfo1" inherits="GameFontNormal" justifyH="LEFT"
                                     text="Select recieving players on left and enter">
                             <Anchors>
                                 <Anchor point="TOPLEFT">
@@ -1657,18 +1674,9 @@
                                 </Anchor>
                             </Anchors>
                         </FontString>
-                        <FontString name="$parentInfo2" inherits="GameFontNormal" text="award information below.">
-                            <Anchors>
-                                <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parentInfo1">
-                                    <Offset>
-                                        <AbsDimension x="0" y="-5"/>
-                                    </Offset>
-                                </Anchor>
-                            </Anchors>
-                        </FontString>
                         <FontString name="WebDKP_Decay_Header" inherits="GameFontNormalLarge" text="DKP Decay:">
                             <Anchors>
-                                <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parentInfo2">
+                                <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parentInfo1">
                                     <Offset>
                                         <AbsDimension x="0" y="-140"/>
                                     </Offset>
@@ -1678,7 +1686,7 @@
                         <FontString name="$parentInfo3" inherits="GameFontNormal"
                                     text="Select recieving players on left.">
                             <Anchors>
-                                <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parentInfo2">
+                                <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parentInfo1">
                                     <Offset>
                                         <AbsDimension x="0" y="-160"/>
                                     </Offset>
@@ -1694,7 +1702,7 @@
                             <AbsDimension x="130" y="32"></AbsDimension>
                         </Size>
                         <Anchors>
-                            <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parentInfo2">
+                            <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parentInfo1">
                                 <Offset>
                                     <AbsDimension x="5" y="-22"/>
                                 </Offset>
@@ -1702,7 +1710,7 @@
                         </Anchors>
                         <Layers>
                             <Layer level="ARTWORK">
-                                <FontString inherits="GameFontNormal" text="Reason:">
+                                <FontString name="$parentLabel" inherits="GameFontNormal" text="Reason:">
                                     <Anchors>
                                         <Anchor point="TOPLEFT">
                                             <Offset>
@@ -1733,7 +1741,7 @@
                         </Anchors>
                         <Layers>
                             <Layer level="ARTWORK">
-                                <FontString inherits="GameFontNormal" text="Points: (Use negative # to deduct points)">
+                                <FontString name="$parentLabel" inherits="GameFontNormal" text="Points: (Use negative # to deduct points)">
                                     <Anchors>
                                         <Anchor point="TOPLEFT">
                                             <Offset>
@@ -1778,7 +1786,7 @@
                         </Anchors>
                         <Layers>
                             <Layer level="ARTWORK">
-                                <FontString inherits="GameFontNormal" text="Decay value:(.4), (-.4) etc">
+                                <FontString name="$parentLabel" inherits="GameFontNormal" text="Decay value:(.4), (-.4) etc">
                                     <Anchors>
                                         <Anchor point="TOPLEFT">
                                             <Offset>
@@ -1826,6 +1834,18 @@
                     </Button>
 
                 </Frames>
+                <Scripts>
+                    <OnLoad>
+                        _G["WebDKP_AwardDKP_FrameHeader"]:SetText(WebDKP.translations.AWARD_DKP_HEADER)
+                        _G["WebDKP_AwardDKP_FrameInfo1"]:SetText(WebDKP.translations.AWARD_DKP_INFO1)
+                        _G["WebDKP_AwardDKP_FrameInfo3"]:SetText(WebDKP.translations.AWARD_DKP_INFO3)
+                        _G["WebDKP_AwardDKP_FrameReasonLabel"]:SetText(WebDKP.translations.AWARD_DKP_REASON_LABEL)
+                        _G["WebDKP_AwardDKP_FramePointsLabel"]:SetText(WebDKP.translations.AWARD_DKP_POINTS_LABEL)
+                        _G["WebDKP_AwardDKP_FrameAwardPoints"]:SetText(WebDKP.translations.AWARD_DKP_AWARD_POINTS)
+                        _G["WebDKP_AwardDKP_FrameDecayLabel"]:SetText(WebDKP.translations.AWARD_DKP_DECAY_LABEL)
+                        _G["WebDKP_AwardDKP_FrameDecayButton"]:SetText(WebDKP.translations.AWARD_DKP_DECAY_BUTTON)
+                    </OnLoad>
+                </Scripts>
             </Frame>
 
             <!-- AWARD ITEM FRAME -->
@@ -1875,7 +1895,7 @@
                                 </Anchor>
                             </Anchors>
                         </FontString>
-                        <FontString name="$parentInfo2" inherits="GameFontNormal"
+                        <FontString name="$parentInfo1" inherits="GameFontNormal"
                                     text="and enter item information below.">
                             <Anchors>
                                 <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parentInfo1">
@@ -1894,7 +1914,7 @@
                             <AbsDimension x="130" y="32"></AbsDimension>
                         </Size>
                         <Anchors>
-                            <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parentInfo2">
+                            <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parentInfo1">
                                 <Offset>
                                     <AbsDimension x="5" y="-22"/>
                                 </Offset>
@@ -2246,6 +2266,14 @@
             </Button>
 
         </Frames>
+        <Scripts>
+            <OnLoad>
+                _G["WebDKP_FrameTab1"]:SetText(WebDKP.translations.TAB_FILTER)
+                _G["WebDKP_FrameTab2"]:SetText(WebDKP.translations.TAB_AWARD_DKP)
+                _G["WebDKP_FrameTab3"]:SetText(WebDKP.translations.TAB_AWARD_ITEM)
+                _G["WebDKP_FrameTab4"]:SetText(WebDKP.translations.TAB_STANDBY)
+            </OnLoad>
+        </Scripts>
     </Frame>
 
 

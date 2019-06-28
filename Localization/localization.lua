@@ -5,9 +5,14 @@
 ---
 local L = WebDKP.translations
 
-L.TAB_FILTER="Filters"
+--TABS
+L.TAB_FILTER = "Filters"
+L.TAB_AWARD_DKP = "Award DKP"
+L.TAB_AWARD_ITEM = "Award Item"
+L.TAB_STANDBY = "Standby"
 
 --TAB FOR FILTER
+L.FILTER_HEADER = "Filters:"
 L.FILTER_CLASS_WARLOCK = "Warlock"
 L.FILTER_CLASS_WARRIOR = "Warrior"
 L.FILTER_CLASS_HUNTER = "Hunter"
@@ -30,11 +35,24 @@ L.FILTER_CLASS_PLATE = "Plate"
 L.FILTER_CHECK_ALL = "Check All"
 L.FILTER_UNCHECK_ALL = "Uncheck All"
 L.FILTER_ONLY_SHOW_PLAYERS_IN_CURRENT_GROUP = "Only show players in current group"
-L.FILTER_ONLY_SHOW_PLAYERS_IN_YOUR_GUILD="Only show players in your guild"
-L.FILTER_ONLY_ONLINE_GUILD_MEMBERS= "Only Online Guild Members"
-L.FILTER_EXCLUDE_ALL_ALTS="Exclude All Alts"
-L.FILTER_EXCLUDE_ALTS_NOT_IN_PARTY= "Exclude Alts Not In Party"
-L.FILTER_INCLUDE_STANDBY_PLAYERS="Include Standby Players"
-L.FILTER_LIMIT_TO_STANDBY_PLAYERS="Limit to Standby Players"
+L.FILTER_ONLY_SHOW_PLAYERS_IN_YOUR_GUILD = "Only show players in your guild"
+L.FILTER_ONLY_ONLINE_GUILD_MEMBERS = "Only Online Guild Members"
+L.FILTER_EXCLUDE_ALL_ALTS = "Exclude All Alts"
+L.FILTER_EXCLUDE_ALTS_NOT_IN_PARTY = "Exclude Alts Not In Party"
+L.FILTER_INCLUDE_STANDBY_PLAYERS = "Include Standby Players"
+L.FILTER_LIMIT_TO_STANDBY_PLAYERS = "Limit to Standby Players"
+
+L.DKP_TABLE_SELECT_ALL = "Select All"
+L.DKP_TABLE_DESELECT_ALL = "Deselect All"
+L.DKP_TABLE_SAVE_LOG = "Save Log File"
+L.DKP_TABLE_Refresh = "Refresh Group"
 
 --TAB FOR AWARD DKP
+L.AWARD_DKP_HEADER = "Award DKP:"
+L.AWARD_DKP_INFO1 = "Select recieving players on left and enter\n award information below."
+L.AWARD_DKP_INFO3 = "Select recieving players on left."
+L.AWARD_DKP_REASON_LABEL = "Reason:"
+L.AWARD_DKP_POINTS_LABEL = "Points: (Use negative # to deduct points)"
+L.AWARD_DKP_AWARD_POINTS = "Award DKP"
+L.AWARD_DKP_DECAY_LABEL = "Decay value:(.4), (-.4) etc"
+L.AWARD_DKP_DECAY_BUTTON = "Award Decay"
