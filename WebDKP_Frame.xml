@@ -1741,7 +1741,8 @@
                         </Anchors>
                         <Layers>
                             <Layer level="ARTWORK">
-                                <FontString name="$parentLabel" inherits="GameFontNormal" text="Points: (Use negative # to deduct points)">
+                                <FontString name="$parentLabel" inherits="GameFontNormal"
+                                            text="Points: (Use negative # to deduct points)">
                                     <Anchors>
                                         <Anchor point="TOPLEFT">
                                             <Offset>
@@ -1786,7 +1787,8 @@
                         </Anchors>
                         <Layers>
                             <Layer level="ARTWORK">
-                                <FontString name="$parentLabel" inherits="GameFontNormal" text="Decay value:(.4), (-.4) etc">
+                                <FontString name="$parentLabel" inherits="GameFontNormal"
+                                            text="Decay value:(.4), (-.4) etc">
                                     <Anchors>
                                         <Anchor point="TOPLEFT">
                                             <Offset>
@@ -1876,7 +1878,7 @@
                 </Backdrop>
                 <Layers>
                     <Layer level="OVERLAY">
-                        <FontString name="WebDKP_Header" inherits="GameFontNormalLarge" text="Award Item:">
+                        <FontString name="$parentHeader" inherits="GameFontNormalLarge" text="Award Item:">
                             <Anchors>
                                 <Anchor point="TOPLEFT">
                                     <Offset>
@@ -1885,22 +1887,12 @@
                                 </Anchor>
                             </Anchors>
                         </FontString>
-                        <FontString name="$parentInfo1" inherits="GameFontNormal"
+                        <FontString name="$parentInfo1" inherits="GameFontNormal" justifyH="LEFT"
                                     text="Select recieving player from table on left">
                             <Anchors>
                                 <Anchor point="TOPLEFT">
                                     <Offset>
                                         <AbsDimension x="12" y="-35"/>
-                                    </Offset>
-                                </Anchor>
-                            </Anchors>
-                        </FontString>
-                        <FontString name="$parentInfo1" inherits="GameFontNormal"
-                                    text="and enter item information below.">
-                            <Anchors>
-                                <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parentInfo1">
-                                    <Offset>
-                                        <AbsDimension x="0" y="-5"/>
                                     </Offset>
                                 </Anchor>
                             </Anchors>
@@ -1916,13 +1908,13 @@
                         <Anchors>
                             <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parentInfo1">
                                 <Offset>
-                                    <AbsDimension x="5" y="-22"/>
+                                    <AbsDimension x="5" y="-40"/>
                                 </Offset>
                             </Anchor>
                         </Anchors>
                         <Layers>
                             <Layer level="ARTWORK">
-                                <FontString inherits="GameFontNormal" text="Item Name:">
+                                <FontString name="$parentLabel" inherits="GameFontNormal" text="Item Name:">
                                     <Anchors>
                                         <Anchor point="TOPLEFT">
                                             <Offset>
@@ -1953,7 +1945,8 @@
                         </Anchors>
                         <Layers>
                             <Layer level="ARTWORK">
-                                <FontString inherits="GameFontNormal" text="Item Cost: (Positive numbers only)">
+                                <FontString name="$parentLabel" inherits="GameFontNormal"
+                                            text="Item Cost: (Positive numbers only)">
                                     <Anchors>
                                         <Anchor point="TOPLEFT">
                                             <Offset>
@@ -1996,6 +1989,15 @@
                         </Scripts>
                     </Button>
                 </Frames>
+                <Scripts>
+                    <OnLoad>
+                        _G["WebDKP_AwardItem_FrameHeader"]:SetText(WebDKP.translations.AWARD_ITEM_HEADER)
+                        _G["WebDKP_AwardItem_FrameInfo1"]:SetText(WebDKP.translations.AWARD_ITEM_INFO1)
+                        _G["WebDKP_AwardItem_FrameItemNameLabel"]:SetText(WebDKP.translations.AWARD_ITEM_ITEM_NAME_LABEL)
+                        _G["WebDKP_AwardItem_FrameItemCostLabel"]:SetText(WebDKP.translations.AWARD_ITEM_ITEM_COST_LABEL)
+                        _G["WebDKP_AwardItem_FrameAwardItem"]:SetText(WebDKP.translations.AWARD_ITEM_AWARD_ITEM)
+                    </OnLoad>
+                </Scripts>
             </Frame>
 
             <!-- Standby Player FRAME -->

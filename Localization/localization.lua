@@ -56,3 +56,10 @@ L.AWARD_DKP_POINTS_LABEL = "Points: (Use negative # to deduct points)"
 L.AWARD_DKP_AWARD_POINTS = "Award DKP"
 L.AWARD_DKP_DECAY_LABEL = "Decay value:(.4), (-.4) etc"
 L.AWARD_DKP_DECAY_BUTTON = "Award Decay"
+
+--TAB FOR AWARD ITEM
+L.AWARD_ITEM_HEADER = "Award Item:"
+L.AWARD_ITEM_INFO1 = "Select recieving player from table on left\n and enter item information below."
+L.AWARD_ITEM_ITEM_NAME_LABEL = "Item Name:"
+L.AWARD_ITEM_ITEM_COST_LABEL = "Item Cost: (Positive numbers only)"
+L.AWARD_ITEM_AWARD_ITEM = "Award Item"
