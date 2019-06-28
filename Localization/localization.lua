@@ -63,3 +63,13 @@ L.AWARD_ITEM_INFO1 = "Select recieving player from table on left\n and enter ite
 L.AWARD_ITEM_ITEM_NAME_LABEL = "Item Name:"
 L.AWARD_ITEM_ITEM_COST_LABEL = "Item Cost: (Positive numbers only)"
 L.AWARD_ITEM_AWARD_ITEM = "Award Item"
+
+--TAB FOR STANDBY
+L.STANDBY_HEADER = "Standby Players:"
+L.STANDBY_INFO1 = "Players can add or remove thesmelves with:\n !standby add or !standby del"
+L.STANDBY_ADD_STANDBY_LABEL="Player Name:"
+L.STANDBY_ADD_TO_STANDBY="Add"
+L.STANDBY_DEL_STANDBY="Remove"
+L.STANDBY_RESET_STANDBY="Reset"
+L.STANDBY_ENABLE_STANDBY_ZEROSUM = "Enable Zerosum for Standby Players"
+L.STANDBY_ENABLE_STANDBY_TIMED = "Enable Timed Awards for Standby"
