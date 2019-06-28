@@ -275,7 +275,7 @@
                 </Anchors>
                 <Layers>
                     <Layer level="ARTWORK">
-                        <FontString inherits="GameFontNormal" text="Item:">
+                        <FontString name="$parentLabel" inherits="GameFontNormal" text="Item:">
                             <Anchors>
                                 <Anchor point="TOPLEFT">
                                     <Offset>
@@ -314,7 +314,7 @@
                 </Anchors>
                 <Layers>
                     <Layer level="ARTWORK">
-                        <FontString inherits="GameFontNormal" text="Starting Bid:">
+                        <FontString name="$parentLabel" inherits="GameFontNormal" text="Starting Bid:">
                             <Anchors>
                                 <Anchor point="TOPLEFT">
                                     <Offset>
@@ -398,7 +398,7 @@
                 </Anchors>
                 <Layers>
                     <Layer level="ARTWORK">
-                        <FontString inherits="GameFontNormal" text="Bid/Roll Time:">
+                        <FontString name="$parentLabel" inherits="GameFontNormal" text="Bid/Roll Time:">
                             <Anchors>
                                 <Anchor point="TOPLEFT">
                                     <Offset>
@@ -407,7 +407,8 @@
                                 </Anchor>
                             </Anchors>
                         </FontString>
-                        <FontString inherits="GameFontNormal" text="(in seconds - use 0 for no limit)">
+                        <FontString name="$parentHint" inherits="GameFontNormal"
+                                    text="(in seconds - use 0 for no limit)">
                             <Anchors>
                                 <Anchor point="TOPLEFT">
                                     <Offset>
@@ -504,7 +505,7 @@
                 </Size>
                 <Layers>
                     <Layer level="OVERLAY">
-                        <FontString inherits="GameFontNormal" text="Name">
+                        <FontString name="$parentLabel" inherits="GameFontNormal" text="Name">
                             <Anchors>
                                 <Anchor point="LEFT">
                                     <Offset>
@@ -515,7 +516,7 @@
                         </FontString>
                     </Layer>
                     <Layer level="ARTWORK">
-                        <FontString inherits="GameFontNormal" text="Received Bids/Rolls:">
+                        <FontString name="$parentTableHeader" inherits="GameFontNormal" text="Received Bids/Rolls:">
                             <Anchors>
                                 <Anchor point="TOPLEFT">
                                     <Offset>
@@ -543,7 +544,7 @@
                 </Size>
                 <Layers>
                     <Layer level="OVERLAY">
-                        <FontString inherits="GameFontNormal" text="Bid">
+                        <FontString name="$parentLabel" inherits="GameFontNormal" text="Bid">
                             <Anchors>
                                 <Anchor point="LEFT">
                                     <Offset>
@@ -571,7 +572,7 @@
                 </Size>
                 <Layers>
                     <Layer level="OVERLAY">
-                        <FontString inherits="GameFontNormal" text="DKP">
+                        <FontString name="$parentLabel" inherits="GameFontNormal" text="DKP">
                             <Anchors>
                                 <Anchor point="LEFT">
                                     <Offset>
@@ -629,7 +630,7 @@
                 </Size>
                 <Layers>
                     <Layer level="OVERLAY">
-                        <FontString inherits="GameFontNormal" text="DKP - Bid">
+                        <FontString name="$parentLabel" inherits="GameFontNormal" text="DKP - Bid">
                             <Anchors>
                                 <Anchor point="LEFT">
                                     <Offset>
@@ -706,7 +707,7 @@
                 </Size>
                 <Layers>
                     <Layer level="OVERLAY">
-                        <FontString inherits="GameFontNormal" text="Rolls">
+                        <FontString name="$parentLabel" inherits="GameFontNormal" text="Rolls">
                             <Anchors>
                                 <Anchor point="LEFT">
                                     <Offset>
@@ -734,7 +735,7 @@
                 </Size>
                 <Layers>
                     <Layer level="OVERLAY">
-                        <FontString inherits="GameFontNormal" text="Main/Offspec">
+                        <FontString name="$parentLabel" inherits="GameFontNormal" text="Main/Offspec">
                             <Anchors>
                                 <Anchor point="LEFT">
                                     <Offset>
@@ -763,7 +764,7 @@
                 </Size>
                 <Layers>
                     <Layer level="OVERLAY">
-                        <FontString inherits="GameFontNormal" text="Guild Rank">
+                        <FontString name="$parentLabel" inherits="GameFontNormal" text="Guild Rank">
                             <Anchors>
                                 <Anchor point="LEFT">
                                     <Offset>
@@ -1019,6 +1020,27 @@
 
 
         </Frames>
+        <Scripts>
+            <OnLoad>
+                _G["WebDKP_BidFrame".."Title"]:SetText(WebDKP.translations.BID_TITLE)
+                _G["WebDKP_BidFrame".."ItemLabel"]:SetText(WebDKP.translations.BID_ITEM_LABEL)
+                _G["WebDKP_BidFrame".."StartingBidLabel"]:SetText(WebDKP.translations.BID_STARTING_BID_LABEL)
+                _G["WebDKP_BidFrame".."TimeLabel"]:SetText(WebDKP.translations.BID_TIME_LABEL)
+                _G["WebDKP_BidFrame".."TimeHint"]:SetText(WebDKP.translations.BID_TIME_HINT)
+                _G["WebDKP_BidFrame".."BidButton"]:SetText(WebDKP.translations.BID_BID_BUTTON)
+                _G["WebDKP_BidFrame".."RollButton"]:SetText(WebDKP.translations.BID_ROLL_BUTTON)
+                _G["WebDKP_BidFrame".."Top3Button"]:SetText(WebDKP.translations.BID_TOP3_BUTTON)
+                _G["WebDKP_BidFrame".."NameTableHeader"]:SetText(WebDKP.translations.BID_TABLE_HEADER)
+                _G["WebDKP_BidFrame".."NameLabel"]:SetText(WebDKP.translations.BID_TABLE_COLUMN_NAME_LABEL)
+                _G["WebDKP_BidFrame".."BidLabel"]:SetText(WebDKP.translations.BID_TABLE_COLUMN_BID_LABEL)
+                _G["WebDKP_BidFrame".."DKPLabel"]:SetText(WebDKP.translations.BID_TABLE_COLUMN_DKP_LABEL)
+                _G["WebDKP_BidFrame".."PostLabel"]:SetText(WebDKP.translations.BID_TABLE_COLUMN_POST_LABEL)
+                _G["WebDKP_BidFrame".."RollLabel"]:SetText(WebDKP.translations.BID_TABLE_COLUMN_ROLL_LABEL)
+                _G["WebDKP_BidFrame".."SpecLabel"]:SetText(WebDKP.translations.BID_TABLE_COLUMN_SPEC_LABEL)
+                _G["WebDKP_BidFrame".."GuildRankLabel"]:SetText(WebDKP.translations.BID_TABLE_COLUMN_GUILD_RANK_LABEL)
+                _G["WebDKP_BidFrame".."Award"]:SetText(WebDKP.translations.BID_AWARD)
+            </OnLoad>
+        </Scripts>
     </Frame>
 
     <!-- ================================================
