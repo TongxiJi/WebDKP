@@ -342,7 +342,7 @@
                 </Scripts>
                 <Layers>
                     <Layer level="OVERLAY">
-                        <FontString inherits="GameFontNormal" text="Name">
+                        <FontString name="$parentColumn" inherits="GameFontNormal" text="Name">
                             <Anchors>
                                 <Anchor point="LEFT">
                                     <Offset>
@@ -440,7 +440,7 @@
                 </Scripts>
                 <Layers>
                     <Layer level="OVERLAY">
-                        <FontString inherits="GameFontNormal" text="Class">
+                        <FontString name="$parentColumn" inherits="GameFontNormal" text="Class">
                             <Anchors>
                                 <Anchor point="LEFT">
                                     <Offset>
@@ -504,7 +504,7 @@
                 </Scripts>
                 <Layers>
                     <Layer level="OVERLAY">
-                        <FontString inherits="GameFontNormal" text="DKP">
+                        <FontString name="$parentColumn" inherits="GameFontNormal" text="DKP">
                             <Anchors>
                                 <Anchor point="LEFT">
                                     <Offset>
@@ -632,7 +632,7 @@
                 </Scripts>
                 <Layers>
                     <Layer level="OVERLAY">
-                        <FontString inherits="GameFontNormal" text="Guild Rank">
+                        <FontString name="$parentColumn" inherits="GameFontNormal" text="Guild Rank">
                             <Anchors>
                                 <Anchor point="LEFT">
                                     <Offset>
@@ -1674,7 +1674,7 @@
                                 </Anchor>
                             </Anchors>
                         </FontString>
-                        <FontString name="WebDKP_Decay_Header" inherits="GameFontNormalLarge" text="DKP Decay:">
+                        <FontString name="$parentDecayHeader" inherits="GameFontNormalLarge" text="DKP Decay:">
                             <Anchors>
                                 <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parentInfo1">
                                     <Offset>
@@ -1840,6 +1840,7 @@
                     <OnLoad>
                         _G["WebDKP_AwardDKP_FrameHeader"]:SetText(WebDKP.translations.AWARD_DKP_HEADER)
                         _G["WebDKP_AwardDKP_FrameInfo1"]:SetText(WebDKP.translations.AWARD_DKP_INFO1)
+                        _G["WebDKP_AwardDKP_Frame".."DecayHeader"]:SetText(WebDKP.translations.AWARD_DKP_DECAY_HEADER)
                         _G["WebDKP_AwardDKP_FrameInfo3"]:SetText(WebDKP.translations.AWARD_DKP_INFO3)
                         _G["WebDKP_AwardDKP_FrameReasonLabel"]:SetText(WebDKP.translations.AWARD_DKP_REASON_LABEL)
                         _G["WebDKP_AwardDKP_FramePointsLabel"]:SetText(WebDKP.translations.AWARD_DKP_POINTS_LABEL)
@@ -1957,7 +1958,7 @@
                                 </FontString>
                             </Layer>
                             <Layer level="ARTWORK">
-                                <FontString inherits="GameFontNormal" text="(Include % after for percents (50%)">
+                                <FontString name="$parentLabel2" inherits="GameFontNormal" text="(Include % after for percents (50%)">
                                     <Anchors>
                                         <Anchor point="TOPLEFT">
                                             <Offset>
@@ -1995,6 +1996,7 @@
                         _G["WebDKP_AwardItem_FrameInfo1"]:SetText(WebDKP.translations.AWARD_ITEM_INFO1)
                         _G["WebDKP_AwardItem_FrameItemNameLabel"]:SetText(WebDKP.translations.AWARD_ITEM_ITEM_NAME_LABEL)
                         _G["WebDKP_AwardItem_FrameItemCostLabel"]:SetText(WebDKP.translations.AWARD_ITEM_ITEM_COST_LABEL)
+                        _G["WebDKP_AwardItem_FrameItemCostLabel2"]:SetText(WebDKP.translations.AWARD_ITEM_ITEM_COST_LABEL2)
                         _G["WebDKP_AwardItem_FrameAwardItem"]:SetText(WebDKP.translations.AWARD_ITEM_AWARD_ITEM)
                     </OnLoad>
                 </Scripts>
@@ -2132,7 +2134,7 @@
                         </Anchors>
                         <Layers>
                             <Layer level="ARTWORK">
-                                <FontString inherits="GameFontNormal" text="Reset All Standby Players:">
+                                <FontString name="$parentLabel" inherits="GameFontNormal" text="Reset All Standby Players:">
                                     <Anchors>
                                         <Anchor point="TOPLEFT">
                                             <Offset>
@@ -2197,6 +2199,7 @@
                         _G["WebDKP_Standby_Frame".."AddToStandby"]:SetText(WebDKP.translations.STANDBY_ADD_TO_STANDBY)
                         _G["WebDKP_Standby_Frame".."DelStandby"]:SetText(WebDKP.translations.STANDBY_DEL_STANDBY)
                         _G["WebDKP_Standby_Frame".."ResetStandby"]:SetText(WebDKP.translations.STANDBY_RESET_STANDBY)
+                        _G["WebDKP_Standby_Frame".."ResetStandby".."Label"]:SetText(WebDKP.translations.STANDBY_RESET_STANDBY_LABEL)
                         _G["WebDKP_Standby_Frame".."EnableStandbyZeroSum".."Text"]:SetText(WebDKP.translations.STANDBY_ENABLE_STANDBY_ZEROSUM)
                         _G["WebDKP_Standby_Frame".."EnableStandbyTimed".."Text"]:SetText(WebDKP.translations.STANDBY_ENABLE_STANDBY_TIMED)
                     </OnLoad>
@@ -2248,6 +2251,12 @@
         </Frames>
         <Scripts>
             <OnLoad>
+                    _G["WebDKP_Header"]:SetText(WebDKP.translations.WebDKP_Header)
+                    _G["WebDKP_Frame".."Name".."Column"]:SetText(WebDKP.translations.WEBDKP_FRAME_NAME_COLUMN)
+                    _G["WebDKP_Frame".."Class".."Column"]:SetText(WebDKP.translations.WEBDKP_FRAME_CLASS_COLUMN)
+                    _G["WebDKP_Frame".."DKP".."Column"]:SetText(WebDKP.translations.WEBDKP_FRAME_DKP_COLUMN)
+                    _G["WebDKP_Frame".."GuildRank".."Column"]:SetText(WebDKP.translations.WEBDKP_FRAME_GUILDRANK_COLUMN)
+
                 _G["WebDKP_FrameTab1"]:SetText(WebDKP.translations.TAB_FILTER)
                 _G["WebDKP_FrameTab2"]:SetText(WebDKP.translations.TAB_AWARD_DKP)
                 _G["WebDKP_FrameTab3"]:SetText(WebDKP.translations.TAB_AWARD_ITEM)

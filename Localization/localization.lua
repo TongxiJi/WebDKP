@@ -16,6 +16,13 @@ L.WEBDKP_MINIMAPDROPDOWN_VIEWLOG = "View Log"
 L.WEBDKP_MINIMAPDROPDOWN_RAIDLOG = "Raid Log"
 L.WEBDKP_MINIMAPDROPDOWN_CHARRAIDLOG = "Char Raid Log"
 
+--Table
+L.WEBDKP_HEADER="DKP Table:"
+L.WEBDKP_FRAME_NAME_COLUMN="Name"
+L.WEBDKP_FRAME_CLASS_COLUMN="Class"
+L.WEBDKP_FRAME_DKP_COLUMN="DKP"
+L.WEBDKP_FRAME_GUILDRANK_COLUMN="Guild Rank"
+
 --TABS
 L.TAB_FILTER = "Filters"
 L.TAB_AWARD_DKP = "Award DKP"
@@ -61,6 +68,7 @@ L.DKP_TABLE_Refresh = "Refresh Group"
 --TAB FOR AWARD DKP
 L.AWARD_DKP_HEADER = "Award DKP:"
 L.AWARD_DKP_INFO1 = "Select recieving players on left and enter\n award information below."
+L.AWARD_DKP_DECAY_HEADER = "DKP Decay:"
 L.AWARD_DKP_INFO3 = "Select recieving players on left."
 L.AWARD_DKP_REASON_LABEL = "Reason:"
 L.AWARD_DKP_POINTS_LABEL = "Points: (Use negative # to deduct points)"
@@ -73,6 +81,7 @@ L.AWARD_ITEM_HEADER = "Award Item:"
 L.AWARD_ITEM_INFO1 = "Select recieving player from table on left\n and enter item information below."
 L.AWARD_ITEM_ITEM_NAME_LABEL = "Item Name:"
 L.AWARD_ITEM_ITEM_COST_LABEL = "Item Cost: (Positive numbers only)"
+L.AWARD_ITEM_ITEM_COST_LABEL2 = "(Include % after for percents (50%)"
 L.AWARD_ITEM_AWARD_ITEM = "Award Item"
 
 --TAB FOR STANDBY
@@ -82,6 +91,7 @@ L.STANDBY_ADD_STANDBY_LABEL = "Player Name:"
 L.STANDBY_ADD_TO_STANDBY = "Add"
 L.STANDBY_DEL_STANDBY = "Remove"
 L.STANDBY_RESET_STANDBY = "Reset"
+L.STANDBY_RESET_STANDBY_LABEL = "Reset All Standby Players:"
 L.STANDBY_ENABLE_STANDBY_ZEROSUM = "Enable Zerosum for Standby Players"
 L.STANDBY_ENABLE_STANDBY_TIMED = "Enable Timed Awards for Standby"
 
