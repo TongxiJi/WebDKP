@@ -51,12 +51,12 @@ function WebDKP_Loot_Taken(arg1)
         end
         --1 Find out what item was dropped
         local sPlayer, sLink;
-        local iStart, iEnd, sPlayerName, sItem = string.find(arg1, "([^%s]+) receives loot: (.+)%.");
+        local iStart, iEnd, sPlayerName, sItem = string.find(arg1, "([^%s]+)获得了物品:(.+)%。");
         if (sPlayerName) then
             sPlayer = sPlayerName;
             sLink = sItem;
         else
-            local iStart, iEnd, sItem = string.find(arg1, "You receive loot: (.+)%.");
+            local iStart, iEnd, sItem = string.find(arg1, "你获得了物品:(.+)%。");
             if (sItem) then
                 sPlayer = UnitName("player");
                 sLink = sItem;

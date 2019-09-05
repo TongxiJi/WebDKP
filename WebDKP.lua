@@ -11,34 +11,34 @@
 -- HOW THIS ADDON IS ORGANIZED:
 -- The addon is grouped into a series of files which hold code for certain
 -- functions. 
--- 
+--
 -- WebDKP			Code to handle start / shutdown / registering events
---					and GUI event handlers. This is the main entry point
---					of the addon and directs events to the functionality
---					in the other files
+-- and GUI event handlers. This is the main entry point
+-- of the addon and directs events to the functionality
+-- in the other files
 --
 -- GroupFunctions	Methods the handle scanning the current group, updating
---					the dkp table to be show based on filters, sorting, 
---					and updating the gui with the current table
+-- the dkp table to be show based on filters, sorting,
+-- and updating the gui with the current table
 --
 -- Announcements	Code handling announcements as they are echoed to the screen
 --
 -- WhisperDKP		Implementation of the Whisper DKP feature. 
 --
 -- Utility			Utility and helper methods. For example, methods
---					to find out a users guild or print something to the 
---					screen. 
+-- to find out a users guild or print something to the
+-- screen.
 --
 -- AutoFill			Methods related to autofilling in item names when drops
---					Occur		
+-- Occur
 --
 -- Bidding			Implements the automatted bidding feature for WebDKP. 
---					Contains code for the bidding GUI as well as handling
---					incoming bid whispers
+-- Contains code for the bidding GUI as well as handling
+-- incoming bid whispers
 --
 -- Options			Implements a GUI for updating and changing addon options. 
---					This used to be in WebDKP but was branched to a seperate GUI
---					and file as options grew. 
+-- This used to be in WebDKP but was branched to a seperate GUI
+-- and file as options grew.
 ------------------------------------------------------------------------
 
 ---------------------------------------------------
@@ -224,7 +224,8 @@ WebDKP_Options = {
     ["ItemLevelEquation"] = 0, -- Enable or Disable the Item Level Multiplier
     ["ItemLevelMult"] = ".01", -- Default Item Level Multiplier
     ["SlotLocMult"] = 0, -- Slot Location Mult Enabled
-    ["ItemLocMult"] = {            -- Enable Slot Location Multiplier
+    ["ItemLocMult"] = {
+        -- Enable Slot Location Multiplier
         ["head"] = "1",
         ["neck"] = "1",
         ["shoulders"] = "1",
@@ -255,10 +256,10 @@ WebDKP_WebOptions = {
     ["CombineAlts"] = 0, -- Whether or not alts and mains are combined and share dkp
 }
 
-WebDKP_Alts = {};                    -- Holds list of alts in the game. Structure is:
+WebDKP_Alts = {}; -- Holds list of alts in the game. Structure is:
 -- ["AltName"] = "Main Name",
 
-local WebDKP_Loaded = false;        -- used to flag whether the addon has been loaded already (wow 2.0 seems to load it twice?)
+local WebDKP_Loaded = false; -- used to flag whether the addon has been loaded already (wow 2.0 seems to load it twice?)
 
 ---------------------------------------------------
 -- INITILIZATION
@@ -268,39 +269,37 @@ local WebDKP_Loaded = false;        -- used to flag whether the addon has been l
 -- and register for some extra events
 -- ================================
 function WebDKP_OnLoad(self)
-    --WebDKP_Print("OnLoad");
+    WebDKP_Print("OnLoad");
     local this = self;
 
     if (WebDKP_Loaded == false) then
         WebDKP_Loaded = true;
         --register the slash event
         SlashCmdList["WEBDKP"] = WebDKP_ToggleGUI;
-        SLASH_WEBDKP1 = "/webdkp";                    -- Toggles the WEBDKP DKP Table
-        SLASH_SYNCH1 = "/synch";                    -- Starts the synching
+        SLASH_WEBDKP1 = "/webdkp"; -- Toggles the WEBDKP DKP Table
+        SLASH_SYNCH1 = "/synch"; -- Starts the synching
         SlashCmdList["SYNCH"] = WebDKP_Start_Synch;
 
 
         --register extra events
-        this:RegisterEvent("CHAT_MSG_SYSTEM");                -- So we can monitor for /random rolls
-        this:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED");        -- So we can monitor the combat log
-        this:RegisterEvent("CHAT_MSG_MONSTER_YELL");            -- So we can monitor for some Ulduar boss kills.
-        this:RegisterEvent("GROUP_ROSTER_UPDATE");            -- so we can handle party changes
+        this:RegisterEvent("CHAT_MSG_SYSTEM"); -- So we can monitor for /random rolls
+        this:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED"); -- So we can monitor the combat log
+        this:RegisterEvent("CHAT_MSG_MONSTER_YELL"); -- So we can monitor for some Ulduar boss kills.
+        this:RegisterEvent("GROUP_ROSTER_UPDATE"); -- so we can handle party changes
         this:RegisterEvent("RAID_ROSTER_UPDATE");
         this:RegisterEvent("ITEM_TEXT_READY");
         this:RegisterEvent("ADDON_LOADED");
-        this:RegisterEvent("CHAT_MSG_WHISPER");                -- chat handles so we can look for webdkp commands like !bid
+        this:RegisterEvent("CHAT_MSG_WHISPER"); -- chat handles so we can look for webdkp commands like !bid
         this:RegisterEvent("CHAT_MSG_LOOT");
         this:RegisterEvent("CHAT_MSG_PARTY");
         this:RegisterEvent("CHAT_MSG_RAID");
         this:RegisterEvent("CHAT_MSG_RAID_LEADER");
         this:RegisterEvent("CHAT_MSG_RAID_WARNING");
-        this:RegisterEvent("ADDON_ACTION_FORBIDDEN");            --debugging - Blizzards new code likes to blame us for things we don't do :(
-        this:RegisterEvent("COMBAT_LOG_EVENT");--TODO 原来是UNIT_DIED ,换成了COMBAT_LOG_EVENT对不对
+        this:RegisterEvent("ADDON_ACTION_FORBIDDEN"); --debugging - Blizzards new code likes to blame us for things we don't do :(
+        this:RegisterEvent("COMBAT_LOG_EVENT"); --TODO 原来是UNIT_DIED ,换成了COMBAT_LOG_EVENT对不对
         this:RegisterEvent("CHAT_MSG_ADDON");
         WebDKP_OnEnable();
     end
-
-
 end
 
 -- ================================
@@ -452,16 +451,15 @@ function WebDKP_ADDON_LOADED(arg1)
 
         WebDKP_UpdateTableToShow(); --update who is in the table
         if WebDKP_Options["EPGPEnabled"] == 0 then
-            WebDKP_UpdateTable();       --update the gui
+            WebDKP_UpdateTable(); --update the gui
         else
-            WebDKP_UpdateEPGPTable();       --update the gui
+            WebDKP_UpdateEPGPTable(); --update the gui
         end
-        WebDKP_UpdateLogTable();   -- update the log file
+        WebDKP_UpdateLogTable(); -- update the log file
 
         -- set the mini map position
 
         WebDKP_MinimapButton_SetPositionAngle(WebDKP_Options["MiniMapButtonAngle"]);
-
     end
 end
 
@@ -473,7 +471,6 @@ end
 -- Called on shutdown. Does nothing
 -- ================================
 function WebDKP_OnDisable()
-
 end
 
 
@@ -498,7 +495,6 @@ function WebDKP_ToggleGUI(msg, editbox)
             itemignored = WebDKP_Ignored_Items[i];
             SendChatMessage("WebDKP: Item Ignored =" .. itemignored, "WHISPER", nil, toplayer);
         end
-
     end
 
     -- Add or remove an item from the ignore items Added by Zevious
@@ -510,7 +506,6 @@ function WebDKP_ToggleGUI(msg, editbox)
             tinsert(WebDKP_IgnoreItems, nameofitem);
             tinsert(WebDKP_Ignored_Items, nameofitem);
         end
-
     end
 
     -- Delete an item from the ignore items Added by Zevious
@@ -537,7 +532,6 @@ function WebDKP_ToggleGUI(msg, editbox)
                     tremove(WebDKP_Ignored_Items, i);
                 end
             end
-
         end
     end
 
@@ -601,8 +595,6 @@ function WebDKP_ToggleGUI(msg, editbox)
                     local line = getglobal("WebDKP_FrameLineEPGP" .. i);
                     line:Hide();
                 end
-
-
             end
             WebDKP_Tables_DropDown_OnLoad();
         end
@@ -701,9 +693,8 @@ function WebDKP_ToggleGUI(msg, editbox)
     if ((string.find(webdkp_command, "end") == 1) and (string.find(webdkp_command, "raid") == 5)) then
         WebDKP_RaidEnd();
     end
-
-
 end
+
 -- =============================================
 -- Called by the addon to display the DKP Table
 -- =============================================
@@ -766,7 +757,6 @@ function WebDKP_Table_GUI()
                 local line = getglobal("WebDKP_FrameLineEPGP" .. i);
                 line:Hide();
             end
-
         end
 
         WebDKP_Tables_DropDown_OnLoad();
@@ -795,18 +785,19 @@ function WebDKP_PARTY_MEMBERS_CHANGED()
     WebDKP_UpdatePlayersInGroup();
     WebDKP_UpdateTableToShow();
     if WebDKP_Options["EPGPEnabled"] == 0 then
-        WebDKP_UpdateTable();       --update the gui
+        WebDKP_UpdateTable(); --update the gui
     else
-        WebDKP_UpdateEPGPTable();       --update the gui
+        WebDKP_UpdateEPGPTable(); --update the gui
     end
 end
+
 function WebDKP_RAID_ROSTER_UPDATE()
     WebDKP_UpdatePlayersInGroup();
     WebDKP_UpdateTableToShow();
     if WebDKP_Options["EPGPEnabled"] == 0 then
-        WebDKP_UpdateTable();       --update the gui
+        WebDKP_UpdateTable(); --update the gui
     else
-        WebDKP_UpdateEPGPTable();       --update the gui
+        WebDKP_UpdateEPGPTable(); --update the gui
     end
 end
 
@@ -828,7 +819,7 @@ function WebDKP_CHAT_MSG_WHISPER(arg1, arg2)
     if ignoreflag == 0 then
         WebDKP_WhisperDKP_Event(arg1, arg2);
         WebDKP_Bid_Event(arg1, arg2);
-        WebDKP_Synch_Processing(arg1, arg2);                    -- Added by Zevious for Synching
+        WebDKP_Synch_Processing(arg1, arg2); -- Added by Zevious for Synching
     end
 end
 
@@ -844,7 +835,7 @@ end
 ---------------------------------------------------
 -- GUI EVENT HANDLERS
 -- (Handle events raised by the gui and direct
---  events to the other parts of the addon)
+-- events to the other parts of the addon)
 ---------------------------------------------------
 -- ================================
 -- Called by the refresh button. Refreshes the people displayed 
@@ -854,9 +845,9 @@ function WebDKP_Refresh()
     WebDKP_UpdatePlayersInGroup();
     WebDKP_UpdateTableToShow();
     if WebDKP_Options["EPGPEnabled"] == 0 then
-        WebDKP_UpdateTable();       --update the gui
+        WebDKP_UpdateTable(); --update the gui
     else
-        WebDKP_UpdateEPGPTable();       --update the gui
+        WebDKP_UpdateEPGPTable(); --update the gui
     end
 end
 
@@ -916,9 +907,9 @@ function WebDKP_SelectAll()
     end
 
     if WebDKP_Options["EPGPEnabled"] == 0 then
-        WebDKP_UpdateTable();       --update the gui
+        WebDKP_UpdateTable(); --update the gui
     else
-        WebDKP_UpdateEPGPTable();       --update the gui
+        WebDKP_UpdateEPGPTable(); --update the gui
     end
 end
 
@@ -933,9 +924,9 @@ function WebDKP_UnselectAll()
         end
     end
     if WebDKP_Options["EPGPEnabled"] == 0 then
-        WebDKP_UpdateTable();       --update the gui
+        WebDKP_UpdateTable(); --update the gui
     else
-        WebDKP_UpdateEPGPTable();       --update the gui
+        WebDKP_UpdateEPGPTable(); --update the gui
     end
 end
 
@@ -1001,9 +992,9 @@ function WebDKP_ToggleFilter(filterName)
     WebDKP_Filters[filterName] = abs(WebDKP_Filters[filterName] - 1);
     WebDKP_UpdateTableToShow();
     if WebDKP_Options["EPGPEnabled"] == 0 then
-        WebDKP_UpdateTable();       --update the gui
+        WebDKP_UpdateTable(); --update the gui
     else
-        WebDKP_UpdateEPGPTable();       --update the gui
+        WebDKP_UpdateEPGPTable(); --update the gui
     end
     WebDKP_UpdateFilterGroupsCheckedState();
 end
@@ -1025,9 +1016,9 @@ function WebDKP_CheckAllFilters()
     WebDKP_SetFilterState("Death Knight", 1);
     WebDKP_UpdateTableToShow();
     if WebDKP_Options["EPGPEnabled"] == 0 then
-        WebDKP_UpdateTable();       --update the gui
+        WebDKP_UpdateTable(); --update the gui
     else
-        WebDKP_UpdateEPGPTable();       --update the gui
+        WebDKP_UpdateEPGPTable(); --update the gui
     end
     WebDKP_UpdateFilterGroupsCheckedState();
 end
@@ -1049,9 +1040,9 @@ function WebDKP_UncheckAllFilters()
     WebDKP_SetFilterState("Death Knight", 0);
     WebDKP_UpdateTableToShow();
     if WebDKP_Options["EPGPEnabled"] == 0 then
-        WebDKP_UpdateTable();       --update the gui
+        WebDKP_UpdateTable(); --update the gui
     else
-        WebDKP_UpdateEPGPTable();       --update the gui
+        WebDKP_UpdateEPGPTable(); --update the gui
     end
     WebDKP_UpdateFilterGroupsCheckedState();
 end
@@ -1075,9 +1066,9 @@ function WebDKP_ToggleFilterGroup(groupCheckboxName)
     --update the table to show the new changes
     WebDKP_UpdateTableToShow();
     if WebDKP_Options["EPGPEnabled"] == 0 then
-        WebDKP_UpdateTable();       --update the gui
+        WebDKP_UpdateTable(); --update the gui
     else
-        WebDKP_UpdateEPGPTable();       --update the gui
+        WebDKP_UpdateEPGPTable(); --update the gui
     end
     -- update what filter groups are checked as a result of these changes
     WebDKP_ReinforceCheckedFilterGroups();
@@ -1176,7 +1167,7 @@ function WebDPK2_SortBy(id)
         id = 6;
     end
     if (WebDKP_LogSort["curr"] == id) then
-        WebDKP_LogSort["way"] = abs(WebDKP_LogSort["way"] - 1);        -- toggles between 1 and 0
+        WebDKP_LogSort["way"] = abs(WebDKP_LogSort["way"] - 1); -- toggles between 1 and 0
     else
         WebDKP_LogSort["curr"] = id;
         if (id == 1) then
@@ -1188,13 +1179,12 @@ function WebDPK2_SortBy(id)
         else
             WebDKP_LogSort["way"] = 1; --columns with numbers need to be sorted different first in order to get DESC right
         end
-
     end
     -- update table so we can see sorting changes
     if WebDKP_Options["EPGPEnabled"] == 0 then
-        WebDKP_UpdateTable();       --update the gui
+        WebDKP_UpdateTable(); --update the gui
     else
-        WebDKP_UpdateEPGPTable();       --update the gui
+        WebDKP_UpdateEPGPTable(); --update the gui
     end
 end
 
@@ -1335,6 +1325,7 @@ function WebDKP_Tables_DropDown_OnLoad()
         WebDKP_Tables_DropDown:Show();
     end
 end
+
 -- ================================
 -- Invoked when the drop down list of available tables
 -- needs to be redrawn. Populates it with data
@@ -1351,7 +1342,7 @@ function WebDKP_Tables_DropDown_Init()
     if (WebDKP_Tables ~= nil and next(WebDKP_Tables) ~= nil) then
         for key, entry in pairs(WebDKP_Tables) do
             if (type(entry) == "table") then
-                info = { };
+                info = {};
                 info.text = key;
                 info.value = entry["id"];
                 info.func = WebDKP_Tables_DropDown_OnClick;
@@ -1366,7 +1357,6 @@ function WebDKP_Tables_DropDown_Init()
     UIDropDownMenu_SetSelectedName(WebDKP_Tables_DropDown, selected);
     UIDropDownMenu_SetWidth(WebDKP_Tables_DropDown, 200, 10);
     -- UIDropDownMenu_SetButtonWidth(WebDKP_Tables_DropDown, 200);
-
 end
 
 -- ================================
@@ -1380,9 +1370,9 @@ function WebDKP_Tables_DropDown_OnClick(self)
     WebDKP_Tables_DropDown_Init();
     WebDKP_UpdateTableToShow(); --update who is in the table
     if WebDKP_Options["EPGPEnabled"] == 0 then
-        WebDKP_UpdateTable();       --update the gui
+        WebDKP_UpdateTable(); --update the gui
     else
-        WebDKP_UpdateEPGPTable();       --update the gui
+        WebDKP_UpdateEPGPTable(); --update the gui
     end
 end
 
@@ -1560,16 +1550,15 @@ end
 -- Adds buttons to the minimap drop down
 -- ================================
 function WebDKP_MinimapDropDown_Initialize()
-    WebDKP_Add_MinimapDropDownItem(self, "DKP Table", WebDKP_Table_GUI);
-    WebDKP_Add_MinimapDropDownItem(self, "Bidding", WebDKP_Bid_ToggleUI);
-    WebDKP_Add_MinimapDropDownItem(self, "Timed Awards", WebDKP_TimedAward_ToggleUI);
-    WebDKP_Add_MinimapDropDownItem(self, "Options", WebDKP_Options_ToggleUI);
-    WebDKP_Add_MinimapDropDownItem(self, "Help", WebDKP_Help_ToggleGUI);
-    WebDKP_Add_MinimapDropDownItem(self, "Synch Settings", WebDKP_Synch_ToggleUI);        --Added by Zevious
-    WebDKP_Add_MinimapDropDownItem(self, "View Log", WebDKP_Log_ToggleUI);            --Added by Zevious
-    WebDKP_Add_MinimapDropDownItem(self, "Raid Log", WebDKP_RaidLog_ToggleUI);            --Added by Zevious
-    WebDKP_Add_MinimapDropDownItem(self, "Char Raid Log", WebDKP_CharRaidLog_ToggleUI);        --Added by Zevious
-
+    WebDKP_Add_MinimapDropDownItem(self, WebDKP.translations.WEBDKP_MINIMAPDROPDOWN_DKPTABLE, WebDKP_Table_GUI);
+    WebDKP_Add_MinimapDropDownItem(self, WebDKP.translations.WEBDKP_MINIMAPDROPDOWN_BIDDING, WebDKP_Bid_ToggleUI);
+    WebDKP_Add_MinimapDropDownItem(self, WebDKP.translations.WEBDKP_MINIMAPDROPDOWN_TIMEDAWARDS, WebDKP_TimedAward_ToggleUI);
+    WebDKP_Add_MinimapDropDownItem(self, WebDKP.translations.WEBDKP_MINIMAPDROPDOWN_OPTIONS, WebDKP_Options_ToggleUI);
+    WebDKP_Add_MinimapDropDownItem(self, WebDKP.translations.WEBDKP_MINIMAPDROPDOWN_HELP, WebDKP_Help_ToggleGUI);
+--    WebDKP_Add_MinimapDropDownItem(self, WebDKP.translations.WEBDKP_MINIMAPDROPDOWN_SYNCHSETTINGS, WebDKP_Synch_ToggleUI); --Added by Zevious
+--    WebDKP_Add_MinimapDropDownItem(self, WebDKP.translations.WEBDKP_MINIMAPDROPDOWN_VIEWLOG, WebDKP_Log_ToggleUI); --Added by Zevious
+--    WebDKP_Add_MinimapDropDownItem(self, WebDKP.translations.WEBDKP_MINIMAPDROPDOWN_RAIDLOG, WebDKP_RaidLog_ToggleUI); --Added by Zevious
+--    WebDKP_Add_MinimapDropDownItem(self, WebDKP.translations.WEBDKP_MINIMAPDROPDOWN_CHARRAIDLOG, WebDKP_CharRaidLog_ToggleUI); --Added by Zevious
 end
 
 -- ================================
@@ -1580,7 +1569,6 @@ function WebDKP_Log_ToggleUI()
         WebDKP_LogFrame:Hide();
     else
         WebDKP_LogFrame:Show();
-
     end
 end
 
@@ -1591,7 +1579,7 @@ end
 -- ================================
 function WebDKP_Add_MinimapDropDownItem(self, text, eventHandler)
     local this = self;
-    local info = { };
+    local info = {};
     info.text = text;
     info.value = text;
     info.owner = this;
@@ -1657,7 +1645,6 @@ function WebDKP_HandleModifiedItemClick(item)
             WebDKP_Bid_ToggleUI();
         end
     end
-
 end
 
 -- ================================
@@ -1687,7 +1674,6 @@ function WebDKP_ItemChatShiftClick(_, link, text, button)
             if (WebDKP_BidFrame:IsShown() == FALSE) then
                 WebDKP_Bid_ToggleUI();
             end
-
         end
     end
 end
@@ -1710,9 +1696,7 @@ function Webdkp_Sys_Msg_Received(arg1)
         _, _, player, roll, min_roll, max_roll = string.find(msg, pattern)
 
         WebDKP_ProcessRoll(player, roll, min_roll, max_roll)
-
     end
-
 end
 
 -- ===========================================================================================
@@ -1723,8 +1707,7 @@ function WebDKP_Start_Synch()
     local synch_master = WebDKP_Options["SynchFrom"];
     local synch_pass = WebDKP_Options["SynchPassword"];
     -- Add a confirmation box Are you sure you want to synch with ""
-    SendChatMessage("!Synch " .. synch_pass, "WHISPER", nil, synch_master)        -- Whisper the person with the Master table and tell them to synch.
-
+    SendChatMessage("!Synch " .. synch_pass, "WHISPER", nil, synch_master) -- Whisper the person with the Master table and tell them to synch.
 end
 
 
@@ -1736,8 +1719,7 @@ function WebDKP_Start_SynchAll()
     local synch_master = WebDKP_Options["SynchFrom"];
     local synch_pass = WebDKP_Options["SynchPassword"];
     -- Add a confirmation box Are you sure you want to synch with ""
-    SendChatMessage("!WDKP_Synch_All " .. synch_pass, "WHISPER", nil, synch_master)        -- Whisper the person with the Master table and tell them to synch.
-
+    SendChatMessage("!WDKP_Synch_All " .. synch_pass, "WHISPER", nil, synch_master) -- Whisper the person with the Master table and tell them to synch.
 end
 
 
@@ -1747,8 +1729,8 @@ end
 function WebDKP_UpdateLogTable()
 
     if WebDKP_Log ~= nil then
-        local entries = { };
-        local awarded = { };
+        local entries = {};
+        local awarded = {};
         local countnames = 0;
         local awardedtoname = "";
         for k, v in pairs(WebDKP_Log) do
@@ -1764,7 +1746,6 @@ function WebDKP_UpdateLogTable()
 
                                 awardedtoname = v["name"];
                                 countnames = countnames + 1;
-
                             end
                         end
                     end
@@ -1784,37 +1765,34 @@ function WebDKP_UpdateLogTable()
                         end
                         tinsert(entries, { v["date"], v["points"], reasonText, "Multiple", v["foritem"] }); -- copies over amount, reason, date
                     end
-
                 end
             end
         end
 
         -- SORT
-        table.sort(
-                entries,
-                function(a1, a2)
-                    if (a1 and a2) then
-                        if (a1 == nil) then
-                            return 1 > 0;
-                        elseif (a2 == nil) then
-                            return 1 < 0;
-                        end
-                        if (WebDKP_LogSort["way2"] == 1) then
-                            if (a1[WebDKP_LogSort["curr2"]] == a2[WebDKP_LogSort["curr2"]]) then
-                                return a1[1] > a2[1];
-                            else
-                                return a1[WebDKP_LogSort["curr2"]] > a2[WebDKP_LogSort["curr2"]];
-                            end
+        table.sort(entries,
+            function(a1, a2)
+                if (a1 and a2) then
+                    if (a1 == nil) then
+                        return 1 > 0;
+                    elseif (a2 == nil) then
+                        return 1 < 0;
+                    end
+                    if (WebDKP_LogSort["way2"] == 1) then
+                        if (a1[WebDKP_LogSort["curr2"]] == a2[WebDKP_LogSort["curr2"]]) then
+                            return a1[1] > a2[1];
                         else
-                            if (a1[WebDKP_LogSort["curr2"]] == a2[WebDKP_LogSort["curr2"]]) then
-                                return a1[1] < a2[1];
-                            else
-                                return a1[WebDKP_LogSort["curr2"]] < a2[WebDKP_LogSort["curr2"]];
-                            end
+                            return a1[WebDKP_LogSort["curr2"]] > a2[WebDKP_LogSort["curr2"]];
+                        end
+                    else
+                        if (a1[WebDKP_LogSort["curr2"]] == a2[WebDKP_LogSort["curr2"]]) then
+                            return a1[1] < a2[1];
+                        else
+                            return a1[WebDKP_LogSort["curr2"]] < a2[WebDKP_LogSort["curr2"]];
                         end
                     end
                 end
-        );
+            end);
 
         local numEntries = getn(entries);
 
@@ -1859,54 +1837,50 @@ function WebDKP_UpdateLogTable()
         end
     end
 end
+
 -- =======================================================
 -- Rerenders the log of people awarded on the right side - Zevious
 -- ========================================================
 function WebDKP_UpdateAwardedTable(reason, date)
 
-    local awarded = { };
-    nameentries = { };
+    local awarded = {};
+    nameentries = {};
     if reason ~= nil and date ~= nil then
-        awarded = WebDKP_Log[reason .. " " .. date]["awarded"];            -- Assigns the table of people awarded
+        awarded = WebDKP_Log[reason .. " " .. date]["awarded"]; -- Assigns the table of people awarded
         for k, v in pairs(awarded) do
             if (type(v) == "table") then
                 if (v["name"] ~= nil) then
 
                     tinsert(nameentries, { v["name"] }); -- copies over the names
-
                 end
             end
         end
-
-
     end
 
     -- SORT
-    table.sort(
-            nameentries,
-            function(a1, a2)
-                if (a1 and a2) then
-                    if (a1 == nil) then
-                        return 1 > 0;
-                    elseif (a2 == nil) then
-                        return 1 < 0;
-                    end
-                    if (WebDKP_LogSort["way3"] == 1) then
-                        if (a1[WebDKP_LogSort["curr3"]] == a2[WebDKP_LogSort["curr3"]]) then
-                            return a1[1] > a2[1];
-                        else
-                            return a1[WebDKP_LogSort["curr3"]] > a2[WebDKP_LogSort["curr3"]];
-                        end
+    table.sort(nameentries,
+        function(a1, a2)
+            if (a1 and a2) then
+                if (a1 == nil) then
+                    return 1 > 0;
+                elseif (a2 == nil) then
+                    return 1 < 0;
+                end
+                if (WebDKP_LogSort["way3"] == 1) then
+                    if (a1[WebDKP_LogSort["curr3"]] == a2[WebDKP_LogSort["curr3"]]) then
+                        return a1[1] > a2[1];
                     else
-                        if (a1[WebDKP_LogSort["curr3"]] == a2[WebDKP_LogSort["curr3"]]) then
-                            return a1[1] < a2[1];
-                        else
-                            return a1[WebDKP_LogSort["curr3"]] < a2[WebDKP_LogSort["curr3"]];
-                        end
+                        return a1[WebDKP_LogSort["curr3"]] > a2[WebDKP_LogSort["curr3"]];
+                    end
+                else
+                    if (a1[WebDKP_LogSort["curr3"]] == a2[WebDKP_LogSort["curr3"]]) then
+                        return a1[1] < a2[1];
+                    else
+                        return a1[WebDKP_LogSort["curr3"]] < a2[WebDKP_LogSort["curr3"]];
                     end
                 end
             end
-    );
+        end);
 
     local numEntries = getn(nameentries);
 
@@ -1939,8 +1913,8 @@ function WebDKP_UpdateAwardedTable(reason, date)
             line:Hide();
         end
     end
-
 end
+
 -- ====================================================================
 -- Called when the user scrolls through the log awarded list. Causes
 -- ====================================================================
@@ -1959,9 +1933,9 @@ function WebDKP_LogUndo()
 
             if WebDKP_Options["EnableSynch"] == 1 then
                 -- Make sure we have synching enabled
-                WebDKP_Synch_Auto(points, "UNDO", "", _G["AwardedReason"], _G["AwardedDate"]);    -- Runs Synch Code
+                WebDKP_Synch_Auto(points, "UNDO", "", _G["AwardedReason"], _G["AwardedDate"]); -- Runs Synch Code
             end
-            awardedtoremove = WebDKP_Log[_G["AwardedReason"] .. " " .. _G["AwardedDate"]]["awarded"];    -- Assigns the table of people awarded
+            awardedtoremove = WebDKP_Log[_G["AwardedReason"] .. " " .. _G["AwardedDate"]]["awarded"]; -- Assigns the table of people awarded
             tableidfrom = WebDKP_Log[_G["AwardedReason"] .. " " .. _G["AwardedDate"]]["tableid"];
             local points = WebDKP_Log[_G["AwardedReason"] .. " " .. _G["AwardedDate"]]["points"];
             local reason = WebDKP_Log[_G["AwardedReason"] .. " " .. _G["AwardedDate"]]["reason"];
@@ -1988,8 +1962,6 @@ function WebDKP_LogUndo()
                         WebDKP_UpdateTableToShow();
                         WebDKP_UpdateTable();
                     end
-
-
                 end
             end
 
@@ -1999,19 +1971,18 @@ function WebDKP_LogUndo()
             _G["AwardedReason"] = "";
             _G["AwardedDate"] = "";
             WebDKP_UpdateLogTable();
-
         end
 
         for i = 1, 23, 1 do
 
             local line = getglobal("WebDKP_LogFrameLines" .. i);
             line:Hide();
-
         end
         local numEntries = 0;
         FauxScrollFrame_Update(WebDKP_LogFrameScrollAwardedFrame, numEntries, 23, 20);
     end
 end
+
 -- ====================================================================
 -- Called when the user scrolls through the log list.
 -- ====================================================================
@@ -2026,7 +1997,6 @@ function WebDKP_ScrollLogListToggle()
             _G["LineLocation"]:SetVertexColor(0, 0, 0, 0);
         end
     end
-
 end
 
 -- ================================
@@ -2038,7 +2008,7 @@ end
 function WebDKPLog_SortBy(id)
 
     if (WebDKP_LogSort["curr2"] == id) then
-        WebDKP_LogSort["way2"] = abs(WebDKP_LogSort["way2"] - 1);        -- toggles between 1 and 0
+        WebDKP_LogSort["way2"] = abs(WebDKP_LogSort["way2"] - 1); -- toggles between 1 and 0
     else
         WebDKP_LogSort["curr2"] = id;
         if (id == 1) then
@@ -2050,7 +2020,6 @@ function WebDKPLog_SortBy(id)
         else
             WebDKP_LogSort["way2"] = 1; --columns with numbers need to be sorted different first in order to get DESC right
         end
-
     end
     -- update table so we can see sorting changes
     WebDKP_UpdateLogTable();
@@ -2062,7 +2031,7 @@ end
 function WebDKPCharLog_SortBy(id)
 
     if (WebDKP_LogSort["curr4"] == id) then
-        WebDKP_LogSort["way4"] = abs(WebDKP_LogSort["way4"] - 1);        -- toggles between 1 and 0
+        WebDKP_LogSort["way4"] = abs(WebDKP_LogSort["way4"] - 1); -- toggles between 1 and 0
     else
         WebDKP_LogSort["curr4"] = id;
         if (id == 1) then
@@ -2074,10 +2043,9 @@ function WebDKPCharLog_SortBy(id)
         else
             WebDKP_LogSort["way4"] = 1; --columns with numbers need to be sorted different first in order to get DESC right
         end
-
     end
-
 end
+
 -- ================================
 -- Called when the user clicks on an Awardee in the award log.
 -- ================================
@@ -2092,7 +2060,6 @@ function WebDKP_SelectAwardeeLogToggle(self)
         if awardee ~= nil then
             WebDKP_LogFrameCharChange:SetText(awardee);
         end
-
     end
 end
 
@@ -2100,7 +2067,7 @@ end
 -- Called when the user clicks Delete Character for the Award Log
 -- =====================================================================
 function WebDKP_DeleteLogChar()
-    local awardedtodel = WebDKP_LogFrameCharChange:GetText();    -- Assigns the person to be removed
+    local awardedtodel = WebDKP_LogFrameCharChange:GetText(); -- Assigns the person to be removed
     local charflag = 0;
 
     if _G["AwardedReason"] ~= "" and _G["AwardedDate"] ~= "" then
@@ -2123,7 +2090,6 @@ function WebDKP_DeleteLogChar()
                         if charname == awardedtodel then
                             charflag = 1;
                         end
-
                     end
                 end
             end
@@ -2155,20 +2121,18 @@ function WebDKP_DeleteLogChar()
                 else
                     WebDKP_UpdateAwardedTable(_G["AwardedReason"], _G["AwardedDate"])
                 end
-
             end
             -- Check to see if we have synching enabled and if we do then send the synch
             if WebDKP_Options["EnableSynch"] == 1 then
-                WebDKP_Synch_Auto(points, "LOGDEL", awardedtodel, _G["AwardedReason"], _G["AwardedDate"])    -- Runs Synch Code
+                WebDKP_Synch_Auto(points, "LOGDEL", awardedtodel, _G["AwardedReason"], _G["AwardedDate"]) -- Runs Synch Code
             end
         end
-
     end
     WebDKP_UpdateTableToShow();
     if WebDKP_Options["EPGPEnabled"] == 0 then
-        WebDKP_UpdateTable();       --update the gui
+        WebDKP_UpdateTable(); --update the gui
     else
-        WebDKP_UpdateEPGPTable();       --update the gui
+        WebDKP_UpdateEPGPTable(); --update the gui
     end
 end
 
@@ -2177,7 +2141,7 @@ end
 -- Called when the user clicks Add Character for the Award Log
 -- =====================================================================
 function WebDKP_AddLogChar()
-    local awardedtoadd = WebDKP_LogFrameCharChange:GetText();    -- Assigns the person to be added
+    local awardedtoadd = WebDKP_LogFrameCharChange:GetText(); -- Assigns the person to be added
     local tableid = WebDKP_GetTableid();
 
     if _G["AwardedReason"] ~= "" and _G["AwardedDate"] ~= "" then
@@ -2215,7 +2179,7 @@ function WebDKP_AddLogChar()
                 WebDKP_UpdateLogTable();
                 if WebDKP_Options["EnableSynch"] == 1 then
                     -- Make sure we have synching enabled
-                    WebDKP_Synch_Auto(points, "LOGADD", awardedtoadd, _G["AwardedReason"], _G["AwardedDate"])    -- Runs Synch Code
+                    WebDKP_Synch_Auto(points, "LOGADD", awardedtoadd, _G["AwardedReason"], _G["AwardedDate"]) -- Runs Synch Code
                 end
             end
         end
@@ -2224,9 +2188,9 @@ function WebDKP_AddLogChar()
     end
     WebDKP_UpdateTableToShow();
     if WebDKP_Options["EPGPEnabled"] == 0 then
-        WebDKP_UpdateTable();       --update the gui
+        WebDKP_UpdateTable(); --update the gui
     else
-        WebDKP_UpdateEPGPTable();       --update the gui
+        WebDKP_UpdateEPGPTable(); --update the gui
     end
 end
 
@@ -2248,6 +2212,7 @@ function WebDKP_ProcessItemSlotMulti(itemdesc, itemlocation)
     WebDKP_ItemSlotFrameTitle:SetText(itemdesc);
     WebDKP_ItemSlotFrameCost:SetText(itemvalue);
 end
+
 -- ====================================================================
 -- Process the itemslot location mult change
 -- =====================================================================
@@ -2295,5 +2260,4 @@ function WebDKP_SetItemSlotMulti(value, itemdesc)
     end
 
     WebDKP_Options["ItemLocMult"][itemlocation] = value;
-
 end

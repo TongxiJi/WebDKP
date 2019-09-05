@@ -274,7 +274,7 @@
         <Layers>
             <Layer level="OVERLAY">
                 <!-- DKP TABLE TITLE -->
-                <FontString name="WebDKP_Header" inherits="GameFontNormalLarge" text="DKP Table:">
+                <FontString name="WebDKP_Header" inherits="GameFontNormalLarge" text="DKP列表:">
                     <Anchors>
                         <Anchor point="TOPLEFT">
                             <Offset>
@@ -342,7 +342,7 @@
                 </Scripts>
                 <Layers>
                     <Layer level="OVERLAY">
-                        <FontString inherits="GameFontNormal" text="Name">
+                        <FontString inherits="GameFontNormal" text="名字">
                             <Anchors>
                                 <Anchor point="LEFT">
                                     <Offset>
@@ -375,7 +375,7 @@
                 </Scripts>
                 <Layers>
                     <Layer level="OVERLAY">
-                        <FontString inherits="GameFontNormal" text="Name">
+                        <FontString inherits="GameFontNormal" text="名字">
                             <Anchors>
                                 <Anchor point="LEFT">
                                     <Offset>
@@ -408,7 +408,7 @@
                 </Scripts>
                 <Layers>
                     <Layer level="OVERLAY">
-                        <FontString inherits="GameFontNormal" text="Class">
+                        <FontString inherits="GameFontNormal" text="职业">
                             <Anchors>
                                 <Anchor point="LEFT">
                                     <Offset>
@@ -440,7 +440,7 @@
                 </Scripts>
                 <Layers>
                     <Layer level="OVERLAY">
-                        <FontString inherits="GameFontNormal" text="Class">
+                        <FontString inherits="GameFontNormal" text="职业">
                             <Anchors>
                                 <Anchor point="LEFT">
                                     <Offset>
@@ -600,7 +600,7 @@
                 </Scripts>
                 <Layers>
                     <Layer level="OVERLAY">
-                        <FontString inherits="GameFontNormal" text="Guild Rank">
+                        <FontString inherits="GameFontNormal" text="会阶">
                             <Anchors>
                                 <Anchor point="LEFT">
                                     <Offset>
@@ -632,7 +632,7 @@
                 </Scripts>
                 <Layers>
                     <Layer level="OVERLAY">
-                        <FontString inherits="GameFontNormal" text="Guild Rank">
+                        <FontString inherits="GameFontNormal" text="会阶">
                             <Anchors>
                                 <Anchor point="LEFT">
                                     <Offset>
@@ -1674,7 +1674,7 @@
                                 </Anchor>
                             </Anchors>
                         </FontString>
-                        <FontString name="WebDKP_Decay_Header" inherits="GameFontNormalLarge" text="DKP Decay:">
+                        <FontString name="WebDKP_Decay_Header" inherits="GameFontNormalLarge" text="DKP衰减:">
                             <Anchors>
                                 <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parentInfo1">
                                     <Offset>
@@ -1741,7 +1741,8 @@
                         </Anchors>
                         <Layers>
                             <Layer level="ARTWORK">
-                                <FontString name="$parentLabel" inherits="GameFontNormal" text="Points: (Use negative # to deduct points)">
+                                <FontString name="$parentLabel" inherits="GameFontNormal"
+                                            text="Points: (Use negative # to deduct points)">
                                     <Anchors>
                                         <Anchor point="TOPLEFT">
                                             <Offset>
@@ -1786,7 +1787,8 @@
                         </Anchors>
                         <Layers>
                             <Layer level="ARTWORK">
-                                <FontString name="$parentLabel" inherits="GameFontNormal" text="Decay value:(.4), (-.4) etc">
+                                <FontString name="$parentLabel" inherits="GameFontNormal"
+                                            text="Decay value:(.4), (-.4) etc">
                                     <Anchors>
                                         <Anchor point="TOPLEFT">
                                             <Offset>
@@ -1876,7 +1878,7 @@
                 </Backdrop>
                 <Layers>
                     <Layer level="OVERLAY">
-                        <FontString name="WebDKP_Header" inherits="GameFontNormalLarge" text="Award Item:">
+                        <FontString name="$parentHeader" inherits="GameFontNormalLarge" text="Award Item:">
                             <Anchors>
                                 <Anchor point="TOPLEFT">
                                     <Offset>
@@ -1885,22 +1887,12 @@
                                 </Anchor>
                             </Anchors>
                         </FontString>
-                        <FontString name="$parentInfo1" inherits="GameFontNormal"
+                        <FontString name="$parentInfo1" inherits="GameFontNormal" justifyH="LEFT"
                                     text="Select recieving player from table on left">
                             <Anchors>
                                 <Anchor point="TOPLEFT">
                                     <Offset>
                                         <AbsDimension x="12" y="-35"/>
-                                    </Offset>
-                                </Anchor>
-                            </Anchors>
-                        </FontString>
-                        <FontString name="$parentInfo1" inherits="GameFontNormal"
-                                    text="and enter item information below.">
-                            <Anchors>
-                                <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parentInfo1">
-                                    <Offset>
-                                        <AbsDimension x="0" y="-5"/>
                                     </Offset>
                                 </Anchor>
                             </Anchors>
@@ -1916,13 +1908,13 @@
                         <Anchors>
                             <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parentInfo1">
                                 <Offset>
-                                    <AbsDimension x="5" y="-22"/>
+                                    <AbsDimension x="5" y="-40"/>
                                 </Offset>
                             </Anchor>
                         </Anchors>
                         <Layers>
                             <Layer level="ARTWORK">
-                                <FontString inherits="GameFontNormal" text="Item Name:">
+                                <FontString name="$parentLabel" inherits="GameFontNormal" text="Item Name:">
                                     <Anchors>
                                         <Anchor point="TOPLEFT">
                                             <Offset>
@@ -1953,7 +1945,8 @@
                         </Anchors>
                         <Layers>
                             <Layer level="ARTWORK">
-                                <FontString inherits="GameFontNormal" text="Item Cost: (Positive numbers only)">
+                                <FontString name="$parentLabel" inherits="GameFontNormal"
+                                            text="Item Cost: (Positive numbers only)">
                                     <Anchors>
                                         <Anchor point="TOPLEFT">
                                             <Offset>
@@ -1964,7 +1957,7 @@
                                 </FontString>
                             </Layer>
                             <Layer level="ARTWORK">
-                                <FontString inherits="GameFontNormal" text="(Include % after for percents (50%)">
+                                <FontString inherits="GameFontNormal" text="">
                                     <Anchors>
                                         <Anchor point="TOPLEFT">
                                             <Offset>
@@ -1996,6 +1989,15 @@
                         </Scripts>
                     </Button>
                 </Frames>
+                <Scripts>
+                    <OnLoad>
+                        _G["WebDKP_AwardItem_FrameHeader"]:SetText(WebDKP.translations.AWARD_ITEM_HEADER)
+                        _G["WebDKP_AwardItem_FrameInfo1"]:SetText(WebDKP.translations.AWARD_ITEM_INFO1)
+                        _G["WebDKP_AwardItem_FrameItemNameLabel"]:SetText(WebDKP.translations.AWARD_ITEM_ITEM_NAME_LABEL)
+                        _G["WebDKP_AwardItem_FrameItemCostLabel"]:SetText(WebDKP.translations.AWARD_ITEM_ITEM_COST_LABEL)
+                        _G["WebDKP_AwardItem_FrameAwardItem"]:SetText(WebDKP.translations.AWARD_ITEM_AWARD_ITEM)
+                    </OnLoad>
+                </Scripts>
             </Frame>
 
             <!-- Standby Player FRAME -->
@@ -2026,7 +2028,7 @@
                 </Backdrop>
                 <Layers>
                     <Layer level="OVERLAY">
-                        <FontString name="WebDKP_Header" inherits="GameFontNormalLarge" text="Standby Players:">
+                        <FontString name="$parentHeader" inherits="GameFontNormalLarge" text="Standby Players:">
                             <Anchors>
                                 <Anchor point="TOPLEFT">
                                     <Offset>
@@ -2037,7 +2039,8 @@
                         </FontString>
                     </Layer>
                     <Layer level="OVERLAY">
-                        <FontString inherits="GameFontNormal" text="Players can add or remove thesmelves with:">
+                        <FontString name="$parentInfo1" inherits="GameFontNormal" justifyH="LEFT"
+                                    text="Players can add or remove thesmelves with:">
                             <Anchors>
                                 <Anchor point="TOPLEFT">
                                     <Offset>
@@ -2047,19 +2050,6 @@
                             </Anchors>
                         </FontString>
                     </Layer>
-                    <Layer level="OVERLAY">
-                        <FontString inherits="GameFontNormal" text="!standby add or !standby del">
-                            <Anchors>
-                                <Anchor point="TOPLEFT">
-                                    <Offset>
-                                        <AbsDimension x="10" y="-210"/>
-                                    </Offset>
-                                </Anchor>
-                            </Anchors>
-                        </FontString>
-                    </Layer>
-
-
                 </Layers>
                 <Frames>
 
@@ -2077,7 +2067,7 @@
                         </Anchors>
                         <Layers>
                             <Layer level="ARTWORK">
-                                <FontString inherits="GameFontNormal" text="Player Name:">
+                                <FontString name="$parentLabel" inherits="GameFontNormal" text="Player Name:">
                                     <Anchors>
                                         <Anchor point="TOPLEFT">
                                             <Offset>
@@ -2164,6 +2154,7 @@
                     </Button>
 
                     <CheckButton name="$parentEnableStandbyZeroSum" inherits="OptionsCheckButtonTemplate"
+                                 text="Enable Zerosum for Standby Players"
                                  checked="true">
                         <Anchors>
                             <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parentResetStandby">
@@ -2172,19 +2163,6 @@
                                 </Offset>
                             </Anchor>
                         </Anchors>
-                        <Layers>
-                            <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Enable Zerosum for Standby Players">
-                                    <Anchors>
-                                        <Anchor point="LEFT">
-                                            <Offset>
-                                                <AbsDimension x="35" y="0"/>
-                                            </Offset>
-                                        </Anchor>
-                                    </Anchors>
-                                </FontString>
-                            </Layer>
-                        </Layers>
                         <Scripts>
                             <OnClick>
                                 WebDKP_Options_ToggleOption("ZeroSumStandby");
@@ -2192,7 +2170,10 @@
                         </Scripts>
                     </CheckButton>
 
-                    <CheckButton name="$parentEnableStandbyTimed" inherits="OptionsCheckButtonTemplate" checked="true">
+                    <CheckButton name="$parentEnableStandbyTimed"
+                                 inherits="OptionsCheckButtonTemplate"
+                                 checked="true"
+                                 text="Enable Timed Awards for Standby">
                         <Anchors>
                             <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parentResetStandby">
                                 <Offset>
@@ -2200,19 +2181,6 @@
                                 </Offset>
                             </Anchor>
                         </Anchors>
-                        <Layers>
-                            <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Enable Timed Awards for Standby">
-                                    <Anchors>
-                                        <Anchor point="LEFT">
-                                            <Offset>
-                                                <AbsDimension x="35" y="0"/>
-                                            </Offset>
-                                        </Anchor>
-                                    </Anchors>
-                                </FontString>
-                            </Layer>
-                        </Layers>
                         <Scripts>
                             <OnClick>
                                 WebDKP_Options_ToggleOption("TimedStandby");
@@ -2221,6 +2189,18 @@
                     </CheckButton>
 
                 </Frames>
+                <Scripts>
+                    <OnLoad>
+                        _G["WebDKP_Standby_Frame".."Header"]:SetText(WebDKP.translations.FILTER_HEADER)
+                        _G["WebDKP_Standby_Frame".."Info1"]:SetText(WebDKP.translations.STANDBY_INFO1)
+                        _G["WebDKP_Standby_Frame".."AddStandbyLabel"]:SetText(WebDKP.translations.STANDBY_ADD_STANDBY_LABEL)
+                        _G["WebDKP_Standby_Frame".."AddToStandby"]:SetText(WebDKP.translations.STANDBY_ADD_TO_STANDBY)
+                        _G["WebDKP_Standby_Frame".."DelStandby"]:SetText(WebDKP.translations.STANDBY_DEL_STANDBY)
+                        _G["WebDKP_Standby_Frame".."ResetStandby"]:SetText(WebDKP.translations.STANDBY_RESET_STANDBY)
+                        _G["WebDKP_Standby_Frame".."EnableStandbyZeroSum".."Text"]:SetText(WebDKP.translations.STANDBY_ENABLE_STANDBY_ZEROSUM)
+                        _G["WebDKP_Standby_Frame".."EnableStandbyTimed".."Text"]:SetText(WebDKP.translations.STANDBY_ENABLE_STANDBY_TIMED)
+                    </OnLoad>
+                </Scripts>
             </Frame>
 
 

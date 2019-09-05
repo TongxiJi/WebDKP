@@ -11,24 +11,24 @@
 -- awards you just need to edit these strings. 
 -- Do display a new line in your message use \n. 
 
-WebDKP_ItemAward = "WebDKP: $player awarded $item for: $cost dkp.";
+WebDKP_ItemAward = "WebDKP: $player 给予装备: $item ,被扣了: $cost DKP";
 
-WebDKP_ItemAwardZeroSum = "WebDKP: $dkp dkp awarded to all players for ZeroSum: $item";
+WebDKP_ItemAwardZeroSum = "WebDKP: $dkp 点DKP被奖惩给所有玩家, 零和规则: $item";
 
-WebDKP_DkpAwardAll = "WebDKP: $dkp dkp given to all players for: $reason.";
+WebDKP_DkpAwardAll = "WebDKP: $dkp 点DKP给予了所有玩家, 原因: $reason.";
 
-WebDKP_DkpAwardSome = "WebDKP: $dkp dkp given to selected players for: $reason. \nReceiving players have all been whispered.";
+WebDKP_DkpAwardSome = "WebDKP: $dkp 点DKP给予了所有被选择的玩家, 原因: $reason. \n接收到的玩家都被密语了.";
 
-WebDKP_BidStart = "WebDKP: Bidding has started on $item! $time " ..
+WebDKP_BidStart = "WebDKP: 竞拍已开始 $item! $time " ..
         "$startingBid" ..
         "$instructions";
 
-WebDKP_BidEnd = "WebDKP: Bidding has ended for $item The winner was $name who bid $dkp dkp";
-WebDKP_BidEndSilent = "WebDKP: Bidding has ended for $item";
-WebDKP_RollEnd = "WebDKP: Rolling has ended for $item. $name was the high roller with a $roll";
+WebDKP_BidEnd = "WebDKP: $item 竞拍已结束, 胜利者为 $name , $dkp dkp";
+WebDKP_BidEndSilent = "WebDKP: 竞拍已结束 $item";
+WebDKP_RollEnd = "WebDKP: Roll点已结束 $item , $name 是最高点, 为 $roll";
 
-WebDKP_TimedAward = "WebDKP: $minutes Minute Timed Award of $dkp dkp Given";
-WebDKP_BossAwardNum = "WebDKP: Great Job! A Boss Award of $dkp Has Been Given";
+WebDKP_TimedAward = "WebDKP: $minutes 分钟奖励分, 已给予 $dkp dkp";
+WebDKP_BossAwardNum = "WebDKP: 干得漂亮! Boss奖励分: $dkp 已自动给予";
 
 -- ================================
 -- Returns the location where notifications should be sent to. 
@@ -117,7 +117,7 @@ function WebDKP_AnnounceAward(dkp, reason)
                 if (type(v) == "table") then
                     if (v["Selected"]) then
                         --WebDKP_SendAnnouncement(key_name,tellLocation);
-                        WebDKP_SendWhisper(key_name, "You have been awarded " .. dkp .. " dkp");
+                        WebDKP_SendWhisper(key_name, "你被奖惩了 " .. dkp .. "点dkp");
                     end
                 end
             end

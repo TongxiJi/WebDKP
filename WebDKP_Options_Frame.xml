@@ -10,7 +10,7 @@
         </Size>
         <Scripts>
             <OnClick>
-                WebDKP_Options_Tab_OnClick(self);
+                    WebDKP_Options_Tab_OnClick(self);
             </OnClick>
         </Scripts>
     </Button>
@@ -21,20 +21,6 @@
          =================================================-->
     <Frame name="WebDKP_OptionsFrame" toplevel="true" parent="UIParent" movable="true" hidden="true">
         <!-- EVENT HANDLERS FOR THE MASTER FRAME -->
-        <Scripts>
-            <OnMouseDown>
-                self:StartMoving(self);
-            </OnMouseDown>
-            <OnMouseUp>
-                self:StopMovingOrSizing(self);
-            </OnMouseUp>
-            <OnLoad>
-                WebDKP_OnLoad(self);
-            </OnLoad>
-            <OnEvent>
-                WebDKP_OnEvent(self);
-            </OnEvent>
-        </Scripts>
         <Size>
             <AbsDimension x="570" y="450"/>
         </Size>
@@ -105,7 +91,7 @@
                 </Anchors>
                 <Scripts>
                     <OnClick>
-                        HideUIPanel(self:GetParent(self));
+                            HideUIPanel(self:GetParent(self));
                     </OnClick>
                 </Scripts>
                 <NormalTexture file="Interface\Buttons\UI-Panel-MinimizeButton-Up"/>
@@ -121,7 +107,7 @@
                 </Anchors>
                 <Layers>
                     <Layer level="OVERLAY">
-                        <FontString inherits="GameFontNormalLarge" text="General Options:">
+                        <FontString name="$parentTitle" inherits="GameFontNormalLarge" text="General Options:">
                             <Anchors>
                                 <Anchor point="TOPLEFT">
                                     <Offset>
@@ -235,7 +221,7 @@
                         </Anchors>
                         <Layers>
                             <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Autofill Enabled">
+                                <FontString name="$parentLabel" inherits="GameFontNormal" text="Autofill Enabled">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -248,7 +234,7 @@
                         </Layers>
                         <Scripts>
                             <OnClick>
-                                WebDKP_ToggleAutofill(self);
+                                    WebDKP_ToggleAutofill(self);
                             </OnClick>
                         </Scripts>
                     </CheckButton>
@@ -277,15 +263,15 @@
                         </Layers>
                         <Scripts>
                             <OnClick>
-                                WebDKP_Options_ToggleOption("EPGPEnabled");
-                                if ( WebDKP_Frame:IsShown() ) then
-                                WebDKP_Frame:Hide();
-                                WebDKP_Table_GUI();
-                                end
-                                if ( WebDKP_BidFrame:IsShown() ) then
-                                WebDKP_BidFrame:Hide();
-                                WebDKP_Bid_ToggleUI();
-                                end
+                                    WebDKP_Options_ToggleOption("EPGPEnabled");
+                                    if (WebDKP_Frame:IsShown()) then
+                                        WebDKP_Frame:Hide();
+                                        WebDKP_Table_GUI();
+                                    end
+                                    if (WebDKP_BidFrame:IsShown()) then
+                                        WebDKP_BidFrame:Hide();
+                                        WebDKP_Bid_ToggleUI();
+                                    end
 
                                 <!-- Add something to refresh the dkp table if it's open so it displays EPGP properly -->
                             </OnClick>
@@ -307,7 +293,7 @@
                         </Anchors>
                         <Scripts>
                             <OnLoad>
-                                WebDKP_Options_Autofill_DropDown_OnLoad(self);
+                                    WebDKP_Options_Autofill_DropDown_OnLoad(self);
                             </OnLoad>
                         </Scripts>
                         <Layers>
@@ -336,7 +322,7 @@
                         </Anchors>
                         <Layers>
                             <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="AutoAward Enabled">
+                                <FontString name="$parentLabel" inherits="GameFontNormal" text="AutoAward Enabled">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -349,7 +335,7 @@
                         </Layers>
                         <Scripts>
                             <OnClick>
-                                WebDKP_Options_ToggleOption("WebDKP_Options_ToggleOption");
+                                    WebDKP_Options_ToggleOption("WebDKP_Options_ToggleOption");
                             </OnClick>
                         </Scripts>
                     </CheckButton>
@@ -365,7 +351,7 @@
                         </Anchors>
                         <Layers>
                             <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="ZeroSum Enabled">
+                                <FontString name="$parentLabel" inherits="GameFontNormal" text="ZeroSum Enabled">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -378,7 +364,7 @@
                         </Layers>
                         <Scripts>
                             <OnClick>
-                                WebDKP_Options_ToggleOption("ZeroSumEnabled");
+                                    WebDKP_Options_ToggleOption("ZeroSumEnabled");
                             </OnClick>
                         </Scripts>
                     </CheckButton>
@@ -394,7 +380,7 @@
                         </Anchors>
                         <Layers>
                             <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Enable/Disable">
+                                <FontString name="$parentLabel" inherits="GameFontNormal" text="Enable/Disable">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -407,7 +393,7 @@
                         </Layers>
                         <Scripts>
                             <OnClick>
-                                WebDKP_Options_ToggleOption("AwardBossDKP");
+                                    WebDKP_Options_ToggleOption("AwardBossDKP");
                             </OnClick>
                         </Scripts>
                     </CheckButton>
@@ -423,7 +409,7 @@
                         </Anchors>
                         <Layers>
                             <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Alt+Click Enabled">
+                                <FontString name="$parentLabel" inherits="GameFontNormal" text="Alt+Click Enabled">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -436,7 +422,7 @@
                         </Layers>
                         <Scripts>
                             <OnClick>
-                                WebDKP_Options_ToggleOption("AltClick");
+                                    WebDKP_Options_ToggleOption("AltClick");
                             </OnClick>
                         </Scripts>
                     </CheckButton>
@@ -452,7 +438,7 @@
                         </Anchors>
                         <Layers>
                             <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Ignore Enabled">
+                                <FontString name="$parentLabel" inherits="GameFontNormal" text="Ignore Enabled">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -465,7 +451,7 @@
                         </Layers>
                         <Scripts>
                             <OnClick>
-                                WebDKP_Options_ToggleOption("IgnWhispers");
+                                    WebDKP_Options_ToggleOption("IgnWhispers");
                             </OnClick>
                         </Scripts>
                     </CheckButton>
@@ -481,7 +467,7 @@
                         </Anchors>
                         <Layers>
                             <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="DKP Cap Enabled">
+                                <FontString name="$parentLabel" inherits="GameFontNormal" text="DKP Cap Enabled">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -494,7 +480,7 @@
                         </Layers>
                         <Scripts>
                             <OnClick>
-                                WebDKP_Options_ToggleOption("dkpCap");
+                                    WebDKP_Options_ToggleOption("dkpCap");
                             </OnClick>
                         </Scripts>
                     </CheckButton>
@@ -513,7 +499,7 @@
                         </Anchors>
                         <Layers>
                             <Layer level="ARTWORK">
-                                <FontString inherits="GameFontNormal" text="Cap Limit:">
+                                <FontString name="$parentLabel" inherits="GameFontNormal" text="Cap Limit:">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -526,7 +512,7 @@
                         </Layers>
                         <Scripts>
                             <OnLoad>
-                                getglobal(self:GetParent(self):GetName(self).."dkpCapLimit"):SetAutoFocus( false );
+                                    getglobal(self:GetParent(self):GetName(self) .. "dkpCapLimit"):SetAutoFocus(false);
                             </OnLoad>
                             <OnEscapePressed>
                                 getglobal(self:GetParent(self):GetName(self).."dkpCapLimit"):ClearFocus(self);
@@ -555,7 +541,7 @@
                         </Anchors>
                         <Layers>
                             <Layer level="ARTWORK">
-                                <FontString inherits="GameFontNormal" text="DKP Amount:">
+                                <FontString name="$parentLabel" inherits="GameFontNormal" text="DKP Amount:">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -568,7 +554,7 @@
                         </Layers>
                         <Scripts>
                             <OnLoad>
-                                getglobal(self:GetParent(self):GetName(self).."BossDKP"):SetAutoFocus( false );
+                                    getglobal(self:GetParent(self):GetName(self) .. "BossDKP"):SetAutoFocus(false);
                             </OnLoad>
                             <OnEscapePressed>
                                 getglobal(self:GetParent(self):GetName(self).."BossDKP"):ClearFocus(self);
@@ -595,7 +581,7 @@
                         </Anchors>
                         <Layers>
                             <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Enable 10 Mans">
+                                <FontString name="$parentLabel" inherits="GameFontNormal" text="Enable 10 Mans">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -608,7 +594,7 @@
                         </Layers>
                         <Scripts>
                             <OnClick>
-                                WebDKP_Options_ToggleOption("AwardBossDKP10");
+                                    WebDKP_Options_ToggleOption("AwardBossDKP10");
                             </OnClick>
                         </Scripts>
                     </CheckButton>
@@ -625,7 +611,7 @@
                         </Anchors>
                         <Layers>
                             <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Enable 25 Mans">
+                                <FontString name="$parentLabel" inherits="GameFontNormal" text="Enable 25 Mans">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -638,7 +624,7 @@
                         </Layers>
                         <Scripts>
                             <OnClick>
-                                WebDKP_Options_ToggleOption("AwardBossDKP25");
+                                    WebDKP_Options_ToggleOption("AwardBossDKP25");
                             </OnClick>
                         </Scripts>
                     </CheckButton>
@@ -654,7 +640,7 @@
                         </Anchors>
                         <Layers>
                             <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="WebDKP Enabled">
+                                <FontString name="$parentLabel" inherits="GameFontNormal" text="WebDKP Enabled">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -667,7 +653,7 @@
                         </Layers>
                         <Scripts>
                             <OnClick>
-                                WebDKP_Options_ToggleOption("Enabled");
+                                    WebDKP_Options_ToggleOption("Enabled");
                             </OnClick>
                         </Scripts>
                     </CheckButton>
@@ -707,7 +693,8 @@
                         </Anchors>
                         <Layers>
                             <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Announce in Raid Warning">
+                                <FontString name="$parentLabel" inherits="GameFontNormal"
+                                            text="Announce in Raid Warning">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -720,7 +707,7 @@
                         </Layers>
                         <Scripts>
                             <OnClick>
-                                WebDKP_Options_ToggleOption("BidAnnounceRaid");
+                                    WebDKP_Options_ToggleOption("BidAnnounceRaid");
                             </OnClick>
                         </Scripts>
                     </CheckButton>
@@ -737,7 +724,8 @@
                         </Anchors>
                         <Layers>
                             <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Confirm Bid Awards w/ Popup">
+                                <FontString name="$parentLabel" inherits="GameFontNormal"
+                                            text="Confirm Bid Awards w/ Popup">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -750,7 +738,7 @@
                         </Layers>
                         <Scripts>
                             <OnClick>
-                                WebDKP_Options_ToggleOption("BidConfirmPopup");
+                                    WebDKP_Options_ToggleOption("BidConfirmPopup");
                             </OnClick>
                         </Scripts>
                     </CheckButton>
@@ -767,7 +755,7 @@
                         </Anchors>
                         <Layers>
                             <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Allow Negative Bids">
+                                <FontString name="$parentLabel1" inherits="GameFontNormal" text="Allow Negative Bids">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -776,7 +764,8 @@
                                         </Anchor>
                                     </Anchors>
                                 </FontString>
-                                <FontString inherits="GameFontNormal" text="(People can bid more than they have)">
+                                <FontString name="$parentLabel2" inherits="GameFontNormal"
+                                            text="(People can bid more than they have)">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -789,7 +778,7 @@
                         </Layers>
                         <Scripts>
                             <OnClick>
-                                WebDKP_Options_ToggleOption("BidAllowNegativeBids");
+                                    WebDKP_Options_ToggleOption("BidAllowNegativeBids");
                             </OnClick>
                         </Scripts>
                     </CheckButton>
@@ -806,7 +795,7 @@
                         </Anchors>
                         <Layers>
                             <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Use Fixed Bidding">
+                                <FontString name="$parentLabel1" inherits="GameFontNormal" text="Use Fixed Bidding">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -815,7 +804,8 @@
                                         </Anchor>
                                     </Anchors>
                                 </FontString>
-                                <FontString inherits="GameFontNormal" text="(Always charges cost from loot table)">
+                                <FontString name="$parentLabel2" inherits="GameFontNormal"
+                                            text="(Always charges cost from loot table)">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -828,7 +818,7 @@
                         </Layers>
                         <Scripts>
                             <OnClick>
-                                WebDKP_Fixed_Bidding(self);
+                                    WebDKP_Fixed_Bidding(self);
                             </OnClick>
                         </Scripts>
                     </CheckButton>
@@ -845,7 +835,7 @@
                         </Anchors>
                         <Layers>
                             <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Notify Low Bidders">
+                                <FontString name="$parentLabel1" inherits="GameFontNormal" text="Notify Low Bidders">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -854,7 +844,8 @@
                                         </Anchor>
                                     </Anchors>
                                 </FontString>
-                                <FontString inherits="GameFontNormal" text="(Tell people when they have bid too low)">
+                                <FontString name="$parentLabel2" inherits="GameFontNormal"
+                                            text="(Tell people when they have bid too low)">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -867,7 +858,7 @@
                         </Layers>
                         <Scripts>
                             <OnClick>
-                                WebDKP_Options_ToggleOption("BidNotifyLowBids");
+                                    WebDKP_Options_ToggleOption("BidNotifyLowBids");
                             </OnClick>
                         </Scripts>
                     </CheckButton>
@@ -884,7 +875,7 @@
                         </Anchors>
                         <Layers>
                             <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Auto Give Items">
+                                <FontString name="$parentLabel1" inherits="GameFontNormal" text="Auto Give Items">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -893,7 +884,8 @@
                                         </Anchor>
                                     </Anchors>
                                 </FontString>
-                                <FontString inherits="GameFontNormal" text="(Caution! Gives Items Automatically">
+                                <FontString name="$parentLabel2" inherits="GameFontNormal"
+                                            text="(Caution! Gives Items Automatically">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -906,7 +898,7 @@
                         </Layers>
                         <Scripts>
                             <OnClick>
-                                WebDKP_Options_ToggleOption("AutoGive");
+                                    WebDKP_Options_ToggleOption("AutoGive");
                             </OnClick>
                         </Scripts>
                     </CheckButton>
@@ -922,7 +914,7 @@
                         </Anchors>
                         <Layers>
                             <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Turn Base DKP">
+                                <FontString name="$parentLabel1" inherits="GameFontNormal" text="Turn Base DKP">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -931,7 +923,8 @@
                                         </Anchor>
                                     </Anchors>
                                 </FontString>
-                                <FontString inherits="GameFontNormal" text="Also enables fixed bidding above.">
+                                <FontString name="$parentLabel2" inherits="GameFontNormal"
+                                            text="Also enables fixed bidding above.">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -944,7 +937,7 @@
                         </Layers>
                         <Scripts>
                             <OnClick>
-                                WebDKP_Turn_Base(self);
+                                    WebDKP_Turn_Base(self);
                             </OnClick>
                         </Scripts>
                     </CheckButton>
@@ -961,7 +954,7 @@
                         </Anchors>
                         <Layers>
                             <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Silent Bidding.">
+                                <FontString name="$parentLabel1" inherits="GameFontNormal" text="Silent Bidding.">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -970,7 +963,8 @@
                                         </Anchor>
                                     </Anchors>
                                 </FontString>
-                                <FontString inherits="GameFontNormal" text="Doesn't announce who's winning.">
+                                <FontString name="$parentLabel2" inherits="GameFontNormal"
+                                            text="Doesn't announce who's winning.">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -983,7 +977,7 @@
                         </Layers>
                         <Scripts>
                             <OnClick>
-                                WebDKP_Options_ToggleOption("SilentBidding");
+                                    WebDKP_Options_ToggleOption("SilentBidding");
                             </OnClick>
                         </Scripts>
                     </CheckButton>
@@ -999,7 +993,8 @@
                         </Anchors>
                         <Layers>
                             <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Monitor Rolls during Bidding.">
+                                <FontString name="$parentLabel1" inherits="GameFontNormal"
+                                            text="Monitor Rolls during Bidding.">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -1008,7 +1003,8 @@
                                         </Anchor>
                                     </Anchors>
                                 </FontString>
-                                <FontString inherits="GameFontNormal" text="Check if you roll for offspec items.">
+                                <FontString name="$parentLabel2" inherits="GameFontNormal"
+                                            text="Check if you roll for offspec items.">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -1021,7 +1017,7 @@
                         </Layers>
                         <Scripts>
                             <OnClick>
-                                WebDKP_Options_ToggleOption("BidandRoll");
+                                    WebDKP_Options_ToggleOption("BidandRoll");
                             </OnClick>
                         </Scripts>
                     </CheckButton>
@@ -1037,7 +1033,7 @@
                         </Anchors>
                         <Layers>
                             <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Enable % for !need">
+                                <FontString name="$parentLabel1" inherits="GameFontNormal" text="Enable % for !need">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -1046,7 +1042,8 @@
                                         </Anchor>
                                     </Anchors>
                                 </FontString>
-                                <FontString inherits="GameFontNormal" text="Enables user defined % for !need">
+                                <FontString name="$parentLabel2" inherits="GameFontNormal"
+                                            text="Enables user defined % for !need">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -1059,7 +1056,7 @@
                         </Layers>
                         <Scripts>
                             <OnClick>
-                                WebDKP_Options_ToggleOption("AllNeed");
+                                    WebDKP_Options_ToggleOption("AllNeed");
                             </OnClick>
                         </Scripts>
                     </CheckButton>
@@ -1078,7 +1075,7 @@
                         </Anchors>
                         <Layers>
                             <Layer level="ARTWORK">
-                                <FontString inherits="GameFontNormal" text="!Need DKP %:">
+                                <FontString name="$parentLabel" inherits="GameFontNormal" text="!Need DKP %:">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -1091,7 +1088,7 @@
                         </Layers>
                         <Scripts>
                             <OnLoad>
-                                getglobal(self:GetParent(self):GetName(self).."NeedDKP"):SetAutoFocus( false );
+                                    getglobal(self:GetParent(self):GetName(self) .. "NeedDKP"):SetAutoFocus(false);
                             </OnLoad>
                             <OnEscapePressed>
                                 getglobal(self:GetParent(self):GetName(self).."NeedDKP"):ClearFocus(self);
@@ -1118,7 +1115,7 @@
                         </Anchors>
                         <Layers>
                             <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Enable % for !greed">
+                                <FontString name="$parentLabel1" inherits="GameFontNormal" text="Enable % for !greed">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -1127,7 +1124,8 @@
                                         </Anchor>
                                     </Anchors>
                                 </FontString>
-                                <FontString inherits="GameFontNormal" text="Enables user defined % for !greed">
+                                <FontString name="$parentLabel2" inherits="GameFontNormal"
+                                            text="Enables user defined % for !greed">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -1140,7 +1138,7 @@
                         </Layers>
                         <Scripts>
                             <OnClick>
-                                WebDKP_Options_ToggleOption("FiftyGreed");
+                                    WebDKP_Options_ToggleOption("FiftyGreed");
                             </OnClick>
                         </Scripts>
                     </CheckButton>
@@ -1160,7 +1158,7 @@
                         </Anchors>
                         <Layers>
                             <Layer level="ARTWORK">
-                                <FontString inherits="GameFontNormal" text="!Greed DKP %:">
+                                <FontString name="$parentLabel" inherits="GameFontNormal" text="!Greed DKP %:">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -1173,7 +1171,7 @@
                         </Layers>
                         <Scripts>
                             <OnLoad>
-                                getglobal(self:GetParent(self):GetName(self).."GreedDKP"):SetAutoFocus( false );
+                                    getglobal(self:GetParent(self):GetName(self) .. "GreedDKP"):SetAutoFocus(false);
                             </OnLoad>
                             <OnEscapePressed>
                                 getglobal(self:GetParent(self):GetName(self).."GreedDKP"):ClearFocus(self);
@@ -1199,7 +1197,7 @@
                         </Anchors>
                         <Layers>
                             <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Disable !bid">
+                                <FontString name="$parentLabel1" inherits="GameFontNormal" text="Disable !bid">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -1208,7 +1206,8 @@
                                         </Anchor>
                                     </Anchors>
                                 </FontString>
-                                <FontString inherits="GameFontNormal" text="Used to disable !bid, forces !main,!off">
+                                <FontString name="$parentLabel2" inherits="GameFontNormal"
+                                            text="Used to disable !bid, forces !main,!off">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -1221,8 +1220,11 @@
                         </Layers>
                         <Scripts>
                             <OnClick>
-                                WebDKP_Options_ToggleOption("DisableBid");
+                                    WebDKP_Options_ToggleOption("DisableBid");
                             </OnClick>
+                            <OnLoad>
+
+                            </OnLoad>
                         </Scripts>
                     </CheckButton>
                 </Frames>
@@ -1277,7 +1279,8 @@
                         </Anchors>
                         <Layers>
                             <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Enable Item Level Multiplier">
+                                <FontString name="$parentLabel" inherits="GameFontNormal"
+                                            text="Enable Item Level Multiplier">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -1290,7 +1293,7 @@
                         </Layers>
                         <Scripts>
                             <OnClick>
-                                WebDKP_Options_ToggleOption("ItemLevelEquation");
+                                    WebDKP_Options_ToggleOption("ItemLevelEquation");
                             </OnClick>
                         </Scripts>
                     </CheckButton>
@@ -1309,7 +1312,7 @@
                         </Anchors>
                         <Layers>
                             <Layer level="ARTWORK">
-                                <FontString inherits="GameFontNormal" text="Value Ex(.01):">
+                                <FontString name="$parentLabel" inherits="GameFontNormal" text="Value Ex(.01):">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -1322,7 +1325,7 @@
                         </Layers>
                         <Scripts>
                             <OnLoad>
-                                getglobal(self:GetParent(self):GetName(self).."ItemLevelMult"):SetAutoFocus( false );
+                                    getglobal(self:GetParent(self):GetName(self) .. "ItemLevelMult"):SetAutoFocus(false);
                             </OnLoad>
                             <OnEscapePressed>
                                 getglobal(self:GetParent(self):GetName(self).."ItemLevelMult"):ClearFocus(self);
@@ -1347,7 +1350,8 @@
                         </Anchors>
                         <Layers>
                             <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Enable Slot Location Multiplier">
+                                <FontString name="$parentLabel" inherits="GameFontNormal"
+                                            text="Enable Slot Location Multiplier">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -1360,7 +1364,7 @@
                         </Layers>
                         <Scripts>
                             <OnClick>
-                                WebDKP_Options_ToggleOption("SlotLocMult");
+                                    WebDKP_Options_ToggleOption("SlotLocMult");
                             </OnClick>
                         </Scripts>
                     </CheckButton>
@@ -1378,15 +1382,15 @@
                         </Anchors>
                         <Scripts>
                             <OnClick>
-                                WebDKP_ProcessItemSlotMulti("Head Slot", "head");
+                                    WebDKP_ProcessItemSlotMulti("Head Slot", "head");
                             </OnClick>
                             <OnEnter>
-                                GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
-                                GameTooltip:SetText("Head Slot");
-                                GameTooltip:Show();
+                                    GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
+                                    GameTooltip:SetText("Head Slot");
+                                    GameTooltip:Show();
                             </OnEnter>
                             <OnLeave>
-                                GameTooltip:Hide();
+                                    GameTooltip:Hide();
                             </OnLeave>
                         </Scripts>
                         <NormalTexture file="Interface\Icons\INV_Helmet_100.png"/>
@@ -1407,15 +1411,15 @@
                         </Anchors>
                         <Scripts>
                             <OnClick>
-                                WebDKP_ProcessItemSlotMulti("Neck Slot", "neck");
+                                    WebDKP_ProcessItemSlotMulti("Neck Slot", "neck");
                             </OnClick>
                             <OnEnter>
-                                GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
-                                GameTooltip:SetText("Neck Slot");
-                                GameTooltip:Show();
+                                    GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
+                                    GameTooltip:SetText("Neck Slot");
+                                    GameTooltip:Show();
                             </OnEnter>
                             <OnLeave>
-                                GameTooltip:Hide();
+                                    GameTooltip:Hide();
                             </OnLeave>
                         </Scripts>
                         <NormalTexture file="Interface\Icons\INV_Jewelry_Necklace_27Naxxramas.png"/>
@@ -1436,15 +1440,15 @@
                         </Anchors>
                         <Scripts>
                             <OnClick>
-                                WebDKP_ProcessItemSlotMulti("Shoulders Slot", "shoulders");
+                                    WebDKP_ProcessItemSlotMulti("Shoulders Slot", "shoulders");
                             </OnClick>
                             <OnEnter>
-                                GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
-                                GameTooltip:SetText("Shoulders Slot");
-                                GameTooltip:Show();
+                                    GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
+                                    GameTooltip:SetText("Shoulders Slot");
+                                    GameTooltip:Show();
                             </OnEnter>
                             <OnLeave>
-                                GameTooltip:Hide();
+                                    GameTooltip:Hide();
                             </OnLeave>
                         </Scripts>
                         <NormalTexture file="Interface\Icons\INV_Shoulder_105.png"/>
@@ -1465,15 +1469,15 @@
                         </Anchors>
                         <Scripts>
                             <OnClick>
-                                WebDKP_ProcessItemSlotMulti("Back Slot", "back");
+                                    WebDKP_ProcessItemSlotMulti("Back Slot", "back");
                             </OnClick>
                             <OnEnter>
-                                GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
-                                GameTooltip:SetText("Back Slot");
-                                GameTooltip:Show();
+                                    GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
+                                    GameTooltip:SetText("Back Slot");
+                                    GameTooltip:Show();
                             </OnEnter>
                             <OnLeave>
-                                GameTooltip:Hide();
+                                    GameTooltip:Hide();
                             </OnLeave>
                         </Scripts>
                         <NormalTexture file="Interface\Icons\INV_Misc_Cape_Naxxramas_03.png"/>
@@ -1494,15 +1498,15 @@
                         </Anchors>
                         <Scripts>
                             <OnClick>
-                                WebDKP_ProcessItemSlotMulti("Chest Slot", "chest");
+                                    WebDKP_ProcessItemSlotMulti("Chest Slot", "chest");
                             </OnClick>
                             <OnEnter>
-                                GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
-                                GameTooltip:SetText("Chest Slot");
-                                GameTooltip:Show();
+                                    GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
+                                    GameTooltip:SetText("Chest Slot");
+                                    GameTooltip:Show();
                             </OnEnter>
                             <OnLeave>
-                                GameTooltip:Hide();
+                                    GameTooltip:Hide();
                             </OnLeave>
                         </Scripts>
                         <NormalTexture file="Interface\Icons\INV_Chest_Leather_11.png"/>
@@ -1523,15 +1527,15 @@
                         </Anchors>
                         <Scripts>
                             <OnClick>
-                                WebDKP_ProcessItemSlotMulti("Wrists Slot", "wrist");
+                                    WebDKP_ProcessItemSlotMulti("Wrists Slot", "wrist");
                             </OnClick>
                             <OnEnter>
-                                GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
-                                GameTooltip:SetText("Wrists Slot");
-                                GameTooltip:Show();
+                                    GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
+                                    GameTooltip:SetText("Wrists Slot");
+                                    GameTooltip:Show();
                             </OnEnter>
                             <OnLeave>
-                                GameTooltip:Hide();
+                                    GameTooltip:Hide();
                             </OnLeave>
                         </Scripts>
                         <NormalTexture file="Interface\Icons\INV_Bracer_38.png"/>
@@ -1552,15 +1556,15 @@
                         </Anchors>
                         <Scripts>
                             <OnClick>
-                                WebDKP_ProcessItemSlotMulti("Hands Slot", "hands");
+                                    WebDKP_ProcessItemSlotMulti("Hands Slot", "hands");
                             </OnClick>
                             <OnEnter>
-                                GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
-                                GameTooltip:SetText("Hands Slot");
-                                GameTooltip:Show();
+                                    GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
+                                    GameTooltip:SetText("Hands Slot");
+                                    GameTooltip:Show();
                             </OnEnter>
                             <OnLeave>
-                                GameTooltip:Hide();
+                                    GameTooltip:Hide();
                             </OnLeave>
                         </Scripts>
                         <NormalTexture file="Interface\Icons\INV_Gauntlets_52.png"/>
@@ -1581,15 +1585,15 @@
                         </Anchors>
                         <Scripts>
                             <OnClick>
-                                WebDKP_ProcessItemSlotMulti("Waist Slot", "waist");
+                                    WebDKP_ProcessItemSlotMulti("Waist Slot", "waist");
                             </OnClick>
                             <OnEnter>
-                                GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
-                                GameTooltip:SetText("Waist Slot");
-                                GameTooltip:Show();
+                                    GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
+                                    GameTooltip:SetText("Waist Slot");
+                                    GameTooltip:Show();
                             </OnEnter>
                             <OnLeave>
-                                GameTooltip:Hide();
+                                    GameTooltip:Hide();
                             </OnLeave>
                         </Scripts>
                         <NormalTexture file="Interface\Icons\INV_Belt_37B.png"/>
@@ -1610,15 +1614,15 @@
                         </Anchors>
                         <Scripts>
                             <OnClick>
-                                WebDKP_ProcessItemSlotMulti("Legs Slot", "legs");
+                                    WebDKP_ProcessItemSlotMulti("Legs Slot", "legs");
                             </OnClick>
                             <OnEnter>
-                                GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
-                                GameTooltip:SetText("Legs Slot");
-                                GameTooltip:Show();
+                                    GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
+                                    GameTooltip:SetText("Legs Slot");
+                                    GameTooltip:Show();
                             </OnEnter>
                             <OnLeave>
-                                GameTooltip:Hide();
+                                    GameTooltip:Hide();
                             </OnLeave>
                         </Scripts>
                         <NormalTexture file="Interface\Icons\INV_PANTS_MAIL_25.png"/>
@@ -1639,15 +1643,15 @@
                         </Anchors>
                         <Scripts>
                             <OnClick>
-                                WebDKP_ProcessItemSlotMulti("Feet Slot", "feet");
+                                    WebDKP_ProcessItemSlotMulti("Feet Slot", "feet");
                             </OnClick>
                             <OnEnter>
-                                GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
-                                GameTooltip:SetText("Feet Slot");
-                                GameTooltip:Show();
+                                    GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
+                                    GameTooltip:SetText("Feet Slot");
+                                    GameTooltip:Show();
                             </OnEnter>
                             <OnLeave>
-                                GameTooltip:Hide();
+                                    GameTooltip:Hide();
                             </OnLeave>
                         </Scripts>
                         <NormalTexture file="Interface\Icons\INV_Boots_Leather_04B.png"/>
@@ -1668,15 +1672,15 @@
                         </Anchors>
                         <Scripts>
                             <OnClick>
-                                WebDKP_ProcessItemSlotMulti("Fingers Slot", "fingers");
+                                    WebDKP_ProcessItemSlotMulti("Fingers Slot", "fingers");
                             </OnClick>
                             <OnEnter>
-                                GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
-                                GameTooltip:SetText("Fingers Slot");
-                                GameTooltip:Show();
+                                    GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
+                                    GameTooltip:SetText("Fingers Slot");
+                                    GameTooltip:Show();
                             </OnEnter>
                             <OnLeave>
-                                GameTooltip:Hide();
+                                    GameTooltip:Hide();
                             </OnLeave>
                         </Scripts>
                         <NormalTexture file="Interface\Icons\INV_Jewelry_Ring_43.png"/>
@@ -1697,15 +1701,15 @@
                         </Anchors>
                         <Scripts>
                             <OnClick>
-                                WebDKP_ProcessItemSlotMulti("Trinkets Slot", "trinkets");
+                                    WebDKP_ProcessItemSlotMulti("Trinkets Slot", "trinkets");
                             </OnClick>
                             <OnEnter>
-                                GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
-                                GameTooltip:SetText("Trinkets Slot");
-                                GameTooltip:Show();
+                                    GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
+                                    GameTooltip:SetText("Trinkets Slot");
+                                    GameTooltip:Show();
                             </OnEnter>
                             <OnLeave>
-                                GameTooltip:Hide();
+                                    GameTooltip:Hide();
                             </OnLeave>
                         </Scripts>
                         <NormalTexture file="Interface\Icons\INV_Jewelry_FrostwolfTrinket_01.png"/>
@@ -1727,15 +1731,15 @@
                         </Anchors>
                         <Scripts>
                             <OnClick>
-                                WebDKP_ProcessItemSlotMulti("Main Hand Slot", "mainhand");
+                                    WebDKP_ProcessItemSlotMulti("Main Hand Slot", "mainhand");
                             </OnClick>
                             <OnEnter>
-                                GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
-                                GameTooltip:SetText("Main Hand Slot");
-                                GameTooltip:Show();
+                                    GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
+                                    GameTooltip:SetText("Main Hand Slot");
+                                    GameTooltip:Show();
                             </OnEnter>
                             <OnLeave>
-                                GameTooltip:Hide();
+                                    GameTooltip:Hide();
                             </OnLeave>
                         </Scripts>
                         <NormalTexture file="Interface\Icons\INV_Sword_53.png"/>
@@ -1756,15 +1760,15 @@
                         </Anchors>
                         <Scripts>
                             <OnClick>
-                                WebDKP_ProcessItemSlotMulti("Shield Slot", "shield");
+                                    WebDKP_ProcessItemSlotMulti("Shield Slot", "shield");
                             </OnClick>
                             <OnEnter>
-                                GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
-                                GameTooltip:SetText("Shield Slot");
-                                GameTooltip:Show();
+                                    GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
+                                    GameTooltip:SetText("Shield Slot");
+                                    GameTooltip:Show();
                             </OnEnter>
                             <OnLeave>
-                                GameTooltip:Hide();
+                                    GameTooltip:Hide();
                             </OnLeave>
                         </Scripts>
                         <NormalTexture file="Interface\Icons\INV_Shield_06.png"/>
@@ -1785,15 +1789,15 @@
                         </Anchors>
                         <Scripts>
                             <OnClick>
-                                WebDKP_ProcessItemSlotMulti("Ranged Slot", "ranged");
+                                    WebDKP_ProcessItemSlotMulti("Ranged Slot", "ranged");
                             </OnClick>
                             <OnEnter>
-                                GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
-                                GameTooltip:SetText("Ranged Slot");
-                                GameTooltip:Show();
+                                    GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
+                                    GameTooltip:SetText("Ranged Slot");
+                                    GameTooltip:Show();
                             </OnEnter>
                             <OnLeave>
-                                GameTooltip:Hide();
+                                    GameTooltip:Hide();
                             </OnLeave>
                         </Scripts>
                         <NormalTexture file="Interface\Icons\INV_Weapon_Bow_08.png"/>
@@ -1814,15 +1818,15 @@
                         </Anchors>
                         <Scripts>
                             <OnClick>
-                                WebDKP_ProcessItemSlotMulti("Relic Slot", "relic");
+                                    WebDKP_ProcessItemSlotMulti("Relic Slot", "relic");
                             </OnClick>
                             <OnEnter>
-                                GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
-                                GameTooltip:SetText("Relic Slot");
-                                GameTooltip:Show();
+                                    GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
+                                    GameTooltip:SetText("Relic Slot");
+                                    GameTooltip:Show();
                             </OnEnter>
                             <OnLeave>
-                                GameTooltip:Hide();
+                                    GameTooltip:Hide();
                             </OnLeave>
                         </Scripts>
                         <NormalTexture file="Interface\Icons\INV_Relics_IdolofRejuvenation.png"/>
@@ -1843,15 +1847,15 @@
                         </Anchors>
                         <Scripts>
                             <OnClick>
-                                WebDKP_ProcessItemSlotMulti("Two Hand Slot", "twohand");
+                                    WebDKP_ProcessItemSlotMulti("Two Hand Slot", "twohand");
                             </OnClick>
                             <OnEnter>
-                                GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
-                                GameTooltip:SetText("Two Hand Slot");
-                                GameTooltip:Show();
+                                    GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
+                                    GameTooltip:SetText("Two Hand Slot");
+                                    GameTooltip:Show();
                             </OnEnter>
                             <OnLeave>
-                                GameTooltip:Hide();
+                                    GameTooltip:Hide();
                             </OnLeave>
                         </Scripts>
                         <NormalTexture file="Interface\Icons\INV_Staff_20.png"/>
@@ -1872,15 +1876,15 @@
                         </Anchors>
                         <Scripts>
                             <OnClick>
-                                WebDKP_ProcessItemSlotMulti("One Hand Slot", "onehanders");
+                                    WebDKP_ProcessItemSlotMulti("One Hand Slot", "onehanders");
                             </OnClick>
                             <OnEnter>
-                                GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
-                                GameTooltip:SetText("One Hand Slot");
-                                GameTooltip:Show();
+                                    GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
+                                    GameTooltip:SetText("One Hand Slot");
+                                    GameTooltip:Show();
                             </OnEnter>
                             <OnLeave>
-                                GameTooltip:Hide();
+                                    GameTooltip:Hide();
                             </OnLeave>
                         </Scripts>
                         <NormalTexture file="Interface\Icons\INV_Sword_32.png"/>
@@ -1904,15 +1908,15 @@
                         </Anchors>
                         <Scripts>
                             <OnClick>
-                                WebDKP_ProcessItemSlotMulti("Offhand Weapon", "offhandweapon");
+                                    WebDKP_ProcessItemSlotMulti("Offhand Weapon", "offhandweapon");
                             </OnClick>
                             <OnEnter>
-                                GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
-                                GameTooltip:SetText("Offhand Weapon");
-                                GameTooltip:Show();
+                                    GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
+                                    GameTooltip:SetText("Offhand Weapon");
+                                    GameTooltip:Show();
                             </OnEnter>
                             <OnLeave>
-                                GameTooltip:Hide();
+                                    GameTooltip:Hide();
                             </OnLeave>
                         </Scripts>
                         <NormalTexture file="Interface\Icons\INV_Weapon_ShortBlade_06.png"/>
@@ -1933,15 +1937,15 @@
                         </Anchors>
                         <Scripts>
                             <OnClick>
-                                WebDKP_ProcessItemSlotMulti("Held In Offhand", "heldoffhand");
+                                    WebDKP_ProcessItemSlotMulti("Held In Offhand", "heldoffhand");
                             </OnClick>
                             <OnEnter>
-                                GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
-                                GameTooltip:SetText("Held in Offhand");
-                                GameTooltip:Show();
+                                    GameTooltip:SetOwner(WebDKP_BiddingOptions2_Frame, "ANCHOR_CURSOR");
+                                    GameTooltip:SetText("Held in Offhand");
+                                    GameTooltip:Show();
                             </OnEnter>
                             <OnLeave>
-                                GameTooltip:Hide();
+                                    GameTooltip:Hide();
                             </OnLeave>
                         </Scripts>
                         <NormalTexture file="Interface\Icons\INV_Misc_Book_01.png"/>
@@ -2056,7 +2060,8 @@
                         </Anchors>
                         <Layers>
                             <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Disable All Announcments">
+                                <FontString name="$parentLabel" inherits="GameFontNormal"
+                                            text="Disable All Announcments">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -2069,7 +2074,7 @@
                         </Layers>
                         <Scripts>
                             <OnClick>
-                                WebDKP_Options_ToggleOption("Announcements");
+                                    WebDKP_Options_ToggleOption("Announcements");
                             </OnClick>
                         </Scripts>
                     </CheckButton>
@@ -2088,7 +2093,7 @@
                         </Anchors>
                         <Layers>
                             <Layer level="ARTWORK">
-                                <FontString inherits="GameFontNormal"
+                                <FontString name="$parentLabel" inherits="GameFontNormal"
                                             text="Use $item = Item, $time = Time, $bid = Starting Bid">
                                     <Anchors>
                                         <Anchor point="LEFT">
@@ -2103,8 +2108,7 @@
 
                         <Scripts>
                             <OnLoad>
-                                getglobal(self:GetParent(self):GetName(self).."EditStartAnnounce"):SetAutoFocus( false
-                                );
+                                    getglobal(self:GetParent(self):GetName(self) .. "EditStartAnnounce"):SetAutoFocus(false);
                             </OnLoad>
                             <OnEscapePressed>
                                 getglobal(self:GetParent(self):GetName(self).."EditStartAnnounce"):ClearFocus(self);
@@ -2134,7 +2138,7 @@
                         </Anchors>
                         <Layers>
                             <Layer level="ARTWORK">
-                                <FontString inherits="GameFontNormal"
+                                <FontString name="$parentLabel" inherits="GameFontNormal"
                                             text="Use $item = Item, $time = Time, $name = Name, $dkp = DKP">
                                     <Anchors>
                                         <Anchor point="LEFT">
@@ -2149,8 +2153,7 @@
 
                         <Scripts>
                             <OnLoad>
-                                getglobal(self:GetParent(self):GetName(self).."EditDuringAnnounce"):SetAutoFocus( false
-                                );
+                                    getglobal(self:GetParent(self):GetName(self) .. "EditDuringAnnounce"):SetAutoFocus(false);
                             </OnLoad>
                             <OnEscapePressed>
                                 getglobal(self:GetParent(self):GetName(self).."EditDuringAnnounce"):ClearFocus(self);
@@ -2180,7 +2183,7 @@
                         </Anchors>
                         <Layers>
                             <Layer level="ARTWORK">
-                                <FontString inherits="GameFontNormal"
+                                <FontString name="$parentLabel" inherits="GameFontNormal"
                                             text="Use $item = Item, $name = Name, $dkp = DKP, $totbid = Tot. Bids">
                                     <Anchors>
                                         <Anchor point="LEFT">
@@ -2195,7 +2198,7 @@
 
                         <Scripts>
                             <OnLoad>
-                                getglobal(self:GetParent(self):GetName(self).."EditEndAnnounce"):SetAutoFocus( false );
+                                    getglobal(self:GetParent(self):GetName(self) .. "EditEndAnnounce"):SetAutoFocus(false);
                             </OnLoad>
                             <OnEscapePressed>
                                 getglobal(self:GetParent(self):GetName(self).."EditEndAnnounce"):ClearFocus(self);
@@ -2225,7 +2228,8 @@
                         </Anchors>
                         <Layers>
                             <Layer level="ARTWORK">
-                                <FontString inherits="GameFontNormal" text="Use $item = Item, $time = Time">
+                                <FontString name="$parentLabel" inherits="GameFontNormal"
+                                            text="Use $item = Item, $time = Time">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -2239,8 +2243,7 @@
 
                         <Scripts>
                             <OnLoad>
-                                getglobal(self:GetParent(self):GetName(self).."EditSRollAnnounce"):SetAutoFocus( false
-                                );
+                                    getglobal(self:GetParent(self):GetName(self) .. "EditSRollAnnounce"):SetAutoFocus(false);
                             </OnLoad>
                             <OnEscapePressed>
                                 getglobal(self:GetParent(self):GetName(self).."EditSRollAnnounce"):ClearFocus(self);
@@ -2270,7 +2273,7 @@
                         </Anchors>
                         <Layers>
                             <Layer level="ARTWORK">
-                                <FontString inherits="GameFontNormal"
+                                <FontString name="$parentLabel" inherits="GameFontNormal"
                                             text="Use $item = Item, $time = Time, $name = Name, $roll = Roll">
                                     <Anchors>
                                         <Anchor point="LEFT">
@@ -2285,7 +2288,7 @@
 
                         <Scripts>
                             <OnLoad>
-                                getglobal(self:GetParent(self):GetName(self).."EditRollAnnounce"):SetAutoFocus( false );
+                                    getglobal(self:GetParent(self):GetName(self) .. "EditRollAnnounce"):SetAutoFocus(false);
                             </OnLoad>
                             <OnEscapePressed>
                                 getglobal(self:GetParent(self):GetName(self).."EditRollAnnounce"):ClearFocus(self);
@@ -2315,7 +2318,7 @@
                         </Anchors>
                         <Layers>
                             <Layer level="ARTWORK">
-                                <FontString inherits="GameFontNormal"
+                                <FontString name="$parentLabel" inherits="GameFontNormal"
                                             text="Use $item = Item, $name = Name, $roll = Roll, $roltot = Tot. Rolls">
                                     <Anchors>
                                         <Anchor point="LEFT">
@@ -2330,8 +2333,7 @@
 
                         <Scripts>
                             <OnLoad>
-                                getglobal(self:GetParent(self):GetName(self).."EditERollAnnounce"):SetAutoFocus( false
-                                );
+                                    getglobal(self:GetParent(self):GetName(self) .. "EditERollAnnounce"):SetAutoFocus(false);
                             </OnLoad>
                             <OnEscapePressed>
                                 getglobal(self:GetParent(self):GetName(self).."EditERollAnnounce"):ClearFocus(self);
@@ -2358,10 +2360,10 @@
                 <!-- EVENT HANDLERS FOR THE MASTER FRAME -->
                 <Scripts>
                     <OnMouseDown>
-                        self:StartMoving(self);
+                            self:StartMoving(self);
                     </OnMouseDown>
                     <OnMouseUp>
-                        self:StopMovingOrSizing(self);
+                            self:StopMovingOrSizing(self);
                     </OnMouseUp>
                 </Scripts>
                 <Size>
@@ -2410,7 +2412,7 @@
                         </Anchors>
                         <Layers>
                             <Layer level="OVERLAY">
-                                <FontString inherits="GameFontNormal" text="Multiplier Value:">
+                                <FontString name="$parentLabel" inherits="GameFontNormal" text="Multiplier Value:">
                                     <Anchors>
                                         <Anchor point="LEFT">
                                             <Offset>
@@ -2423,7 +2425,7 @@
                         </Layers>
                         <Scripts>
                             <OnLoad>
-                                getglobal(self:GetParent(self):GetName(self).."Cost"):SetAutoFocus( false );
+                                    getglobal(self:GetParent(self):GetName(self) .. "Cost"):SetAutoFocus(false);
                             </OnLoad>
                         </Scripts>
                     </EditBox>
@@ -2440,11 +2442,11 @@
                         </Size>
                         <Scripts>
                             <OnClick>
-                                local itemlocation =
-                                getglobal(self:GetParent(self):GetName(self).."Title"):GetText(self);
-                                local value = getglobal(self:GetParent(self):GetName(self).."Cost"):GetText(self);
-                                WebDKP_SetItemSlotMulti(value, itemlocation);
-                                WebDKP_ItemSlotFrame:Hide(self);
+                                    local itemlocation =
+                                    getglobal(self:GetParent(self):GetName(self) .. "Title"):GetText(self);
+                                    local value = getglobal(self:GetParent(self):GetName(self) .. "Cost"):GetText(self);
+                                    WebDKP_SetItemSlotMulti(value, itemlocation);
+                                    WebDKP_ItemSlotFrame:Hide(self);
                             </OnClick>
                         </Scripts>
                     </Button>
@@ -2461,8 +2463,8 @@
                         </Size>
                         <Scripts>
                             <OnClick>
-                                PlaySound(851);
-                                WebDKP_ItemSlotFrame:Hide(self);
+                                    PlaySound(851);
+                                    WebDKP_ItemSlotFrame:Hide(self);
                             </OnClick>
                         </Scripts>
                     </Button>
@@ -2511,5 +2513,121 @@
                 </Anchors>
             </Button>
         </Frames>
+        <Scripts>
+            <OnMouseDown>
+                    self:StartMoving(self);
+            </OnMouseDown>
+            <OnMouseUp>
+                    self:StopMovingOrSizing(self);
+            </OnMouseUp>
+            <OnLoad>
+                    WebDKP_OnLoad(self);
+                    _G["WebDKP_OptionsFrame" .. "Title"]:SetText(WebDKP.translations.WEBDKP_OPTIONSFRAME_TITLE)
+                    --WebDKP_GeneralOptions_Frame
+                    _G["WebDKP_GeneralOptions_Frame" .. "Title"]:SetText(WebDKP.translations.WEBDKP_GENERALOPTIONS_FRAME_TITLE)
+                    _G["WebDKP_GeneralOptions_Frame" .. "Info1"]:SetText(WebDKP.translations.WEBDKP_GENERALOPTIONS_FRAME_INFO1)
+                    _G["WebDKP_GeneralOptions_Frame" .. "Info2"]:SetText(WebDKP.translations.WEBDKP_GENERALOPTIONS_FRAME_INFO2)
+                    _G["WebDKP_GeneralOptions_Frame" .. "Info3"]:SetText(WebDKP.translations.WEBDKP_GENERALOPTIONS_FRAME_INFO3)
+                    _G["WebDKP_GeneralOptions_Frame" .. "Info4"]:SetText(WebDKP.translations.WEBDKP_GENERALOPTIONS_FRAME_INFO4)
+                    _G["WebDKP_GeneralOptions_Frame" .. "Info5"]:SetText(WebDKP.translations.WEBDKP_GENERALOPTIONS_FRAME_INFO5)
+                    _G["WebDKP_GeneralOptions_Frame" .. "Info6"]:SetText(WebDKP.translations.WEBDKP_GENERALOPTIONS_FRAME_INFO6)
+                    _G["WebDKP_GeneralOptions_Frame" .. "Info7"]:SetText(WebDKP.translations.WEBDKP_GENERALOPTIONS_FRAME_INFO7)
+                    _G["WebDKP_GeneralOptions_Frame" .. "Info8"]:SetText(WebDKP.translations.WEBDKP_GENERALOPTIONS_FRAME_INFO8)
+                    _G["WebDKP_GeneralOptions_Frame" .. "ToggleAutofillEnabled" .. "Label"]:SetText(WebDKP.translations.WEBDKP_GENERALOPTIONS_FRAME_TOGGLEAUTOFILLENABLED_LABEL)
+                    _G["WebDKP_GeneralOptions_Frame" .. "ToggleAutoAwardEnabled" .. "Label"]:SetText(WebDKP.translations.WEBDKP_GENERALOPTIONS_FRAME_TOGGLEAUTOAWARDENABLED_LABEL)
+                    _G["WebDKP_GeneralOptions_Frame" .. "ToggleZeroSumEnabled" .. "Label"]:SetText(WebDKP.translations.WEBDKP_GENERALOPTIONS_FRAME_TOGGLEZEROSUMENABLED_LABEL)
+                    _G["WebDKP_GeneralOptions_Frame" .. "ToggleAwardBossDKP" .. "Label"]:SetText(WebDKP.translations.WEBDKP_GENERALOPTIONS_FRAME_TOGGLEAWARDBOSSDKP_LABEL)
+                    _G["WebDKP_GeneralOptions_Frame" .. "ToggleAltClick" .. "Label"]:SetText(WebDKP.translations.WEBDKP_GENERALOPTIONS_FRAME_TOGGLEALTCLICK_LABEL)
+                    _G["WebDKP_GeneralOptions_Frame" .. "ToggleIgnWhispers" .. "Label"]:SetText(WebDKP.translations.WEBDKP_GENERALOPTIONS_FRAME_TOGGLEIGNWHISPERS_LABEL)
+                    _G["WebDKP_GeneralOptions_Frame" .. "ToggledkpCap" .. "Label"]:SetText(WebDKP.translations.WEBDKP_GENERALOPTIONS_FRAME_TOGGLEDKPCAP_LABEL)
+                    _G["WebDKP_GeneralOptions_Frame" .. "dkpCapLimit" .. "Label"]:SetText(WebDKP.translations.WEBDKP_GENERALOPTIONS_FRAME_DKPCAPLIMIT_LABEL)
+                    _G["WebDKP_GeneralOptions_Frame" .. "BossDKP" .. "Label"]:SetText(WebDKP.translations.WEBDKP_GENERALOPTIONS_FRAME_BOSSDKP_LABEL)
+                    _G["WebDKP_GeneralOptions_Frame" .. "ToggleAwardBossDKP10" .. "Label"]:SetText(WebDKP.translations.WEBDKP_GENERALOPTIONS_FRAME_TOGGLEAWARDBOSSDKP10_LABEL)
+                    _G["WebDKP_GeneralOptions_Frame" .. "ToggleAwardBossDKP25" .. "Label"]:SetText(WebDKP.translations.WEBDKP_GENERALOPTIONS_FRAME_TOGGLEAWARDBOSSDKP25_LABEL)
+                    _G["WebDKP_GeneralOptions_Frame" .. "ToggleEnabled" .. "Label"]:SetText(WebDKP.translations.WEBDKP_GENERALOPTIONS_FRAME_TOGGLEENABLED_LABEL)
+                    _G["WebDKP_GeneralOptions_Frame" .. "ToggleEnabled" .. "Label"]:SetText(WebDKP.translations.WEBDKP_GENERALOPTIONS_FRAME_TOGGLEENABLED_LABEL)
+                    --WebDKP_BiddingOptions_Frame" ]:SetText(WebDKP.translations.WEBDKP_OPTIONSFRAME_TITLE)
+                    _G["WebDKP_BiddingOptions_Frame" .. "Info1"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS_FRAME_INFO1)
+                    _G["WebDKP_BiddingOptions_Frame" .. "ToggleBidAnnounceRaid" .. "Label"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS_FRAME_TOGGLEBIDANNOUNCERAID_LABEL)
+                    _G["WebDKP_BiddingOptions_Frame" .. "ToggleBidConfirmPopup" .. "Label"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS_FRAME_TOGGLEBIDCONFIRMPOPUP_LABEL)
+                    _G["WebDKP_BiddingOptions_Frame" .. "ToggleBidAllowNegativeBids" .. "Label1"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS_FRAME_TOGGLEBIDALLOWNEGATIVEBIDS_LABEL1)
+                    _G["WebDKP_BiddingOptions_Frame" .. "ToggleBidAllowNegativeBids" .. "Label2"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS_FRAME_TOGGLEBIDALLOWNEGATIVEBIDS_LABEL2)
+                    _G["WebDKP_BiddingOptions_Frame" .. "ToggleBidFixedBidding" .. "Label1"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS_FRAME_TOGGLEBIDFIXEDBIDDING_LABEL1)
+                    _G["WebDKP_BiddingOptions_Frame" .. "ToggleBidFixedBidding" .. "Label2"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS_FRAME_TOGGLEBIDFIXEDBIDDING_LABEL2)
+                    _G["WebDKP_BiddingOptions_Frame" .. "ToggleBidNotifyLowBids" .. "Label1"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS_FRAME_TOGGLEBIDNOTIFYLOWBIDS_LABEL1)
+                    _G["WebDKP_BiddingOptions_Frame" .. "ToggleBidNotifyLowBids" .. "Label2"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS_FRAME_TOGGLEBIDNOTIFYLOWBIDS_LABEL2)
+                    _G["WebDKP_BiddingOptions_Frame" .. "ToggleAutoGive" .. "Label1"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS_FRAME_TOGGLEAUTOGIVE_LABEL1)
+                    _G["WebDKP_BiddingOptions_Frame" .. "ToggleAutoGive" .. "Label2"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS_FRAME_TOGGLEAUTOGIVE_LABEL2)
+                    _G["WebDKP_BiddingOptions_Frame" .. "ToggleTurnBase" .. "Label1"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS_FRAME_TOGGLETURNBASE_LABEL1)
+                    _G["WebDKP_BiddingOptions_Frame" .. "ToggleTurnBase" .. "Label2"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS_FRAME_TOGGLETURNBASE_LABEL2)
+                    _G["WebDKP_BiddingOptions_Frame" .. "ToggleSilentBidding" .. "Label1"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS_FRAME_TOGGLESILENTBIDDING_LABEL1)
+                    _G["WebDKP_BiddingOptions_Frame" .. "ToggleSilentBidding" .. "Label2"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS_FRAME_TOGGLESILENTBIDDING_LABEL2)
+                    _G["WebDKP_BiddingOptions_Frame" .. "ToggleBidandRoll" .. "Label1"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS_FRAME_TOGGLEBIDANDROLL_LABEL1)
+                    _G["WebDKP_BiddingOptions_Frame" .. "ToggleBidandRoll" .. "Label2"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS_FRAME_TOGGLEBIDANDROLL_LABEL2)
+                    _G["WebDKP_BiddingOptions_Frame" .. "ToggleAllNeed" .. "Label1"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS_FRAME_TOGGLEALLNEED_LABEL1)
+                    _G["WebDKP_BiddingOptions_Frame" .. "ToggleAllNeed" .. "Label2"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS_FRAME_TOGGLEALLNEED_LABEL2)
+                    _G["WebDKP_BiddingOptions_Frame" .. "NeedDKP" .. "Label"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS_FRAME_NEEDDKP_LABEL)
+                    _G["WebDKP_BiddingOptions_Frame" .. "ToggleFiftyGreed" .. "Label1"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS_FRAME_TOGGLEFIFTYGREED_LABEL1)
+                    _G["WebDKP_BiddingOptions_Frame" .. "ToggleFiftyGreed" .. "Label2"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS_FRAME_TOGGLEFIFTYGREED_LABEL2)
+                    _G["WebDKP_BiddingOptions_Frame" .. "GreedDKP" .. "Label"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS_FRAME_GREEDDKP_LABEL)
+                    _G["WebDKP_BiddingOptions_Frame" .. "ToggleDisableBid" .. "Label1"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS_FRAME_TOGGLEDISABLEBID_LABEL1)
+                    _G["WebDKP_BiddingOptions_Frame" .. "ToggleDisableBid" .. "Label2"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS_FRAME_TOGGLEDISABLEBID_LABEL2)
+                    --WebDKP_BiddingOptions2_Frame" ]:SetText(WebDKP.translations.WEBDKP_OPTIONSFRAME_TITLE)
+                    _G["WebDKP_BiddingOptions2_Frame" .. "Info1"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS2_FRAME_INFO1)
+                    _G["WebDKP_BiddingOptions2_Frame" .. "Info2"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS2_FRAME_INFO2)
+                    _G["WebDKP_BiddingOptions2_Frame" .. "ToggleItemLevelEquation" .. "Label"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS2_FRAME_TOGGLEITEMLEVELEQUATION_LABEL)
+                    _G["WebDKP_BiddingOptions2_Frame" .. "ItemLevelMult" .. "Label"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS2_FRAME_ITEMLEVELMULT_LABEL)
+                    _G["WebDKP_BiddingOptions2_Frame" .. "ToggleSlotLocMult" .. "Label"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS2_FRAME_TOGGLESLOTLOCMULT_LABEL)
+                    _G["WebDKP_BiddingOptions2_Frame" .. "HelmButton"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS2_FRAME_HELMBUTTON)
+                    _G["WebDKP_BiddingOptions2_Frame" .. "NeckButton"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS2_FRAME_NECKBUTTON)
+                    _G["WebDKP_BiddingOptions2_Frame" .. "ShouldersButton"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS2_FRAME_SHOULDERSBUTTON)
+                    _G["WebDKP_BiddingOptions2_Frame" .. "BackButton"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS2_FRAME_BACKBUTTON)
+                    _G["WebDKP_BiddingOptions2_Frame" .. "ChestButton"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS2_FRAME_CHESTBUTTON)
+                    _G["WebDKP_BiddingOptions2_Frame" .. "WristButton"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS2_FRAME_WRISTBUTTON)
+                    _G["WebDKP_BiddingOptions2_Frame" .. "HandsButton"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS2_FRAME_HANDSBUTTON)
+                    _G["WebDKP_BiddingOptions2_Frame" .. "WaistButton"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS2_FRAME_WAISTBUTTON)
+                    _G["WebDKP_BiddingOptions2_Frame" .. "LegsButton"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS2_FRAME_LEGSBUTTON)
+                    _G["WebDKP_BiddingOptions2_Frame" .. "FeetButton"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS2_FRAME_FEETBUTTON)
+                    _G["WebDKP_BiddingOptions2_Frame" .. "FingerButton"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS2_FRAME_FINGERBUTTON)
+                    _G["WebDKP_BiddingOptions2_Frame" .. "TrinketButton"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS2_FRAME_TRINKETBUTTON)
+                    _G["WebDKP_BiddingOptions2_Frame" .. "MainHandButton"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS2_FRAME_MAINHANDBUTTON)
+                    _G["WebDKP_BiddingOptions2_Frame" .. "OffhandButton"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS2_FRAME_OFFHANDBUTTON)
+                    _G["WebDKP_BiddingOptions2_Frame" .. "RangedButton"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS2_FRAME_RANGEDBUTTON)
+                    _G["WebDKP_BiddingOptions2_Frame" .. "RelicButton"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS2_FRAME_RELICBUTTON)
+                    _G["WebDKP_BiddingOptions2_Frame" .. "TwoHandButton"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS2_FRAME_TWOHANDBUTTON)
+                    _G["WebDKP_BiddingOptions2_Frame" .. "OneHandButton"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS2_FRAME_ONEHANDBUTTON)
+                    _G["WebDKP_BiddingOptions2_Frame" .. "OffHandWeaponButton"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS2_FRAME_OFFHANDWEAPONBUTTON)
+                    _G["WebDKP_BiddingOptions2_Frame" .. "HeldOffhandButton"]:SetText(WebDKP.translations.WEBDKP_BIDDINGOPTIONS2_FRAME_HELDOFFHANDBUTTON)
+                    --WebDKP_AnnouncementsOptions_Frame" ]:SetText(WebDKP.translations.WEBDKP_OPTIONSFRAME_TITLE)
+                    _G["WebDKP_AnnouncementsOptions_Frame" .. "Info12"]:SetText(WebDKP.translations.WEBDKP_ANNOUNCEMENTSOPTIONS_FRAME_INFO12)
+                    _G["WebDKP_AnnouncementsOptions_Frame" .. "Info13"]:SetText(WebDKP.translations.WEBDKP_ANNOUNCEMENTSOPTIONS_FRAME_INFO13)
+                    _G["WebDKP_AnnouncementsOptions_Frame" .. "Info14"]:SetText(WebDKP.translations.WEBDKP_ANNOUNCEMENTSOPTIONS_FRAME_INFO14)
+                    _G["WebDKP_AnnouncementsOptions_Frame" .. "Info15"]:SetText(WebDKP.translations.WEBDKP_ANNOUNCEMENTSOPTIONS_FRAME_INFO15)
+                    _G["WebDKP_AnnouncementsOptions_Frame" .. "Info16"]:SetText(WebDKP.translations.WEBDKP_ANNOUNCEMENTSOPTIONS_FRAME_INFO16)
+                    _G["WebDKP_AnnouncementsOptions_Frame" .. "Info17"]:SetText(WebDKP.translations.WEBDKP_ANNOUNCEMENTSOPTIONS_FRAME_INFO17)
+                    _G["WebDKP_AnnouncementsOptions_Frame" .. "Info18"]:SetText(WebDKP.translations.WEBDKP_ANNOUNCEMENTSOPTIONS_FRAME_INFO18)
+                    _G["WebDKP_AnnouncementsOptions_Frame" .. "ToggleAnnouncements" .. "Label"]:SetText(WebDKP.translations.WEBDKP_ANNOUNCEMENTSOPTIONS_FRAME_TOGGLEANNOUNCEMENTS_LABEL)
+                    _G["WebDKP_AnnouncementsOptions_Frame" .. "EditStartAnnounce" .. "Label"]:SetText(WebDKP.translations.WEBDKP_ANNOUNCEMENTSOPTIONS_FRAME_EDITSTARTANNOUNCE_LABEL)
+                    _G["WebDKP_AnnouncementsOptions_Frame" .. "EditDuringAnnounce" .. "Label"]:SetText(WebDKP.translations.WEBDKP_ANNOUNCEMENTSOPTIONS_FRAME_EDITDURINGANNOUNCE_LABEL)
+                    _G["WebDKP_AnnouncementsOptions_Frame" .. "EditEndAnnounce" .. "Label"]:SetText(WebDKP.translations.WEBDKP_ANNOUNCEMENTSOPTIONS_FRAME_EDITENDANNOUNCE_LABEL)
+                    _G["WebDKP_AnnouncementsOptions_Frame" .. "EditSRollAnnounce" .. "Label"]:SetText(WebDKP.translations.WEBDKP_ANNOUNCEMENTSOPTIONS_FRAME_EDITSROLLANNOUNCE_LABEL)
+                    _G["WebDKP_AnnouncementsOptions_Frame" .. "EditRollAnnounce" .. "Label"]:SetText(WebDKP.translations.WEBDKP_ANNOUNCEMENTSOPTIONS_FRAME_EDITROLLANNOUNCE_LABEL)
+                    _G["WebDKP_AnnouncementsOptions_Frame" .. "EditERollAnnounce" .. "Label"]:SetText(WebDKP.translations.WEBDKP_ANNOUNCEMENTSOPTIONS_FRAME_EDITEROLLANNOUNCE_LABEL)
+
+                    _G["WebDKP_ItemSlotFrame" .. "Title"]:SetText(WebDKP.translations.WEBDKP_ITEMSLOTFRAME_TITLE)
+                    _G["WebDKP_ItemSlotFrame" .. "Cost"]:SetText(WebDKP.translations.WEBDKP_ITEMSLOTFRAME_COST)
+                    _G["WebDKP_ItemSlotFrame" .. "Yes"]:SetText(WebDKP.translations.WEBDKP_ITEMSLOTFRAME_YES)
+                    _G["WebDKP_ItemSlotFrame" .. "No"]:SetText(WebDKP.translations.WEBDKP_ITEMSLOTFRAME_NO)
+                    --tab" ]:SetText(WebDKP.translations.WEBDKP_OPTIONSFRAME_TITLE)
+                    _G["WebDKP_OptionsFrame" .. "Tab1"]:SetText(WebDKP.translations.WEBDKP_OPTIONSFRAME_TAB1)
+                    _G["WebDKP_OptionsFrame" .. "Tab2"]:SetText(WebDKP.translations.WEBDKP_OPTIONSFRAME_TAB2)
+                    _G["WebDKP_OptionsFrame" .. "Tab4"]:SetText(WebDKP.translations.WEBDKP_OPTIONSFRAME_TAB4)
+                    _G["WebDKP_OptionsFrame" .. "Tab3"]:SetText(WebDKP.translations.WEBDKP_OPTIONSFRAME_TAB3)
+            </OnLoad>
+
+            <OnEvent>
+                    WebDKP_OnEvent(self);
+            </OnEvent>
+        </Scripts>
     </Frame>
 </Ui>
