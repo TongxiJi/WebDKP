@@ -11,24 +11,24 @@
 -- awards you just need to edit these strings. 
 -- Do display a new line in your message use \n. 
 
-WebDKP_ItemAward = "WebDKP: $player awarded $item for: $cost dkp.";
+WebDKP_ItemAward = WebDKP.translations.FORMAT_WEBDKP_ITEMAWARD;
 
-WebDKP_ItemAwardZeroSum = "WebDKP: $dkp dkp awarded to all players for ZeroSum: $item";
+WebDKP_ItemAwardZeroSum = WebDKP.translations.FORMAT_WEBDKP_ITEMAWARDZEROSUM;
 
-WebDKP_DkpAwardAll = "WebDKP: $dkp dkp given to all players for: $reason.";
+WebDKP_DkpAwardAll = WebDKP.translations.FORMAT_WEBDKP_DKPAWARDALL;
 
-WebDKP_DkpAwardSome = "WebDKP: $dkp dkp given to selected players for: $reason. \nReceiving players have all been whispered.";
+WebDKP_DkpAwardSome = WebDKP.translations.FORMAT_WEBDKP_DKPAWARDSOME;
 
-WebDKP_BidStart = "WebDKP: Bidding has started on $item! $time " ..
+WebDKP_BidStart = WebDKP.translations.FORMAT_WEBDKP_BIDSTART ..
         "$startingBid" ..
         "$instructions";
 
-WebDKP_BidEnd = "WebDKP: Bidding has ended for $item The winner was $name who bid $dkp dkp";
-WebDKP_BidEndSilent = "WebDKP: Bidding has ended for $item";
-WebDKP_RollEnd = "WebDKP: Rolling has ended for $item. $name was the high roller with a $roll";
+WebDKP_BidEnd = WebDKP.translations.FORMAT_WEBDKP_BIDEND;
+WebDKP_BidEndSilent = WebDKP.translations.FORMAT_WEBDKP_BIDENDSILENT;
+WebDKP_RollEnd = WebDKP.translations.FORMAT_WEBDKP_ROLLEND;
 
-WebDKP_TimedAward = "WebDKP: $minutes Minute Timed Award of $dkp dkp Given";
-WebDKP_BossAwardNum = "WebDKP: Great Job! A Boss Award of $dkp Has Been Given";
+WebDKP_TimedAward = WebDKP.translations.FORMAT_WEBDKP_TIMEDAWARD;
+WebDKP_BossAwardNum = WebDKP.translations.FORMAT_WEBDKP_BOSSAWARDNUM;
 
 -- ================================
 -- Returns the location where notifications should be sent to. 
@@ -59,7 +59,7 @@ function WebDKP_AnnounceAwardItem(cost, item, player)
         local tellLocation = WebDKP_GetTellLocation();
         cost = cost * -1;
 
-        local _, _, link = WebDKP_GetItemInfo(item);                -- Convert the item to a link
+        local _, _, link = WebDKP_GetItemInfo(item); -- Convert the item to a link
 
         local toSay = string.gsub(WebDKP_ItemAward, "$player", player);
         toSay = string.gsub(toSay, "$item", link);
@@ -80,7 +80,6 @@ function WebDKP_AnnounceAwardItem(cost, item, player)
             end
         end
     end
-
 end
 
 -- ================================
@@ -117,7 +116,7 @@ function WebDKP_AnnounceAward(dkp, reason)
                 if (type(v) == "table") then
                     if (v["Selected"]) then
                         --WebDKP_SendAnnouncement(key_name,tellLocation);
-                        WebDKP_SendWhisper(key_name, "You have been awarded " .. dkp .. " dkp");
+                        WebDKP_SendWhisper(key_name, WebDKP.translations.FORMAT_WEBDKP_SENDWHISPER .. dkp .. " dkp");
                     end
                 end
             end
@@ -215,7 +214,6 @@ function WebDKP_AnnounceRollStart(item, time)
         toSay = string.gsub(toSay, "$time", time);
         WebDKP_SendAnnouncement(toSay, tellLocation);
     end
-
 end
 
 
@@ -315,7 +313,6 @@ function WebDKP_AnnounceBossAward(dkp)
         local tellLocation = WebDKP_GetTellLocation();
         local toSay = string.gsub(WebDKP_BossAwardNum, "$dkp", dkp);
         WebDKP_SendAnnouncement(toSay, tellLocation);
-
     end
 end
 
@@ -396,5 +393,4 @@ function WebDKP_AnnounceTop3()
     WebDKP_SendAnnouncement("WebDKP: 1. " .. highestBidder .. " bidding " .. highestBid, tellLocation);
     WebDKP_SendAnnouncement("WebDKP: 2. " .. highestBidder2 .. " bidding " .. highestBid2, tellLocation);
     WebDKP_SendAnnouncement("WebDKP: 3. " .. highestBidder3 .. " bidding " .. highestBid3, tellLocation);
-
 end

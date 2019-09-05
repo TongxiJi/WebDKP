@@ -374,6 +374,7 @@ function WebDKP_OnEvent(self, event, ...)
     end
 
     if (WebDKP_Options["Enabled"] == 1) then
+--        WebDKP_Print("event :"..tostring(event));
         if (event == "CHAT_MSG_WHISPER") then
             WebDKP_CHAT_MSG_WHISPER(arg1, arg2);
         elseif (event == "CHAT_MSG_PARTY" or event == "CHAT_MSG_RAID" or event == "CHAT_MSG_RAID_LEADER" or event == "CHAT_MSG_RAID_WARNING") then

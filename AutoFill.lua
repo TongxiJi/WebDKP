@@ -47,16 +47,16 @@ WebDKP_RarityTable = {
 function WebDKP_Loot_Taken(arg1)
     if arg1 ~= ItemHolder then
         if (WebDKP_Options["AutofillEnabled"] == 0) then
-            return ;
+            return;
         end
         --1 Find out what item was dropped
         local sPlayer, sLink;
-        local iStart, iEnd, sPlayerName, sItem = string.find(arg1, "([^%s]+) receives loot: (.+)%.");
+        local iStart, iEnd, sPlayerName, sItem = string.find(arg1, WebDKP.translations.FORMAT_FIND_OTHER_ITEM_LOOT);
         if (sPlayerName) then
             sPlayer = sPlayerName;
             sLink = sItem;
         else
-            local iStart, iEnd, sItem = string.find(arg1, "You receive loot: (.+)%.");
+            local iStart, iEnd, sItem = string.find(arg1, WebDKP.translations.FORMAT_FIND_MY_ITEM_LOOT);
             if (sItem) then
                 sPlayer = UnitName("player");
                 sLink = sItem;
@@ -68,20 +68,20 @@ function WebDKP_Loot_Taken(arg1)
 
             -- if this is in our ignore list, we can skip it
             if (WebDKP_ShouldIgnoreItem(sName)) then
-                return ;
+                return;
             end
 
             -- if this is the item that was last bid off/awarded, we can skip autofilling it
             if (sName == WebDKP_lastBidItem or sName == WebDKP_bidItem) then
                 WebDKP_lastBidItem = "";
-                return ;
+                return;
             end
             local rarity = WebDKP_RarityTable[sRarity];
             local cost = nil;
 
             -- if this item isn't past the autofill rarity threshold in the options, skip it
             if (rarity < WebDKP_Options["AutofillThreshold"]) then
-                return ;
+                return;
             end
 
             --display the item name in the form
@@ -176,9 +176,7 @@ function WebDKP_ShowAwardFrame(title, cost, SLink, sPlayer)
         end
         sPlayer5 = sPlayer;
         sLink5 = SLink;
-
     end
-
 end
 
 
@@ -217,7 +215,6 @@ function WebDKP_AwardItem_Event2(dkp, playervalue)
         cost = tonumber(cost);
 
         percentflag = 1;
-
     end
 
     if (cost == nil or cost == "") then
@@ -281,7 +278,6 @@ function WebDKP_AutoFillCost()
             startingBid = itemLevel * multiplier1;
         end
         changedflag = 1;
-
     end
     -- Check to see if the Item Slot Loc Multiplier is enabled
     if (startingBid == nil or changedflag == 1) and WebDKP_Options["SlotLocMult"] == 1 and itemEquipLoc ~= nil then
@@ -350,9 +346,7 @@ function WebDKP_AutoFillCost()
             startingBid = startingBid * multvalue;
         else
             startingBid = 0;
-
         end
-
     end
 
     if (startingBid ~= nil) then
@@ -360,7 +354,6 @@ function WebDKP_AutoFillCost()
     else
         -- Nothing at this time
     end
-
 end
 
 
@@ -370,7 +363,7 @@ end
 -- ================================
 function WebDKP_AutoFillDKP()
     if (WebDKP_Options["AutofillEnabled"] == 0) then
-        return ;
+        return;
     end
     local sName = WebDKP_AwardDKP_FrameReason:GetText();
 

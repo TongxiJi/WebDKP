@@ -17,11 +17,11 @@ L.WEBDKP_MINIMAPDROPDOWN_RAIDLOG = "Raid Log"
 L.WEBDKP_MINIMAPDROPDOWN_CHARRAIDLOG = "Char Raid Log"
 
 --Table
-L.WEBDKP_HEADER="DKP Table:"
-L.WEBDKP_FRAME_NAME_COLUMN="Name"
-L.WEBDKP_FRAME_CLASS_COLUMN="Class"
-L.WEBDKP_FRAME_DKP_COLUMN="DKP"
-L.WEBDKP_FRAME_GUILDRANK_COLUMN="Guild Rank"
+L.WEBDKP_HEADER = "DKP Table:"
+L.WEBDKP_FRAME_NAME_COLUMN = "Name"
+L.WEBDKP_FRAME_CLASS_COLUMN = "Class"
+L.WEBDKP_FRAME_DKP_COLUMN = "DKP"
+L.WEBDKP_FRAME_GUILDRANK_COLUMN = "Guild Rank"
 
 --TABS
 L.TAB_FILTER = "Filters"
@@ -227,3 +227,19 @@ L.WEBDKP_OPTIONSFRAME_TAB1 = "General"
 L.WEBDKP_OPTIONSFRAME_TAB2 = "Bidding"
 L.WEBDKP_OPTIONSFRAME_TAB4 = "Bidding Cont."
 L.WEBDKP_OPTIONSFRAME_TAB3 = "Announcements"
+--Announcments.lua
+L.FORMAT_WEBDKP_ITEMAWARD = "WebDKP: $player awarded $item for: $cost dkp."
+L.FORMAT_WEBDKP_ITEMAWARDZEROSUM = "WebDKP: $dkp dkp awarded to all players for ZeroSum: $item"
+L.FORMAT_WEBDKP_DKPAWARDALL = "WebDKP: $dkp dkp given to all players for: $reason."
+L.FORMAT_WEBDKP_DKPAWARDSOME = "WebDKP: $dkp dkp given to selected players for: $reason. \nReceiving players have all been whispered."
+L.FORMAT_WEBDKP_BIDSTART = "WebDKP: Bidding has started on $item! $time "
+L.FORMAT_WEBDKP_BIDEND = "WebDKP: Bidding has ended for $item The winner was $name who bid $dkp dkp"
+L.FORMAT_WEBDKP_BIDENDSILENT = "WebDKP: Bidding has ended for $item"
+L.FORMAT_WEBDKP_ROLLEND = "WebDKP: Rolling has ended for $item. $name was the high roller with a $roll"
+L.FORMAT_WEBDKP_TIMEDAWARD = "WebDKP: $minutes Minute Timed Award of $dkp dkp Given"
+L.FORMAT_WEBDKP_BOSSAWARDNUM = "WebDKP: Great Job! A Boss Award of $dkp Has Been Given"
+L.FORMAT_WEBDKP_SENDWHISPER="You have been awarded "
+
+--AutoFill.lua
+L.FORMAT_FIND_OTHER_ITEM_LOOT = "([^%s]+) receives loot: (.+)%."
+L.FORMAT_FIND_MY_ITEM_LOOT = "You receive loot: (.+)%."

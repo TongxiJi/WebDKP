@@ -140,7 +140,7 @@
                 WebDKP_OnLoad(self);
             </OnLoad>
             <OnEvent>
-                WebDKP_OnEvent(self);
+                WebDKP_OnEvent(self,event,...);
             </OnEvent>
         </Scripts>
         <Size>

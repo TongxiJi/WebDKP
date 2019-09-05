@@ -60,7 +60,7 @@ L.AWARD_DKP_REASON_LABEL = "原因:"
 L.AWARD_DKP_POINTS_LABEL = "点数: (使用负数为扣分)"
 L.AWARD_DKP_AWARD_POINTS = "奖惩DKP"
 L.AWARD_DKP_DECAY_LABEL = "衰减值:(.4), (-.4) 等等"
-L.AWARD_DKP_DECAY_BUTTON = "衰减" 
+L.AWARD_DKP_DECAY_BUTTON = "衰减"
 
 --TAB FOR AWARD ITEM
 L.AWARD_ITEM_HEADER = "奖惩物品:"
@@ -211,3 +211,20 @@ L.WEBDKP_OPTIONSFRAME_TAB1 = "一般"
 L.WEBDKP_OPTIONSFRAME_TAB2 = "竞拍1"
 L.WEBDKP_OPTIONSFRAME_TAB4 = "竞拍2"
 L.WEBDKP_OPTIONSFRAME_TAB3 = "公告"
+
+--Announcments.lua
+L.FORMAT_WEBDKP_ITEMAWARD = "WebDKP: $player 给予装备: $item ,被扣了: $cost DKP"
+L.FORMAT_WEBDKP_ITEMAWARDZEROSUM = "WebDKP: $dkp 点DKP被奖惩给所有玩家, 零和规则: $item"
+L.FORMAT_WEBDKP_DKPAWARDALL = "WebDKP: $dkp 点DKP给予了所有玩家, 原因: $reason."
+L.FORMAT_WEBDKP_DKPAWARDSOME = "WebDKP: $dkp 点DKP给予了所有被选择的玩家, 原因: $reason. \n接收到的玩家都被密语了."
+L.FORMAT_WEBDKP_BIDSTART = "WebDKP: 竞拍已开始 $item! $time "
+L.FORMAT_WEBDKP_BIDEND = "WebDKP: $item 竞拍已结束, 胜利者为 $name , $dkp dkp"
+L.FORMAT_WEBDKP_BIDENDSILENT = "WebDKP: 竞拍已结束 $item"
+L.FORMAT_WEBDKP_ROLLEND = "WebDKP: Roll点已结束 $item , $name 是最高点, 为 $roll"
+L.FORMAT_WEBDKP_TIMEDAWARD = "WebDKP: $minutes 分钟奖励分, 已给予 $dkp dkp"
+L.FORMAT_WEBDKP_BOSSAWARDNUM = "WebDKP: 干得漂亮! Boss奖励分: $dkp 已自动给予"
+L.FORMAT_WEBDKP_SENDWHISPER = "你被奖惩了 "
+
+--AutoFill.lua
+L.FORMAT_FIND_OTHER_ITEM_LOOT = "([^%s]+)获得了战利品:(.+)%。"
+L.FORMAT_FIND_MY_ITEM_LOOT = "你获得了物品战利品:(.+)%。"
