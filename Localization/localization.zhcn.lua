@@ -226,5 +226,5 @@ L.FORMAT_WEBDKP_BOSSAWARDNUM = "WebDKP: 干得漂亮! Boss奖励分: $dkp 已自
 L.FORMAT_WEBDKP_SENDWHISPER = "你被奖惩了 "
 
 --AutoFill.lua
-L.FORMAT_FIND_OTHER_ITEM_LOOT = "([^%s]+)获得了战利品:(.+)%。"
-L.FORMAT_FIND_MY_ITEM_LOOT = "你获得了物品战利品:(.+)%。"
+L.FORMAT_FIND_OTHER_ITEM_LOOT = "([^%s]+)获得了物品：(.+)%。"
+L.FORMAT_FIND_MY_ITEM_LOOT = "你获得了物品物品：(.+)%。"
