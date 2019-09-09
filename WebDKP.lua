@@ -374,9 +374,9 @@ function WebDKP_OnEvent(self, event, ...)
     end
 
     if (WebDKP_Options["Enabled"] == 1) then
---        WebDKP_Print("event :"..tostring(event));
+        --        WebDKP_Print("event :"..tostring(event));
         if (event == "CHAT_MSG_WHISPER") then
-            WebDKP_CHAT_MSG_WHISPER(arg1, arg2);
+            WebDKP_CHAT_MSG_WHISPER(...);
         elseif (event == "CHAT_MSG_PARTY" or event == "CHAT_MSG_RAID" or event == "CHAT_MSG_RAID_LEADER" or event == "CHAT_MSG_RAID_WARNING") then
             WebDKP_CHAT_MSG_PARTY_RAID(arg1, arg2);
         elseif (event == "CHAT_MSG_LOOT") then
@@ -806,7 +806,8 @@ end
 -- Handles an incoming whisper. Directs it to the modules
 -- who are interested in it.
 -- ================================
-function WebDKP_CHAT_MSG_WHISPER(arg1, arg2)
+function WebDKP_CHAT_MSG_WHISPER(...)
+    local arg1, arg2 = ...
     local check_ignored = WebDKP_Options["IgnWhispers"];
     local ignoreflag = 0;
 
@@ -818,7 +819,7 @@ function WebDKP_CHAT_MSG_WHISPER(arg1, arg2)
         end
     end
     if ignoreflag == 0 then
-        WebDKP_WhisperDKP_Event(arg1, arg2);
+        WebDKP_WhisperDKP_Event(...);
         WebDKP_Bid_Event(arg1, arg2);
         WebDKP_Synch_Processing(arg1, arg2); -- Added by Zevious for Synching
     end
@@ -1556,10 +1557,10 @@ function WebDKP_MinimapDropDown_Initialize()
     WebDKP_Add_MinimapDropDownItem(self, WebDKP.translations.WEBDKP_MINIMAPDROPDOWN_TIMEDAWARDS, WebDKP_TimedAward_ToggleUI);
     WebDKP_Add_MinimapDropDownItem(self, WebDKP.translations.WEBDKP_MINIMAPDROPDOWN_OPTIONS, WebDKP_Options_ToggleUI);
     WebDKP_Add_MinimapDropDownItem(self, WebDKP.translations.WEBDKP_MINIMAPDROPDOWN_HELP, WebDKP_Help_ToggleGUI);
---    WebDKP_Add_MinimapDropDownItem(self, WebDKP.translations.WEBDKP_MINIMAPDROPDOWN_SYNCHSETTINGS, WebDKP_Synch_ToggleUI); --Added by Zevious
---    WebDKP_Add_MinimapDropDownItem(self, WebDKP.translations.WEBDKP_MINIMAPDROPDOWN_VIEWLOG, WebDKP_Log_ToggleUI); --Added by Zevious
---    WebDKP_Add_MinimapDropDownItem(self, WebDKP.translations.WEBDKP_MINIMAPDROPDOWN_RAIDLOG, WebDKP_RaidLog_ToggleUI); --Added by Zevious
---    WebDKP_Add_MinimapDropDownItem(self, WebDKP.translations.WEBDKP_MINIMAPDROPDOWN_CHARRAIDLOG, WebDKP_CharRaidLog_ToggleUI); --Added by Zevious
+    --    WebDKP_Add_MinimapDropDownItem(self, WebDKP.translations.WEBDKP_MINIMAPDROPDOWN_SYNCHSETTINGS, WebDKP_Synch_ToggleUI); --Added by Zevious
+    --    WebDKP_Add_MinimapDropDownItem(self, WebDKP.translations.WEBDKP_MINIMAPDROPDOWN_VIEWLOG, WebDKP_Log_ToggleUI); --Added by Zevious
+    --    WebDKP_Add_MinimapDropDownItem(self, WebDKP.translations.WEBDKP_MINIMAPDROPDOWN_RAIDLOG, WebDKP_RaidLog_ToggleUI); --Added by Zevious
+    --    WebDKP_Add_MinimapDropDownItem(self, WebDKP.translations.WEBDKP_MINIMAPDROPDOWN_CHARRAIDLOG, WebDKP_CharRaidLog_ToggleUI); --Added by Zevious
 end
 
 -- ================================

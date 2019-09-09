@@ -27,9 +27,10 @@ end
 -- Responds to the players whisper with a whisper telling
 -- them their current dkp. 
 -- ================================
-function WebDKP_WhisperDKP_Event(arg1, arg2)
+function WebDKP_WhisperDKP_Event(...)
+    local arg1, arg2, arg3, arg4, arg5 = ...
     local tableid = WebDKP_GetTableid();
-    local name = arg2;
+    local name = arg5;
     local trigger = arg1;
     if (WebDKP_IsWebDKPWhisper(name, trigger)) then
         -- its a valid whisper for us. Now to determine what type of whisper
