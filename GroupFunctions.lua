@@ -6,7 +6,7 @@
 -- Contained in here are methods to:
 -- *	Scan your group to find out what players are currently in it
 -- *	Update the 'table to show' which determines the dkp table to show based on members
---		of your group, the current dkp table, and any filters that are selected
+-- of your group, the current dkp table, and any filters that are selected
 -- *	Update the gui with the table to show
 ------------------------------------------------------------------------
 
@@ -28,7 +28,7 @@ function WebDKP_UpdateTable()
 
     --WebDKP_Print("Scroll method called");
     -- Copy data to the temporary array
-    local entries = { };
+    local entries = {};
     for k, v in pairs(WebDKP_DkpTableToShow) do
         if (type(v) == "table") then
             if (v[1] ~= nil and v[2] ~= nil and v[3] ~= nil and v[4] ~= nil) then
@@ -38,31 +38,29 @@ function WebDKP_UpdateTable()
     end
 
     -- SORT
-    table.sort(
-            entries,
-            function(a1, a2)
-                if (a1 and a2) then
-                    if (a1 == nil) then
-                        return 1 > 0;
-                    elseif (a2 == nil) then
-                        return 1 < 0;
-                    end
-                    if (WebDKP_LogSort["way"] == 1) then
-                        if (a1[WebDKP_LogSort["curr"]] == a2[WebDKP_LogSort["curr"]]) then
-                            return a1[1] > a2[1];
-                        else
-                            return a1[WebDKP_LogSort["curr"]] > a2[WebDKP_LogSort["curr"]];
-                        end
+    table.sort(entries,
+        function(a1, a2)
+            if (a1 and a2) then
+                if (a1 == nil) then
+                    return 1 > 0;
+                elseif (a2 == nil) then
+                    return 1 < 0;
+                end
+                if (WebDKP_LogSort["way"] == 1) then
+                    if (a1[WebDKP_LogSort["curr"]] == a2[WebDKP_LogSort["curr"]]) then
+                        return a1[1] > a2[1];
                     else
-                        if (a1[WebDKP_LogSort["curr"]] == a2[WebDKP_LogSort["curr"]]) then
-                            return a1[1] < a2[1];
-                        else
-                            return a1[WebDKP_LogSort["curr"]] < a2[WebDKP_LogSort["curr"]];
-                        end
+                        return a1[WebDKP_LogSort["curr"]] > a2[WebDKP_LogSort["curr"]];
+                    end
+                else
+                    if (a1[WebDKP_LogSort["curr"]] == a2[WebDKP_LogSort["curr"]]) then
+                        return a1[1] < a2[1];
+                    else
+                        return a1[WebDKP_LogSort["curr"]] < a2[WebDKP_LogSort["curr"]];
                     end
                 end
             end
-    );
+        end);
 
     local numEntries = getn(entries);
     local offset = FauxScrollFrame_GetOffset(WebDKP_FrameScrollFrame);
@@ -124,7 +122,7 @@ function WebDKP_UpdateTableToShow()
     tableid = WebDKP_GetTableid();
     local tableid = WebDKP_GetTableid();
     -- clear the old table
-    WebDKP_DkpTableToShow = { };
+    WebDKP_DkpTableToShow = {};
     -- increment through the dkp table and move data over
     for k, v in pairs(WebDKP_DkpTable) do
         if (type(v) == "table") then
@@ -153,8 +151,8 @@ function WebDKP_UpdateTableToShow()
             playerRank = "PUG";
             playerIndex = 50;
             for ci = 1, GetNumGuildMembers(true) do
-                guildname, guildrank, rankindex, _, _, _, _, _, isonline = GetGuildRosterInfo(ci);
-                if guildname == playerName then
+                local guildname, guildrank, rankindex, _, _, _, _, _, isonline = GetGuildRosterInfo(ci);
+                if guildname == playerName or string.find(guildname, playerName .. "-" .. "(.+)") then
                     playerRank = guildrank;
                     playerIndex = rankindex;
                     ci = GetNumGuildMembers(true) + 10;
@@ -197,8 +195,8 @@ function WebDKP_UpdateTableToShow()
                     for ci = 1, GetNumGuildMembers(true) do
                         playerRank = "PUG";
                         playerIndex = 50;
-                        guildname, guildrank = GetGuildRosterInfo(ci);
-                        if guildname == playerName then
+                        local guildname, guildrank = GetGuildRosterInfo(ci);
+                        if guildname == playerName or string.find(guildname, playerName .. "-" .. "(.+)") then
                             playerRank = guildrank;
                             playerIndex = rankindex;
                             ci = GetNumGuildMembers(true) + 10;
@@ -243,7 +241,6 @@ function WebDKP_UpdatePlayersInGroup()
                 ["name"] = name,
                 ["class"] = class,
             };
-
         end
         -- Is a party going?
     elseif (numberInRaid == 0 and numberInParty > 0 and inBattleground == false) then
@@ -257,7 +254,6 @@ function WebDKP_UpdatePlayersInGroup()
                 ["name"] = name,
                 ["class"] = class,
             };
-
         end
         -- this doesn't load the current player, so we need to add them manually
         WebDKP_PlayersInGroup[numberInParty + 1] = {
@@ -376,7 +372,6 @@ function WebDKP_CleanupTable()
             end
         end
     end
-
 end
 
 -- ================================
@@ -384,6 +379,7 @@ end
 -- on the table by checking it against current filters
 -- ================================
 function WebDKP_ShouldDisplay(name, class, dkp, tier, standby)
+--    WebDKP_Print(string.format("name:%s, class:%s, dkp:%s, tier:%s, standby:%s", name, class, tostring(dkp), tostring(tier), tostring(standby)))
     local inguildflag = 0;
     local inguildonlineflag = 0;
     if WebDKP_DkpTable[name]["standby"] == nil then
@@ -411,8 +407,8 @@ function WebDKP_ShouldDisplay(name, class, dkp, tier, standby)
 
     -- This loop goes through the guild roster to determine if each player is in the guild.
     for ci = 1, GetNumGuildMembers(true) do
-        guildname, _, _, _, _, _, _, _, isonline = GetGuildRosterInfo(ci)
-        if name == guildname then
+        local guildname, _, _, _, _, _, _, _, isonline = GetGuildRosterInfo(ci)
+        if name == guildname or string.find(guildname, name .. "-" .. "(.+)") then
             if isonline ~= nil then
                 inguildonlineflag = 1;
             end
@@ -462,13 +458,12 @@ function WebDKP_GetGuildRank(playerName)
     local playerRank = "PUG";
     local playerIndex = 50;
     for ci = 1, GetNumGuildMembers(true) do
-        guildname, guildrank = GetGuildRosterInfo(ci);
-        if guildname == playerName then
+        local guildname, guildrank = GetGuildRosterInfo(ci);
+        if guildname == playerName or string.find(guildname, playerName .. "-" .. "(.+)") then
             playerRank = guildrank;
             return playerRank;
             --ci = GetNumGuildMembers(true) + 10;
         end
     end
     return playerRank;
-
 end
