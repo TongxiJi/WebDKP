@@ -376,17 +376,17 @@ function WebDKP_OnEvent(self, event, ...)
     if (WebDKP_Options["Enabled"] == 1) then
         --        WebDKP_Print("event :"..tostring(event));
         if (event == "CHAT_MSG_WHISPER") then
-            WebDKP_CHAT_MSG_WHISPER(...);
+            WebDKP_CHAT_MSG_WHISPER(arg1, arg5);
         elseif (event == "CHAT_MSG_PARTY" or event == "CHAT_MSG_RAID" or event == "CHAT_MSG_RAID_LEADER" or event == "CHAT_MSG_RAID_WARNING") then
-            WebDKP_CHAT_MSG_PARTY_RAID(arg1, arg2);
+            WebDKP_CHAT_MSG_PARTY_RAID(arg1, arg5);
         elseif (event == "CHAT_MSG_LOOT") then
-            WebDKP_Loot_Taken(arg1, arg2);
+            WebDKP_Loot_Taken(arg1, arg5);
         elseif (event == "ADDON_ACTION_FORBIDDEN") then
-            WebDKP_Print(arg1 .. "  " .. arg2);
+            WebDKP_Print(arg1 .. "  " .. arg5);
         elseif (event == "COMBAT_LOG_EVENT_UNFILTERED") then
-            WebDKP_BossAward_PerformAward(arg1, arg2, arg9);
+            WebDKP_BossAward_PerformAward(arg1, arg5, arg9);
         elseif (event == "CHAT_MSG_MONSTER_YELL") then
-            WebDKP_BossAward_PerformAward(arg1, arg2, arg9);
+            WebDKP_BossAward_PerformAward(arg1, arg5, arg9);
         end
     end
 end
@@ -806,8 +806,7 @@ end
 -- Handles an incoming whisper. Directs it to the modules
 -- who are interested in it.
 -- ================================
-function WebDKP_CHAT_MSG_WHISPER(...)
-    local arg1, arg2 = ...
+function WebDKP_CHAT_MSG_WHISPER(arg1, arg2)
     local check_ignored = WebDKP_Options["IgnWhispers"];
     local ignoreflag = 0;
 
@@ -819,7 +818,7 @@ function WebDKP_CHAT_MSG_WHISPER(...)
         end
     end
     if ignoreflag == 0 then
-        WebDKP_WhisperDKP_Event(...);
+        WebDKP_WhisperDKP_Event(arg1, arg2);
         WebDKP_Bid_Event(arg1, arg2);
         WebDKP_Synch_Processing(arg1, arg2); -- Added by Zevious for Synching
     end
@@ -1689,7 +1688,7 @@ end
 function Webdkp_Sys_Msg_Received(arg1)
     local msg = arg1;
     local itemString = "";
-    local pattern = "(.+) rolls (%d+) %((%d+)%-(%d+)%)";
+    local pattern =  WebDKP.translations.FORMAT_MSG_ROLLING_PATTERN;
 
 
     -- Check to see if it's a /random roll:

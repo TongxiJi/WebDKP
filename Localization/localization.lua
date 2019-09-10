@@ -113,6 +113,7 @@ L.BID_TABLE_COLUMN_ROLL_LABEL = "Rolls"
 L.BID_TABLE_COLUMN_SPEC_LABEL = "Main/Offspec"
 L.BID_TABLE_COLUMN_GUILD_RANK_LABEL = "Guild Rank"
 L.BID_AWARD = "Award Item To Player"
+L.FORMAT_MSG_ROLLING_PATTERN = "(.+) rolls (%d+) %((%d+)%-(%d+)%)"
 
 --Timed Award
 L.WEBDKP_TIMEDAWARDFRAME_TITLE = "Timed Award"
