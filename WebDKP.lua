@@ -957,7 +957,7 @@ function WebDKP_UpdateFilterGroupsCheckedState()
             if (checkbox ~= nil) then
                 -- if all its filter are on, go ahead and check it, otherwise uncheck it
                 local allFiltersOn = WebDKP_AllFiltersOn(value);
-                checkbox:SetChecked(allFiltersOn);
+                checkbox:SetChecked(allFiltersOn == 1);
             end
         end
     end

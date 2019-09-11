@@ -1614,7 +1614,7 @@ end
 function WebDKP_Turn_Base()
     WebDKP_Options_ToggleOption("TurnBase");
     if WebDKP_Options["BidFixedBidding"] == 0 then
-        WebDKP_BiddingOptions_FrameToggleBidFixedBidding:SetChecked(1);
+        WebDKP_BiddingOptions_FrameToggleBidFixedBidding:SetChecked(true);
         WebDKP_Options_ToggleOption("BidFixedBidding");
     end
 
@@ -1627,7 +1627,7 @@ end
 function WebDKP_Fixed_Bidding()
     WebDKP_Options_ToggleOption("BidFixedBidding");
     if WebDKP_Options["TurnBase"] == 1 then
-        WebDKP_BiddingOptions_FrameToggleTurnBase:SetChecked(0);
+        WebDKP_BiddingOptions_FrameToggleTurnBase:SetChecked(false);
         WebDKP_Options_ToggleOption("TurnBase");
     end
 

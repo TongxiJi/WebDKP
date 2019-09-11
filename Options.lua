@@ -42,11 +42,11 @@ end
 function WebDKP_Options_Init()
     -- load the options from saved variables and update the settings on the gui (as appropriate)
     if (WebDKP_Options["AutofillEnabled"] == 1) then
-        WebDKP_GeneralOptions_FrameToggleAutofillEnabled:SetChecked(1);
+        WebDKP_GeneralOptions_FrameToggleAutofillEnabled:SetChecked(true);
         WebDKP_GeneralOptions_FrameAutofillDropDown:Show();
         WebDKP_GeneralOptions_FrameToggleAutoAwardEnabled:Show();
     else
-        WebDKP_GeneralOptions_FrameToggleAutofillEnabled:SetChecked(0);
+        WebDKP_GeneralOptions_FrameToggleAutofillEnabled:SetChecked(false);
         WebDKP_GeneralOptions_FrameAutofillDropDown:Hide();
         WebDKP_GeneralOptions_FrameToggleAutoAwardEnabled:Hide();
     end
@@ -54,80 +54,78 @@ function WebDKP_Options_Init()
     --initalize the default options for the checkboxes on the options gui
     WebDKP_Options_InitOption("GeneralOptions", "AutoAwardEnabled", 1);
     WebDKP_Options_InitOption("GeneralOptions", "ZeroSumEnabled", 0);
-    WebDKP_Options_InitOption("GeneralOptions", "AwardBossDKP", 0);            -- Added by Zevious (Bronzebeard)
-    WebDKP_Options_InitOption("GeneralOptions", "AwardBossDKP10", 0);        -- Added by Zevious (Bronzebeard)
-    WebDKP_Options_InitOption("GeneralOptions", "AwardBossDKP25", 0);        -- Added by Zevious (Bronzebeard)
-    WebDKP_Options_InitOption("GeneralOptions", "AltClick", 1);            -- Added by Zevious (Bronzebeard)
-    WebDKP_Options_InitOption("GeneralOptions", "IgnWhispers", 0);            -- Added by Zevious (Bronzebeard)
-    WebDKP_Options_InitOption("GeneralOptions", "dkpCap", 0);            -- Added by Zevious (Bronzebeard)
-    WebDKP_Options_InitOption("GeneralOptions", "EPGPEnabled", 0);                -- Added by Zevious (Bronzebeard)
+    WebDKP_Options_InitOption("GeneralOptions", "AwardBossDKP", 0); -- Added by Zevious (Bronzebeard)
+    WebDKP_Options_InitOption("GeneralOptions", "AwardBossDKP10", 0); -- Added by Zevious (Bronzebeard)
+    WebDKP_Options_InitOption("GeneralOptions", "AwardBossDKP25", 0); -- Added by Zevious (Bronzebeard)
+    WebDKP_Options_InitOption("GeneralOptions", "AltClick", 1); -- Added by Zevious (Bronzebeard)
+    WebDKP_Options_InitOption("GeneralOptions", "IgnWhispers", 0); -- Added by Zevious (Bronzebeard)
+    WebDKP_Options_InitOption("GeneralOptions", "dkpCap", 0); -- Added by Zevious (Bronzebeard)
+    WebDKP_Options_InitOption("GeneralOptions", "EPGPEnabled", 0); -- Added by Zevious (Bronzebeard)
     WebDKP_Options_InitOption("BiddingOptions", "BidAnnounceRaid", 0);
     WebDKP_Options_InitOption("BiddingOptions", "BidConfirmPopup", 1);
     WebDKP_Options_InitOption("BiddingOptions", "BidAllowNegativeBids", 0);
     WebDKP_Options_InitOption("BiddingOptions", "BidFixedBidding", 0);
     WebDKP_Options_InitOption("BiddingOptions", "BidNotifyLowBids", 0);
-    WebDKP_Options_InitOption("BiddingOptions", "TurnBase", 0);            -- Added by Zevious
-    WebDKP_Options_InitOption("BiddingOptions", "SilentBidding", 0);        -- Added by Zevious
-    WebDKP_Options_InitOption("BiddingOptions", "BidandRoll", 0);            -- Added by Zevious
-    WebDKP_Options_InitOption("BiddingOptions", "FiftyGreed", 0);            -- Added by Zevious
-    WebDKP_Options_InitOption("BiddingOptions", "AllNeed", 0);            -- Added by Zevious
-    WebDKP_Options_InitOption("BiddingOptions", "DisableBid", 0);            -- Added by Zevious
-    WebDKP_Options_InitOption("BiddingOptions", "AutoGive", 0);            -- Added by Zevious
-    WebDKP_Options_InitOption("BiddingOptions2", "ItemLevelEquation", 0);        -- Added by Zevious
-    WebDKP_Options_InitOption("BiddingOptions2", "SlotLocMult", 0);            -- Added by Zevious
+    WebDKP_Options_InitOption("BiddingOptions", "TurnBase", 0); -- Added by Zevious
+    WebDKP_Options_InitOption("BiddingOptions", "SilentBidding", 0); -- Added by Zevious
+    WebDKP_Options_InitOption("BiddingOptions", "BidandRoll", 0); -- Added by Zevious
+    WebDKP_Options_InitOption("BiddingOptions", "FiftyGreed", 0); -- Added by Zevious
+    WebDKP_Options_InitOption("BiddingOptions", "AllNeed", 0); -- Added by Zevious
+    WebDKP_Options_InitOption("BiddingOptions", "DisableBid", 0); -- Added by Zevious
+    WebDKP_Options_InitOption("BiddingOptions", "AutoGive", 0); -- Added by Zevious
+    WebDKP_Options_InitOption("BiddingOptions2", "ItemLevelEquation", 0); -- Added by Zevious
+    WebDKP_Options_InitOption("BiddingOptions2", "SlotLocMult", 0); -- Added by Zevious
     WebDKP_BiddingOptions2_FrameItemLevelMult:SetText(WebDKP_GetOptionValue("ItemLevelMult", ".01"));
     WebDKP_BiddingOptions_FrameGreedDKP:SetText(WebDKP_GetOptionValue("GreedDKP", "50"));
     WebDKP_BiddingOptions_FrameNeedDKP:SetText(WebDKP_GetOptionValue("NeedDKP", "100"));
-    WebDKP_Options_InitOption("GeneralOptions", "Enabled", 1);            -- Added by Cather (Bronzebeard)
+    WebDKP_Options_InitOption("GeneralOptions", "Enabled", 1); -- Added by Cather (Bronzebeard)
 
-    WebDKP_Options_InitOption("AnnouncementsOptions", "Announcements", 0);        -- Added by Zevious
+    WebDKP_Options_InitOption("AnnouncementsOptions", "Announcements", 0); -- Added by Zevious
     WebDKP_GeneralOptions_FrameBossDKP:SetText(WebDKP_GetOptionValue("BossDKPValue", 0));
     WebDKP_GeneralOptions_FramedkpCapLimit:SetText(WebDKP_GetOptionValue("dkpCapLimit", 0));
 
-    WebDKP_FiltersFrameLimitGuild:SetChecked(WebDKP_GetOptionValue("LimitGuild", 1));
-    WebDKP_FiltersFrameLimitGuildOnline:SetChecked(WebDKP_GetOptionValue("LimitGuildOnline", 1));
-    WebDKP_FiltersFrameLimitAlts:SetChecked(WebDKP_GetOptionValue("LimitAlts", 0));
-    WebDKP_FiltersFrameLimitAlts2:SetChecked(WebDKP_GetOptionValue("LimitAlts2", 0));
-    WebDKP_FiltersFrameStandby1:SetChecked(WebDKP_GetOptionValue("Standby1", 0));
-    WebDKP_FiltersFrameStandby2:SetChecked(WebDKP_GetOptionValue("Standby2", 0));
-    WebDKP_Standby_FrameEnableStandbyZeroSum:SetChecked(WebDKP_GetOptionValue("ZeroSumStandby", 1));
-    WebDKP_Standby_FrameEnableStandbyTimed:SetChecked(WebDKP_GetOptionValue("TimedStandby", 1));
+    WebDKP_FiltersFrameLimitGuild:SetChecked(WebDKP_GetOptionValue("LimitGuild", 1) == 1);
+    WebDKP_FiltersFrameLimitGuildOnline:SetChecked(WebDKP_GetOptionValue("LimitGuildOnline", 1) == 1);
+    WebDKP_FiltersFrameLimitAlts:SetChecked(WebDKP_GetOptionValue("LimitAlts", 0) == 1);
+    WebDKP_FiltersFrameLimitAlts2:SetChecked(WebDKP_GetOptionValue("LimitAlts2", 0) == 1);
+    WebDKP_FiltersFrameStandby1:SetChecked(WebDKP_GetOptionValue("Standby1", 0) == 1);
+    WebDKP_FiltersFrameStandby2:SetChecked(WebDKP_GetOptionValue("Standby2", 0) == 1);
+    WebDKP_Standby_FrameEnableStandbyZeroSum:SetChecked(WebDKP_GetOptionValue("ZeroSumStandby", 1) == 1);
+    WebDKP_Standby_FrameEnableStandbyTimed:SetChecked(WebDKP_GetOptionValue("TimedStandby", 1) == 1);
 
-    WebDKP_AnnouncementsOptions_FrameEditStartAnnounce:SetText(WebDKP_GetOptionValue("EditStartAnnounce", ""));        -- Added by Zevious
-    WebDKP_AnnouncementsOptions_FrameEditDuringAnnounce:SetText(WebDKP_GetOptionValue("EditDuringAnnounce", ""));        -- Added by Zevious
-    WebDKP_AnnouncementsOptions_FrameEditEndAnnounce:SetText(WebDKP_GetOptionValue("EditEndAnnounce", ""));            -- Added by Zevious
-    WebDKP_AnnouncementsOptions_FrameEditSRollAnnounce:SetText(WebDKP_GetOptionValue("EditSRollAnnounce", ""));        -- Added by Zevious
-    WebDKP_AnnouncementsOptions_FrameEditRollAnnounce:SetText(WebDKP_GetOptionValue("EditRollAnnounce", ""));        -- Added by Zevious
-    WebDKP_AnnouncementsOptions_FrameEditERollAnnounce:SetText(WebDKP_GetOptionValue("EditERollAnnounce", ""));        -- Added by Zevious
+    WebDKP_AnnouncementsOptions_FrameEditStartAnnounce:SetText(WebDKP_GetOptionValue("EditStartAnnounce", "")); -- Added by Zevious
+    WebDKP_AnnouncementsOptions_FrameEditDuringAnnounce:SetText(WebDKP_GetOptionValue("EditDuringAnnounce", "")); -- Added by Zevious
+    WebDKP_AnnouncementsOptions_FrameEditEndAnnounce:SetText(WebDKP_GetOptionValue("EditEndAnnounce", "")); -- Added by Zevious
+    WebDKP_AnnouncementsOptions_FrameEditSRollAnnounce:SetText(WebDKP_GetOptionValue("EditSRollAnnounce", "")); -- Added by Zevious
+    WebDKP_AnnouncementsOptions_FrameEditRollAnnounce:SetText(WebDKP_GetOptionValue("EditRollAnnounce", "")); -- Added by Zevious
+    WebDKP_AnnouncementsOptions_FrameEditERollAnnounce:SetText(WebDKP_GetOptionValue("EditERollAnnounce", "")); -- Added by Zevious
 
-    WebDKP_SynchFramePassword:SetText(WebDKP_GetOptionValue("SynchPassword", ""));        -- Added by Zevious
-    WebDKP_SynchFrameEnableSynch:SetChecked(WebDKP_GetOptionValue("EnableSynch", 1));    -- Added by Zevious
-    WebDKP_SynchFrameSynchFrom:SetText(WebDKP_GetOptionValue("SynchFrom", ""));        -- Added by Zevious
+    WebDKP_SynchFramePassword:SetText(WebDKP_GetOptionValue("SynchPassword", "")); -- Added by Zevious
+    WebDKP_SynchFrameEnableSynch:SetChecked(WebDKP_GetOptionValue("EnableSynch", 1) == 1); -- Added by Zevious
+    WebDKP_SynchFrameSynchFrom:SetText(WebDKP_GetOptionValue("SynchFrom", "")); -- Added by Zevious
     if WebDKP_Options["EPGPEnabled"] == 0 then
-        WebDKP_BidFrameStartingBid:SetText(WebDKP_GetOptionValue("StartBid", 0));    -- Added by Zevious
-        WebDKP_BidFrameTime:SetText(WebDKP_GetOptionValue("Time", 0));            -- Added by Zevious
+        WebDKP_BidFrameStartingBid:SetText(WebDKP_GetOptionValue("StartBid", 0)); -- Added by Zevious
+        WebDKP_BidFrameTime:SetText(WebDKP_GetOptionValue("Time", 0)); -- Added by Zevious
     end
 
-    WebDKP_CharRaidInfoFrameInGroup:SetChecked(WebDKP_GetOptionValue("InGroup", 1));        -- Added by Zevious
+    WebDKP_CharRaidInfoFrameInGroup:SetChecked(WebDKP_GetOptionValue("InGroup", 1) == 1); -- Added by Zevious
 
 
     -- initalize options for the timed awards
 
-    WebDKP_TimedAwardFrameLoopTimer:SetChecked(WebDKP_GetOptionValue("TimedAwardRepeat", 1));
+    WebDKP_TimedAwardFrameLoopTimer:SetChecked(WebDKP_GetOptionValue("TimedAwardRepeat", 1) == 1);
     WebDKP_TimedAwardFrameDkp:SetText(WebDKP_GetOptionValue("TimedAwardDkp", 0));
     WebDKP_TimedAwardFrameTime:SetText(WebDKP_GetOptionValue("TimedAwardTotalTime", 5));
     WebDKP_GetOptionValue("TimedAwardTimer", 0);
     local bidInProgress = WebDKP_GetOptionValue("TimedAwardInProgress", false);
     if (bidInProgress == true) then
-        WebDKP_TimedAward_UpdateFrame:Show();    -- if a timer is in progres make sure the update frame appears so the timer can still count down
+        WebDKP_TimedAward_UpdateFrame:Show(); -- if a timer is in progres make sure the update frame appears so the timer can still count down
         WebDKP_TimedAwardFrameStartStopButton:SetText("Stop");
     end
     WebDKP_GetOptionValue("TimedAwardMiniTimer", 0);
     if (WebDKP_Options["TimedAwardMiniTimer"] == 1) then
         WebDKP_TimedAward_MiniFrame:Show();
     end
-
-
 end
 
 
@@ -150,7 +148,7 @@ function WebDKP_Options_InitOption(frame, optionName, defaultValue)
 
     -- if the checkbox exists, initalize it
     if (checkbox ~= nil) then
-        checkbox:SetChecked(state);
+        checkbox:SetChecked(state == 1);
     end
 end
 
@@ -197,20 +195,20 @@ end
 function WebDKP_ToggleAutofill()
     -- is enabled, disable it
     if (WebDKP_Options["AutofillEnabled"] == 1) then
-        WebDKP_GeneralOptions_FrameToggleAutofillEnabled:SetChecked(0);
+        WebDKP_GeneralOptions_FrameToggleAutofillEnabled:SetChecked(false);
         WebDKP_Options["AutofillEnabled"] = 0;
         WebDKP_GeneralOptions_FrameAutofillDropDown:Hide();
         WebDKP_GeneralOptions_FrameToggleAutoAwardEnabled:Hide();
         -- is disabled, enable it
     else
-        WebDKP_GeneralOptions_FrameToggleAutofillEnabled:SetChecked(1);
+        WebDKP_GeneralOptions_FrameToggleAutofillEnabled:SetChecked(true);
         WebDKP_Options["AutofillEnabled"] = 1;
         WebDKP_GeneralOptions_FrameAutofillDropDown:Show();
         WebDKP_GeneralOptions_FrameToggleAutoAwardEnabled:Show();
     end
 end
 
------------------------The Following 4 methods are all for the autofill threshhold drop down
+----------------------- The Following 4 methods are all for the autofill threshhold drop down
 -- ================================
 -- Invoked when the gui loads up the drop down list of the autofill threshold
 -- ================================
@@ -233,11 +231,12 @@ function WebDKP_Options_Autofill_DropDown_Init()
 
     UIDropDownMenu_SetWidth(WebDKP_GeneralOptions_FrameAutofillDropDown, 130);
 end
+
 -- ================================
 -- Helper method that adds a choice to the Autofill dropdown
 -- ================================
 function WebDKP_AddAutofillChoice(text, value)
-    info = { };
+    info = {};
     info.text = text;
     info.value = value;
     info.func = WebDKP_Options_Autofill_DropDown_OnClick;

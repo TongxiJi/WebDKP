@@ -393,6 +393,7 @@ function WebDKP_ShouldDisplay(name, class, dkp, tier, standby)
     if (WebDKP_Filters[class] == 0) then
         return false;
     end
+    WebDKP_Print(string.format("name:%s enable:%d   value:%d",name, WebDKP_Filters["Standby1"],standby))
     if (WebDKP_Filters["Standby1"] == 1 and standby == 1) then
         return true;
     end
