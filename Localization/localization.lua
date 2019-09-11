@@ -239,8 +239,14 @@ L.FORMAT_WEBDKP_BIDENDSILENT = "WebDKP: Bidding has ended for $item"
 L.FORMAT_WEBDKP_ROLLEND = "WebDKP: Rolling has ended for $item. $name was the high roller with a $roll"
 L.FORMAT_WEBDKP_TIMEDAWARD = "WebDKP: $minutes Minute Timed Award of $dkp dkp Given"
 L.FORMAT_WEBDKP_BOSSAWARDNUM = "WebDKP: Great Job! A Boss Award of $dkp Has Been Given"
-L.FORMAT_WEBDKP_SENDWHISPER="You have been awarded "
+L.FORMAT_WEBDKP_SENDWHISPER = "You have been awarded "
 
 --AutoFill.lua
 L.FORMAT_FIND_OTHER_ITEM_LOOT = "([^%s]+) receives loot: (.+)%."
 L.FORMAT_FIND_MY_ITEM_LOOT = "You receive loot: (.+)%."
+
+
+L.CLASS_LOCALIZED_TO_ENG_MAP = {}
+for className, localizedClassName in pairs(LOCALIZED_CLASS_NAMES_MALE) do
+    L.CLASS_LOCALIZED_TO_ENG_MAP[localizedClassName] = string.lower(className):gsub("^%l", string.upper)
+end

@@ -379,7 +379,8 @@ end
 -- on the table by checking it against current filters
 -- ================================
 function WebDKP_ShouldDisplay(name, class, dkp, tier, standby)
---    WebDKP_Print(string.format("name:%s, class:%s, dkp:%s, tier:%s, standby:%s", name, class, tostring(dkp), tostring(tier), tostring(standby)))
+    --    WebDKP_Print(string.format("name:%s, class:%s, dkp:%s, tier:%s, standby:%s", name, class, tostring(dkp), tostring(tier), tostring(standby)))
+    class = WebDKP.translations.CLASS_LOCALIZED_TO_ENG_MAP[class]
     local inguildflag = 0;
     local inguildonlineflag = 0;
     if WebDKP_DkpTable[name]["standby"] == nil then
@@ -393,7 +394,7 @@ function WebDKP_ShouldDisplay(name, class, dkp, tier, standby)
     if (WebDKP_Filters[class] == 0) then
         return false;
     end
-    WebDKP_Print(string.format("name:%s enable:%d   value:%d",name, WebDKP_Filters["Standby1"],standby))
+
     if (WebDKP_Filters["Standby1"] == 1 and standby == 1) then
         return true;
     end
