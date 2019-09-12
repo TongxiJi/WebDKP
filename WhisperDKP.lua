@@ -257,7 +257,6 @@ function WebDKP_GetWhisperFiltersFromMessage(message)
             findAliasKeyWord = string.find(string.upper(message) , " "..k)
             if findAliasKeyWord ~= nil then
                 filter[v] = findAliasKeyWord
-                break
             end
         end
     end
@@ -269,7 +268,6 @@ function WebDKP_GetWhisperFiltersFromMessage(message)
             findLocalizedWord = string.find(string.upper(message) , " "..k)
             if findLocalizedWord ~= nil then
                 filter[string.lower(v)] = findLocalizedWord
-                break
             end
         end
     end
