@@ -269,7 +269,7 @@ local WebDKP_Loaded = false; -- used to flag whether the addon has been loaded a
 -- and register for some extra events
 -- ================================
 function WebDKP_OnLoad(self)
-    WebDKP_Print("OnLoad");
+--    WebDKP_Print("OnLoad");
     local this = self;
 
     if (WebDKP_Loaded == false) then

@@ -211,6 +211,7 @@ end
 -- Checks to see if a given entry passes a set of whisper filters
 -- ================================
 function WebDKP_PassesWhisperFilter(name, class, dkp, tier, limitToGroup, filter)
+    class = WebDKP.translations.CLASS_LOCALIZED_TO_ENG_MAP[class]
     -- check the limit to group
     if (limitToGroup) then
         if (not WebDKP_PlayerInGroup(name)) then
