@@ -10,6 +10,17 @@ end
 
 local L = WebDKP.translations
 
+--中文职业简称
+L.CLASS_ALIAS_TO_ENG_MAP["LR"] = "hunter"
+L.CLASS_ALIAS_TO_ENG_MAP["QS"] = "paladin"
+L.CLASS_ALIAS_TO_ENG_MAP["ZS"] = "warrior"
+L.CLASS_ALIAS_TO_ENG_MAP["FS"] = "mage"
+L.CLASS_ALIAS_TO_ENG_MAP["SS"] = "warlock"
+L.CLASS_ALIAS_TO_ENG_MAP["SM"] = "shaman"
+L.CLASS_ALIAS_TO_ENG_MAP["DZ"] = "rogue"
+L.CLASS_ALIAS_TO_ENG_MAP["MS"] = "priest"
+L.CLASS_ALIAS_TO_ENG_MAP["XD"] = "druid"
+
 --TABS
 L.TAB_FILTER = "过滤"
 L.TAB_AWARD_DKP = "奖惩DKP"

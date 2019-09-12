@@ -5,6 +5,13 @@
 ---
 local L = WebDKP.translations
 
+L.CLASS_LOCALIZED_TO_ENG_MAP = {}
+for className, localizedClassName in pairs(LOCALIZED_CLASS_NAMES_MALE) do
+    L.CLASS_LOCALIZED_TO_ENG_MAP[localizedClassName] = string.lower(className):gsub("^%l", string.upper)
+end
+
+L.CLASS_ALIAS_TO_ENG_MAP = {}
+
 --MinimapDropDown
 L.WEBDKP_MINIMAPDROPDOWN_DKPTABLE = "DKP Table"
 L.WEBDKP_MINIMAPDROPDOWN_BIDDING = "Bidding"
@@ -246,7 +253,3 @@ L.FORMAT_FIND_OTHER_ITEM_LOOT = "([^%s]+) receives loot: (.+)%."
 L.FORMAT_FIND_MY_ITEM_LOOT = "You receive loot: (.+)%."
 
 
-L.CLASS_LOCALIZED_TO_ENG_MAP = {}
-for className, localizedClassName in pairs(LOCALIZED_CLASS_NAMES_MALE) do
-    L.CLASS_LOCALIZED_TO_ENG_MAP[localizedClassName] = string.lower(className):gsub("^%l", string.upper)
-end

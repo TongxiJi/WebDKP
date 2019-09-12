@@ -31,6 +31,7 @@ function WebDKP_WhisperDKP_Event(arg1, arg2)
     local tableid = WebDKP_GetTableid();
     local name = arg2;
     local trigger = arg1;
+--    WebDKP_Print(string.format("WebDKP_WhisperDKP_Event %s %s",arg1,arg2))
     if (WebDKP_IsWebDKPWhisper(name, trigger)) then
         -- its a valid whisper for us. Now to determine what type of whisper
         if (string.find(string.lower(trigger), "!dkp") == 1) then
@@ -248,6 +249,36 @@ function WebDKP_GetWhisperFiltersFromMessage(message)
     filter["warrior"] = string.find(string.lower(message), "warrior");
     filter["warlock"] = string.find(string.lower(message), "warlock");
     filter["death knight"] = string.find(string.lower(message), "death knight");
+
+--localized alias check
+    if table.getn(filter) == 0 then
+        local findAliasKeyWord
+        for k, v in pairs(WebDKP.translations.CLASS_ALIAS_TO_ENG_MAP) do
+            findAliasKeyWord = string.find(string.upper(message) , " "..k)
+            if findAliasKeyWord ~= nil then
+                filter[v] = findAliasKeyWord
+                break
+            end
+        end
+    end
+
+--localized name check
+    if table.getn(filter) == 0 then
+        local findLocalizedWord
+        for k, v in pairs(WebDKP.translations.CLASS_LOCALIZED_TO_ENG_MAP) do
+            findLocalizedWord = string.find(string.upper(message) , " "..k)
+            if findLocalizedWord ~= nil then
+                filter[string.lower(v)] = findLocalizedWord
+                break
+            end
+        end
+    end
+
+
+--    for k, v in pairs(filter) do
+--        WebDKP_Print(string.format("filter %s %d",k,v))
+--    end
+
 
     -- If no filters were passed, everything should be nill. In that case
     -- just display everyone
