@@ -355,20 +355,20 @@ function WebDKP_OnEvent(self, event, ...)
         Webdkp_Sys_Msg_Received(arg1);
     elseif (event == "CHAT_MSG_ADDON") then
         --SendChatMessage("WebDKP: ".."Inside addon".." "..arg1.." "..arg2, "WHISPER", nil, "Webdkp")
-        if IsAddonMessagePrefixRegistered("!WDKPA Undo") == false then
-            RegisterAddonMessagePrefix("!WDKPA Undo")
-        elseif IsAddonMessagePrefixRegistered("!WDKPA LogAdd") == false then
-            RegisterAddonMessagePrefix("!WDKPA LogAdd")
-        elseif IsAddonMessagePrefixRegistered("!WDKPA LogDel") == false then
-            RegisterAddonMessagePrefix("!WDKPA LogDel")
-        elseif IsAddonMessagePrefixRegistered("!WDKPA Item") == false then
-            RegisterAddonMessagePrefix("!WDKPA Item")
-        elseif IsAddonMessagePrefixRegistered("!WDKP MultStart") == false then
-            RegisterAddonMessagePrefix("!WDKP Mult Start")
-        elseif IsAddonMessagePrefixRegistered("!WDKP MultName") == false then
-            RegisterAddonMessagePrefix("!WDKP MultName")
-        elseif IsAddonMessagePrefixRegistered("!WDKP Mult End") == false then
-            RegisterAddonMessagePrefix("!WDKP Mult End")
+        if C_ChatInfo.IsAddonMessagePrefixRegistered("!WDKPA Undo") == false then
+            C_ChatInfo.RegisterAddonMessagePrefix("!WDKPA Undo")
+        elseif C_ChatInfo.IsAddonMessagePrefixRegistered("!WDKPA LogAdd") == false then
+            C_ChatInfo.RegisterAddonMessagePrefix("!WDKPA LogAdd")
+        elseif C_ChatInfo.IsAddonMessagePrefixRegistered("!WDKPA LogDel") == false then
+            C_ChatInfo.RegisterAddonMessagePrefix("!WDKPA LogDel")
+        elseif C_ChatInfo.IsAddonMessagePrefixRegistered("!WDKPA Item") == false then
+            C_ChatInfo.RegisterAddonMessagePrefix("!WDKPA Item")
+        elseif C_ChatInfo.IsAddonMessagePrefixRegistered("!WDKP MultStart") == false then
+            C_ChatInfo.RegisterAddonMessagePrefix("!WDKP Mult Start")
+        elseif C_ChatInfo.IsAddonMessagePrefixRegistered("!WDKP MultName") == false then
+            C_ChatInfo.RegisterAddonMessagePrefix("!WDKP MultName")
+        elseif C_ChatInfo.IsAddonMessagePrefixRegistered("!WDKP Mult End") == false then
+            C_ChatInfo.RegisterAddonMessagePrefix("!WDKP Mult End")
         end
         WebDKP_AddonChan_Processing(arg1, arg2, arg3, arg4);
     end
@@ -900,8 +900,10 @@ function WebDKP_SelectAll()
 
             local playerTier = floor((playerDkp - 1) / WebDKP_TierInterval);
             if (WebDKP_ShouldDisplay(playerName, playerClass, playerDkp, playerTier)) then
+--                WebDKP_Print(string.format("name:%s, class:%s, dkp:%s, tier:%s, standby:%s", playerName, playerClass, tostring(playerDkp), tostring(playerTier), tostring(true)))
                 WebDKP_DkpTable[playerName]["Selected"] = true;
             else
+--                WebDKP_Print(string.format("name:%s, class:%s, dkp:%s, tier:%s, standby:%s", playerName, playerClass, tostring(playerDkp), tostring(playerTier), tostring(false)))
                 WebDKP_DkpTable[playerName]["Selected"] = false;
             end
         end

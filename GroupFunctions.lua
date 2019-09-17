@@ -411,7 +411,7 @@ function WebDKP_ShouldDisplay(name, class, dkp, tier, standby)
     for ci = 1, GetNumGuildMembers(true) do
         local guildname, _, _, _, _, _, _, _, isonline = GetGuildRosterInfo(ci)
         if name == guildname or string.find(guildname, name .. "-" .. "(.+)") then
-            if isonline ~= nil then
+            if isonline then
                 inguildonlineflag = 1;
             end
             inguildflag = 1;
