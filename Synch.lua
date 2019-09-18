@@ -591,14 +591,14 @@ function WebDKP_Synch_Auto(points, foritem, players, reason, date)
     -- Process Undo Awards - Simply send the reason and date then call the undo function if that user has the same entry
     if foritem == "UNDO" and reason ~= nil and date ~= nil then
         -- This processes awards involved with an item
-        SendAddonMessage("!WDKPA Undo", reason .. "," .. date, "GUILD");
+       C_ChatInfo.SendAddonMessage("!WDKPA Undo", reason .. "," .. date, "GUILD");
 
     elseif foritem == "LOGADD" and reason ~= nil and date ~= nil then
         -- Since we are using LogAdd we know players is not an array only a string of one player
-        SendAddonMessage("!WDKPA LogAdd", reason .. "," .. date .. "," .. players .. "," .. points, "GUILD");
+       C_ChatInfo.SendAddonMessage("!WDKPA LogAdd", reason .. "," .. date .. "," .. players .. "," .. points, "GUILD");
     elseif foritem == "LOGDEL" and reason ~= nil and date ~= nil then
         -- Since we are using LogDel we know players is not an array only a string of one player
-        SendAddonMessage("!WDKPA LogDel", reason .. "," .. date .. "," .. players .. "," .. points, "GUILD");
+       C_ChatInfo.SendAddonMessage("!WDKPA LogDel", reason .. "," .. date .. "," .. players .. "," .. points, "GUILD");
     else
 
         -- Some methods start counting at 0 while others at 1 so basically go through the list and start everything at 0
@@ -614,12 +614,12 @@ function WebDKP_Synch_Auto(points, foritem, players, reason, date)
     -- Process Item Awards
     if foritem == "true" and players ~= nil then
         -- This processes awards involved with an item
-        SendAddonMessage("!WDKPA Item", points .. "," .. playerName .. "," .. reason .. "," .. date, "GUILD")
+       C_ChatInfo.SendAddonMessage("!WDKPA Item", points .. "," .. playerName .. "," .. reason .. "," .. date, "GUILD")
     end
 
     if players ~= nil and foritem == "false" then
         -- This processes awards
-        SendAddonMessage("!WDKP MultStart", points .. "," .. reason .. "," .. numAwarded .. "," .. date, "GUILD")    -- Announce the start of a multiple award so it monitors for names
+        C_ChatInfo.SendAddonMessage("!WDKP MultStart", points .. "," .. reason .. "," .. numAwarded .. "," .. date, "GUILD")    -- Announce the start of a multiple award so it monitors for names
 
         local countHolder = 1;
         local CharList1 = convertedlist[1];
@@ -631,7 +631,7 @@ function WebDKP_Synch_Auto(points, foritem, players, reason, date)
             CharList1 = strjoin(",", CharList1, playerName);
 
             if countHolder == 10 then
-                SendAddonMessage("!WDKP MultNames", CharList1, "GUILD")        -- Announce the first 10 awardees
+               C_ChatInfo.SendAddonMessage("!WDKP MultNames", CharList1, "GUILD")        -- Announce the first 10 awardees
                 i = i + 1;
                 if convertedlist[i] ~= nil then
                     playerName = convertedlist[i];
@@ -643,11 +643,10 @@ function WebDKP_Synch_Auto(points, foritem, players, reason, date)
 
         end
         if countHolder < 10 then
-            SendAddonMessage("!WDKP MultNames", CharList1, "GUILD")                -- Announce the first 10 awardees
+           C_ChatInfo.SendAddonMessage("!WDKP MultNames", CharList1, "GUILD")                -- Announce the first 10 awardees
 
         end
-
-        SendAddonMessage("!WDKP Mult End", "", "GUILD")                    -- Announce the end of a multiple award
+        C_ChatInfo.SendAddonMessage("!WDKP Mult End", " ", "GUILD")                    -- Announce the end of a multiple award
     end
 
 
