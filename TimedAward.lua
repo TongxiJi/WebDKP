@@ -15,6 +15,8 @@
 -- amount of dkp specified in the timed Boss Award Dkp box
 -- Added by Zevious (Bronzebeard)
 -- =====================================================================
+-- for COMBAT_LOG_EVENT_UNFILTERED            (timestamp,sourceName,destName)
+-- for CHAT_MSG_MONSTER_YELL                (text ,playerName2 ,channelBaseName )
 function WebDKP_BossAward_PerformAward(arg1, arg2, arg7)
     local GoFlag = 0;
 

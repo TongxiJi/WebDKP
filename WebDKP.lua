@@ -1558,10 +1558,10 @@ function WebDKP_MinimapDropDown_Initialize()
     WebDKP_Add_MinimapDropDownItem(self, WebDKP.translations.WEBDKP_MINIMAPDROPDOWN_TIMEDAWARDS, WebDKP_TimedAward_ToggleUI);
     WebDKP_Add_MinimapDropDownItem(self, WebDKP.translations.WEBDKP_MINIMAPDROPDOWN_OPTIONS, WebDKP_Options_ToggleUI);
     WebDKP_Add_MinimapDropDownItem(self, WebDKP.translations.WEBDKP_MINIMAPDROPDOWN_HELP, WebDKP_Help_ToggleGUI);
-    --    WebDKP_Add_MinimapDropDownItem(self, WebDKP.translations.WEBDKP_MINIMAPDROPDOWN_SYNCHSETTINGS, WebDKP_Synch_ToggleUI); --Added by Zevious
-    --    WebDKP_Add_MinimapDropDownItem(self, WebDKP.translations.WEBDKP_MINIMAPDROPDOWN_VIEWLOG, WebDKP_Log_ToggleUI); --Added by Zevious
-    --    WebDKP_Add_MinimapDropDownItem(self, WebDKP.translations.WEBDKP_MINIMAPDROPDOWN_RAIDLOG, WebDKP_RaidLog_ToggleUI); --Added by Zevious
-    --    WebDKP_Add_MinimapDropDownItem(self, WebDKP.translations.WEBDKP_MINIMAPDROPDOWN_CHARRAIDLOG, WebDKP_CharRaidLog_ToggleUI); --Added by Zevious
+    WebDKP_Add_MinimapDropDownItem(self, WebDKP.translations.WEBDKP_MINIMAPDROPDOWN_SYNCHSETTINGS, WebDKP_Synch_ToggleUI); --Added by Zevious
+    WebDKP_Add_MinimapDropDownItem(self, WebDKP.translations.WEBDKP_MINIMAPDROPDOWN_VIEWLOG, WebDKP_Log_ToggleUI); --Added by Zevious
+    WebDKP_Add_MinimapDropDownItem(self, WebDKP.translations.WEBDKP_MINIMAPDROPDOWN_RAIDLOG, WebDKP_RaidLog_ToggleUI); --Added by Zevious
+    WebDKP_Add_MinimapDropDownItem(self, WebDKP.translations.WEBDKP_MINIMAPDROPDOWN_CHARRAIDLOG, WebDKP_CharRaidLog_ToggleUI); --Added by Zevious
 end
 
 -- ================================
